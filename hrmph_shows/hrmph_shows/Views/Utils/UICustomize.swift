@@ -13,6 +13,7 @@ extension MainTheme {
     }
     
     func setupMainThemeBackgroundColor() {
-        setGradientBackground(colorTop: .systemTeal, colorBottom: .black)
+       setGradientBackground(colorTop: .systemTeal, colorBottom: .black)
     }
 }
+
