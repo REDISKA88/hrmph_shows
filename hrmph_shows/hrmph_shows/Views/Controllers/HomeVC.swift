@@ -109,8 +109,8 @@ class LogoCell: UICollectionViewCell {
     var hrmph: UIImageView = {
          let image = UIImageView()
         image.contentMode = .scaleAspectFill
-         image.clipsToBounds = true
-         return image
+        image.clipsToBounds = true
+        return image
      }()
     
     override init(frame: CGRect) {

@@ -20,21 +20,19 @@ class TabBarVC: UITabBarController {
     private func setupTabBar() {
         self.tabBar.barTintColor = .black
         self.tabBar.tintColor = .systemTeal
-        let homeBarController = HomeVC()
         let searchBarController = SearchVC()
         let profileBarController = ProfileVC()
         let favoritesBarController = FavoritesVC()
         let modernHomeBarController = ModernHomeVC()
-        modernHomeBarController.title = "Modern"
-        homeBarController.title = "Home"
+        modernHomeBarController.title = "Home"
         searchBarController.title = "Search"
         profileBarController.title = "Profile"
         favoritesBarController.title = "Favorites"
-        self.setViewControllers([modernHomeBarController, homeBarController, searchBarController, favoritesBarController, profileBarController], animated: false)
+        self.setViewControllers([modernHomeBarController,  searchBarController, favoritesBarController, profileBarController], animated: false)
     }
     
     private func setImagesForTabBarItems() {
-        let images = [UIImage(systemName: "house.fill"), UIImage(systemName: "house"), UIImage(systemName: "suit.heart"), UIImage(systemName: "magnifyingglass"), UIImage(systemName: "person")]
+        let images = [UIImage(systemName: "house"), UIImage(systemName: "suit.heart"), UIImage(systemName: "magnifyingglass"), UIImage(systemName: "person")]
         guard let tabBarItems = self.tabBar.items else { return }
         for tabBar in tabBarItems.enumerated() {
             tabBar.element.image = images[tabBar.offset]

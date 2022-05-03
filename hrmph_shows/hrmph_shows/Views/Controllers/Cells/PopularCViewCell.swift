@@ -31,7 +31,6 @@ class PopularCell: UICollectionViewCell {
     }
     
     func setupCollectionView() {
-       // backgroundColor = .red
         addSubview(popularCollectionView)
         popularCollectionView.delegate = self
         popularCollectionView.dataSource = self
@@ -68,7 +67,6 @@ extension PopularCell: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         if let imageName = images?[indexPath.item] {
             cell.showImage.image = UIImage(named: imageName)
         }
-
        return cell
     }
     
