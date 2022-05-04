@@ -32,7 +32,7 @@ class TabBarVC: UITabBarController {
     }
     
     private func setImagesForTabBarItems() {
-        let images = [UIImage(systemName: "house"), UIImage(systemName: "suit.heart"), UIImage(systemName: "magnifyingglass"), UIImage(systemName: "person")]
+        let images = [UIImage(systemName: "house"),  UIImage(systemName: "magnifyingglass"), UIImage(systemName: "suit.heart"), UIImage(systemName: "person")]
         guard let tabBarItems = self.tabBar.items else { return }
         for tabBar in tabBarItems.enumerated() {
             tabBar.element.image = images[tabBar.offset]
