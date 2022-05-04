@@ -74,7 +74,11 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
 //       cell.userImage.image = userArr[indexPath.row].userImage
 //    cell.userImage.contentMode = .scaleAspectFit
 //       cell.namelbl.text = userArr[indexPath.row].name
+    
 //       cell.agelbl.text = userArr[indexPath.row].age
+    
+    
+    
        return cell
      }
      
