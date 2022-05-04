@@ -51,8 +51,9 @@ class FavoritesVC: MainTheme {
         tableView.tableHeaderView = header
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorColor = .black
+        tableView.separatorColor = .clear
         tableView.backgroundColor = .clear
+        tableView.showsVerticalScrollIndicator = false
         userArr.append(UserModal(userImage: UIImage(named: "a4")!, name: "name", age: "21"))
         userArr.append(UserModal(userImage: UIImage(named: "b3")!, name: "tableView", age: "23"))
         userArr.append(UserModal(userImage: UIImage(named: "b4")!, name: "append", age: "15"))
