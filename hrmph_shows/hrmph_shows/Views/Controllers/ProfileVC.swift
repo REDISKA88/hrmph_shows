@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ProfileVC: MainTheme {
     
@@ -80,9 +81,29 @@ class ProfileVC: MainTheme {
         return watched
     }()
     
+    var player: AVPlayer?
+    
+    func playBackgroundVideo() {
+        let path = Bundle.main.path(forResource: "gif2", ofType: ".mp4")
+        player = AVPlayer(url: URL(fileURLWithPath: path!))
+        player!.actionAtItemEnd = AVPlayer.ActionAtItemEnd.none
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        self.view.layer.insertSublayer(playerLayer, at: 0)
+        NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player!.currentItem)
+        player!.seek(to: CMTime.zero)
+        player!.play()
+        self.player?.isMuted = true
+    }
+    
+    @objc func playerItemDidReachEnd() {
+        player!.seek(to: CMTime.zero)
+    }
+    
     var profileTableView = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
+     //  playBackgroundVideo()
        setupProfileTableView()
         
         if profileTableView.contentSize.height > profileTableView.frame.height {
@@ -100,7 +121,7 @@ class ProfileVC: MainTheme {
         profileTableView.dataSource = self
         profileTableView.frame = self.view.frame
         profileTableView.backgroundColor = .clear
-        profileTableView.separatorColor = .black
+        //profileTableView.separatorColor = .clear
         // HEADER
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height/8))
         //header.layer.cornerRadius = 15
@@ -109,9 +130,9 @@ class ProfileVC: MainTheme {
         
         //FOOTER
         let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height/8))
-        footer.layer.cornerRadius = 30
+        footer.layer.cornerRadius = 35
         footer.backgroundColor = UIColor.systemTeal.withAlphaComponent(0.1)
-
+       // footer.backgroundColor = UIColor.systemGray6.withAlphaComponent(0.1)
         footer.addSubview(avatarImage)
         footer.addSubview(profileStatsLabelWatched)
         footer.addSubview(profileStatsLabelWatching)
@@ -212,14 +233,33 @@ class ProfileVC: MainTheme {
 extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.frame.size.height/9.2
+        return view.frame.size.height/6.5
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileTableViewCell
+        switch indexPath.row {
+        case 0:
+            cell.nameForCurrentCell = "Watching list"
+            cell.fon.image = UIImage(named: "watchlist")
+           
+        case 1:
+            cell.nameForCurrentCell = "Show reviews"
+            cell.fon.image = UIImage(named: "reviews")
+          
+        case 2:
+            cell.nameForCurrentCell = "Settings"
+            cell.fon.image = UIImage(named: "settings")
+        
+        case 3:
+            cell.nameForCurrentCell = "Logout"
+            cell.fon.image = UIImage(named: "logout")
+        default:
+            cell.nameForCurrentCell = "default"
+        }
       //  cell.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
         return cell
     }
