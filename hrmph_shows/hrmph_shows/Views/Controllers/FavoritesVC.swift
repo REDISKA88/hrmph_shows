@@ -8,26 +8,15 @@
 
 import UIKit
 
-class UserModal {
-   var userImage: UIImage?
-   var name: String?
-   var age: String?
-     
-   init(userImage: UIImage, name: String, age: String) {
-       self.userImage = userImage
-       self.name = name
-       self.age = age
-   }
-}
 
 class FavoritesVC: MainTheme {
-    var userArr = [UserModal]()
     var tableView = UITableView()
     
-    
+    var allImages = ["8", "9", "10","11","12","13","14","15", "16", "17","18","19","20","21","22","23","24","25","26","27","28"]
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
+        allImages.shuffle()
     }
     
     func setTableView() {
@@ -54,12 +43,6 @@ class FavoritesVC: MainTheme {
         tableView.separatorColor = .clear
         tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
-        userArr.append(UserModal(userImage: UIImage(named: "a4")!, name: "name", age: "21"))
-        userArr.append(UserModal(userImage: UIImage(named: "b3")!, name: "tableView", age: "23"))
-        userArr.append(UserModal(userImage: UIImage(named: "b4")!, name: "append", age: "15"))
-        userArr.append(UserModal(userImage: UIImage(named: "b5")!, name: "UserModal", age: "15"))
-        userArr.append(UserModal(userImage: UIImage(named: "b6")!, name: "userImage", age: "18"))
-        userArr.append(UserModal(userImage: UIImage(named: "b7")!, name: "self", age: "22"))
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 
@@ -67,21 +50,16 @@ class FavoritesVC: MainTheme {
 extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
      
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return userArr.count
+       return allImages.count
      }
      
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
-//       cell.userImage.image = userArr[indexPath.row].userImage
-//    cell.userImage.contentMode = .scaleAspectFit
-//       cell.namelbl.text = userArr[indexPath.row].name
+    let image = UIImage(named: allImages[indexPath.row])
+    cell.show.image = image
     
-//       cell.agelbl.text = userArr[indexPath.row].age
-    
-    
-    
-       return cell
-     }
+    return cell
+    }
      
    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        return 200

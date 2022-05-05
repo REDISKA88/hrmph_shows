@@ -92,6 +92,7 @@ class CustomTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         addSubview(back)
+        selectionStyle = .none
         backgroundColor = .clear
         back.addSubview(show)
         back.addSubview(title)

@@ -48,6 +48,8 @@ class ModernHomeVC: MainTheme {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        popularImages.shuffle()
+        allImages.shuffle()
         view.addSubview(topView)
         let logo = UIImageView()
         logo.contentMode = .scaleAspectFit
