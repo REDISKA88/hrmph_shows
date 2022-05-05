@@ -10,8 +10,11 @@
 		52931F6B4F8BDD84B9FC7E73 /* Pods_hrmph_shows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2211E737C6F089773F70D8 /* Pods_hrmph_shows.framework */; };
 		B8157BE028209084001B2702 /* ModernHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8157BDF28209084001B2702 /* ModernHomeVC.swift */; };
 		B88550B628218EDE00B27E5E /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88550B528218EDE00B27E5E /* CustomTableViewCell.swift */; };
+		B894E4B528246C7A005479F6 /* star.mov in Resources */ = {isa = PBXBuildFile; fileRef = B894E4B428246C79005479F6 /* star.mov */; };
+		B894E4B628246C7A005479F6 /* star.mov in Resources */ = {isa = PBXBuildFile; fileRef = B894E4B428246C79005479F6 /* star.mov */; };
+		B894E4B728246C7A005479F6 /* star.mov in Resources */ = {isa = PBXBuildFile; fileRef = B894E4B428246C79005479F6 /* star.mov */; };
 		B89C152E282351C300F59E05 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C152D282351C300F59E05 /* ProfileTableViewCell.swift */; };
-		B89C15302823AB3500F59E05 /* gif2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B89C152F2823AB3500F59E05 /* gif2.mp4 */; };
+		B89C15302823AB3500F59E05 /* gif.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B89C152F2823AB3500F59E05 /* gif.mp4 */; };
 		B8A3F957281ED054005970A9 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A3F956281ED054005970A9 /* MainVC.swift */; };
 		B8A90243281D8BDE00D789F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A90242281D8BDE00D789F4 /* AppDelegate.swift */; };
 		B8A90245281D8BDE00D789F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A90244281D8BDE00D789F4 /* SceneDelegate.swift */; };
@@ -50,12 +53,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B894E4B328246BBD005479F6 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2F4094B70B70AC4B74AF47AB /* Pods-hrmph_shows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hrmph_shows.release.xcconfig"; path = "Target Support Files/Pods-hrmph_shows/Pods-hrmph_shows.release.xcconfig"; sourceTree = "<group>"; };
 		B8157BDF28209084001B2702 /* ModernHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernHomeVC.swift; sourceTree = "<group>"; };
 		B88550B528218EDE00B27E5E /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		B894E4B428246C79005479F6 /* star.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = star.mov; sourceTree = "<group>"; };
 		B89C152D282351C300F59E05 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
-		B89C152F2823AB3500F59E05 /* gif2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = gif2.mp4; sourceTree = "<group>"; };
+		B89C152F2823AB3500F59E05 /* gif.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = gif.mp4; sourceTree = "<group>"; };
 		B8A3F956281ED054005970A9 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		B8A9023F281D8BDE00D789F4 /* hrmph_shows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hrmph_shows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A90242281D8BDE00D789F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +148,7 @@
 		B8A90236281D8BDE00D789F4 = {
 			isa = PBXGroup;
 			children = (
+				B89C152F2823AB3500F59E05 /* gif.mp4 */,
 				B8A90241281D8BDE00D789F4 /* hrmph_shows */,
 				B8A9025B281D8BDF00D789F4 /* hrmph_showsTests */,
 				B8A90266281D8BDF00D789F4 /* hrmph_showsUITests */,
@@ -153,7 +171,6 @@
 		B8A90241281D8BDE00D789F4 /* hrmph_shows */ = {
 			isa = PBXGroup;
 			children = (
-				B89C152F2823AB3500F59E05 /* gif2.mp4 */,
 				B8A9027A281D96DD00D789F4 /* Support */,
 				B8A90279281D96B100D789F4 /* MainDelegate */,
 				B8A90276281D8C2100D789F4 /* Views */,
@@ -239,6 +256,7 @@
 			children = (
 				B8C4858728204557005F5977 /* Cells */,
 				B8A9027C281D9E3B00D789F4 /* HomeVC.swift */,
+				B894E4B428246C79005479F6 /* star.mov */,
 				B8A9027E281D9E5200D789F4 /* FavoritesVC.swift */,
 				B8A90280281D9E6600D789F4 /* SearchVC.swift */,
 				B8A90282281D9E7800D789F4 /* ProfileVC.swift */,
@@ -281,6 +299,7 @@
 				B8A9023C281D8BDE00D789F4 /* Frameworks */,
 				B8A9023D281D8BDE00D789F4 /* Resources */,
 				E86D240A83339DF037CDA9DE /* [CP] Embed Pods Frameworks */,
+				B894E4B328246BBD005479F6 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -376,9 +395,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8A90252281D8BDF00D789F4 /* LaunchScreen.storyboard in Resources */,
+				B894E4B528246C7A005479F6 /* star.mov in Resources */,
 				B8A9024F281D8BDF00D789F4 /* Assets.xcassets in Resources */,
 				B8A9024A281D8BDE00D789F4 /* Main.storyboard in Resources */,
-				B89C15302823AB3500F59E05 /* gif2.mp4 in Resources */,
+				B89C15302823AB3500F59E05 /* gif.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B894E4B628246C7A005479F6 /* star.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B894E4B728246C7A005479F6 /* star.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

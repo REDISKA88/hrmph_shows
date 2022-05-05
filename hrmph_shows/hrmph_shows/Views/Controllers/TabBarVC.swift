@@ -24,17 +24,15 @@ class TabBarVC: UITabBarController {
         let profileBarController = ProfileVC()
         let favoritesBarController = FavoritesVC()
         let modernHomeBarController = ModernHomeVC()
-        let video = ViewController()
         modernHomeBarController.title = "Home"
         searchBarController.title = "Search"
         profileBarController.title = "Profile"
         favoritesBarController.title = "Favorites"
-        video.title = "Video"
-        self.setViewControllers([modernHomeBarController,  searchBarController, favoritesBarController, profileBarController, video], animated: false)
+        self.setViewControllers([modernHomeBarController,  searchBarController, favoritesBarController, profileBarController], animated: false)
     }
     
     private func setImagesForTabBarItems() {
-        let images = [UIImage(systemName: "house"),  UIImage(systemName: "magnifyingglass"), UIImage(systemName: "suit.heart"), UIImage(systemName: "person"), UIImage(systemName: "person")]
+        let images = [UIImage(systemName: "house"),  UIImage(systemName: "magnifyingglass"), UIImage(systemName: "suit.heart"), UIImage(systemName: "person")]
         guard let tabBarItems = self.tabBar.items else { return }
         for tabBar in tabBarItems.enumerated() {
             tabBar.element.image = images[tabBar.offset]
