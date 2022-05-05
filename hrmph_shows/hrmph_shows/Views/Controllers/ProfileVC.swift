@@ -11,6 +11,75 @@ import UIKit
 class ProfileVC: MainTheme {
     
     var userName = "Spartan"
+    var userWatched = "90"
+    var userWatching = "10"
+    var userRewiews = "20"
+    var userAvatar = "avatar_default2"
+    
+    let avatarImage = UIImageView()
+    let nameLabel: UILabel = {
+        let name = UILabel()
+        name.text = "Hello!"
+        name.font = .systemFont(ofSize: 32)
+        name.contentMode = .left
+        name.textColor = UIColor.black.withAlphaComponent(0.8)
+        return name
+    }()
+    let profileStatsLabelWatched :UILabel = {
+        let label = UILabel()
+        label.text = "Watched"
+        label.font = .systemFont(ofSize: 22)
+        label.contentMode = .bottom
+        label.textColor = UIColor.white.withAlphaComponent(0.9)
+        return label
+    }()
+    
+    let profileStatsLabelWatching :UILabel = {
+        let label = UILabel()
+        label.text = "Watching"
+        label.font = .systemFont(ofSize: 22)
+        label.contentMode = .bottom
+        label.textColor = UIColor.white.withAlphaComponent(0.9)
+        return label
+    }()
+    
+    
+    let profileStatsLabelReviews :UILabel = {
+        let label = UILabel()
+        label.text = "Reviews"
+        label.font = .systemFont(ofSize: 22)
+        label.contentMode = .bottom
+        label.textColor = UIColor.white.withAlphaComponent(0.9)
+        return label
+    }()
+    
+    let watchedMovies :UILabel = {
+        let watched = UILabel()
+        watched.text = "10"
+        watched.textColor = .systemOrange
+        watched.font = .boldSystemFont(ofSize: 28)
+        watched.textAlignment = .center
+        return watched
+    }()
+    
+    let watchingMovies :UILabel = {
+        let watched = UILabel()
+        watched.text = "10"
+        watched.textColor = .systemGreen
+        watched.font = .boldSystemFont(ofSize: 28)
+        watched.textAlignment = .center
+        return watched
+    }()
+    
+    let reviewsMovies :UILabel = {
+        let watched = UILabel()
+        watched.text = "10"
+        watched.textColor = .systemBlue
+        watched.font = .boldSystemFont(ofSize: 28)
+        watched.textAlignment = .center
+        return watched
+    }()
+    
     var profileTableView = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +91,6 @@ class ProfileVC: MainTheme {
         else {
             self.profileTableView.isScrollEnabled = false;
         }
-        
         
     }
     
@@ -37,92 +105,13 @@ class ProfileVC: MainTheme {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height/8))
         //header.layer.cornerRadius = 15
        // header.backgroundColor = UIColor.systemGray5.withAlphaComponent(0.5)
-        
-        
-        let nameLabel: UILabel = {
-            let name = UILabel()
-            name.text = "Hello,  \(userName)!"
-            name.font = .systemFont(ofSize: 32)
-            name.contentMode = .left
-            name.textColor = UIColor.black.withAlphaComponent(0.8)
-            return name
-        }()
-
-        
-        header.addSubview(nameLabel)
-    
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.topAnchor.constraint(equalTo: header.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: 20).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: header.trailingAnchor, constant: 0).isActive = true
-        nameLabel.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -10).isActive = true
-        
-        
-        
+       setupTableHeader(header: header)
         
         //FOOTER
         let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height/8))
         footer.layer.cornerRadius = 30
         footer.backgroundColor = UIColor.systemTeal.withAlphaComponent(0.1)
-        let avatarImage = UIImageView()
-        
-        let profileStatsLabelWatched :UILabel = {
-           let label = UILabel()
-            label.text = "Watched"
-            label.font = .systemFont(ofSize: 22)
-            label.contentMode = .bottom
-            label.textColor = UIColor.white.withAlphaComponent(0.9)
-            return label
-        }()
-        
-        let profileStatsLabelWatching :UILabel = {
-           let label = UILabel()
-            label.text = "Watching"
-            label.font = .systemFont(ofSize: 22)
-            label.contentMode = .bottom
-            label.textColor = UIColor.white.withAlphaComponent(0.9)
-            return label
-        }()
-        
-        
-        let profileStatsLabelReviews :UILabel = {
-           let label = UILabel()
-            label.text = "Reviews"
-            label.font = .systemFont(ofSize: 22)
-            label.contentMode = .bottom
-            label.textColor = UIColor.white.withAlphaComponent(0.9)
-            return label
-        }()
 
-        let watchedMovies :UILabel = {
-            let watched = UILabel()
-            watched.text = "10"
-            watched.textColor = .systemOrange
-            watched.font = .boldSystemFont(ofSize: 28)
-            watched.textAlignment = .center
-            return watched
-        }()
-        
-        let watchingMovies :UILabel = {
-            let watched = UILabel()
-            watched.text = "10"
-            watched.textColor = .systemGreen
-            watched.font = .boldSystemFont(ofSize: 28)
-            watched.textAlignment = .center
-            return watched
-        }()
-        
-        let reviewsMovies :UILabel = {
-            let watched = UILabel()
-            watched.text = "10"
-            watched.textColor = .systemBlue
-            watched.font = .boldSystemFont(ofSize: 28)
-            watched.textAlignment = .center
-            return watched
-        }()
-        
-        
-        
         footer.addSubview(avatarImage)
         footer.addSubview(profileStatsLabelWatched)
         footer.addSubview(profileStatsLabelWatching)
@@ -130,7 +119,23 @@ class ProfileVC: MainTheme {
         footer.addSubview(watchedMovies)
         footer.addSubview(watchingMovies)
         footer.addSubview(reviewsMovies)
-        avatarImage.image = UIImage(named: "avatar_default2")
+        
+        setupTableFooterAvatarImage(footer: footer)
+        setupFooterProfileStatsLabels(footer: footer)
+        
+        //header.backgroundColor = UIColor.systemTeal.withAlphaComponent(0.5)
+        profileTableView.tableHeaderView = header
+        profileTableView.tableFooterView = footer
+        profileTableView.separatorColor = .clear
+        profileTableView.backgroundColor = .clear
+        profileTableView.showsVerticalScrollIndicator = false
+        profileTableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "ProfileCell")
+}
+    
+    
+    func setupTableFooterAvatarImage(footer: UIView) {
+       // avatarImage.image = UIImage(named: "avatar_default2")
+        avatarImage.image = UIImage(named: userAvatar)
         avatarImage.contentMode = .scaleAspectFit
         
         avatarImage.translatesAutoresizingMaskIntoConstraints = false
@@ -138,7 +143,12 @@ class ProfileVC: MainTheme {
         avatarImage.leadingAnchor.constraint(equalTo: footer.leadingAnchor, constant: 0).isActive = true
         avatarImage.trailingAnchor.constraint(equalTo: footer.trailingAnchor, constant: -(footer.frame.size.width-100)).isActive = true
         avatarImage.bottomAnchor.constraint(equalTo: footer.bottomAnchor, constant: -10).isActive = true
-        
+    }
+    
+    func setupFooterProfileStatsLabels(footer: UIView) {
+        watchedMovies.text = userWatched
+        watchingMovies.text = userWatching
+        reviewsMovies.text = userRewiews
         
         profileStatsLabelWatched.translatesAutoresizingMaskIntoConstraints = false
         profileStatsLabelWatched.topAnchor.constraint(equalTo: footer.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
@@ -162,10 +172,6 @@ class ProfileVC: MainTheme {
         profileStatsLabelReviews.bottomAnchor.constraint(equalTo: footer.bottomAnchor, constant: 40).isActive = true
         
         
-        
-        
-        
-        
         watchedMovies.translatesAutoresizingMaskIntoConstraints = false
         watchedMovies.topAnchor.constraint(equalTo: footer.topAnchor, constant: 10).isActive = true
         watchedMovies.leadingAnchor.constraint(equalTo: profileStatsLabelWatched.leadingAnchor, constant: 0).isActive = true
@@ -186,18 +192,18 @@ class ProfileVC: MainTheme {
         reviewsMovies.trailingAnchor.constraint(equalTo: profileStatsLabelReviews.centerXAnchor, constant: 30).isActive = true
         reviewsMovies.bottomAnchor.constraint(equalTo: profileStatsLabelReviews.centerYAnchor, constant: -10).isActive = true
         
-        
-        //header.backgroundColor = UIColor.systemTeal.withAlphaComponent(0.5)
-        profileTableView.tableHeaderView = header
-        profileTableView.tableFooterView = footer
-        profileTableView.separatorColor = .clear
-        profileTableView.backgroundColor = .clear
-        profileTableView.showsVerticalScrollIndicator = false
-        profileTableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "ProfileCell")
     }
     
     
-    func setupAvatarImage() {
+    func setupTableHeader(header :UIView) {
+
+        nameLabel.text = "Hello,  \(userName)!"
+        header.addSubview(nameLabel)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.topAnchor.constraint(equalTo: header.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: 20).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: header.trailingAnchor, constant: 0).isActive = true
+        nameLabel.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -10).isActive = true
         
     }
 
