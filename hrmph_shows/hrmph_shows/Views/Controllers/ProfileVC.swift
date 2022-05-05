@@ -9,11 +9,21 @@
 import UIKit
 
 class ProfileVC: MainTheme {
-
+    
+    var userName = "Spartan"
     var profileTableView = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
        setupProfileTableView()
+        
+        if profileTableView.contentSize.height > profileTableView.frame.height {
+            self.profileTableView.isScrollEnabled = true;
+        }
+        else {
+            self.profileTableView.isScrollEnabled = false;
+        }
+        
+        
     }
     
     func setupProfileTableView() {
@@ -24,13 +34,35 @@ class ProfileVC: MainTheme {
         profileTableView.backgroundColor = .clear
         profileTableView.separatorColor = .black
         // HEADER
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
-        header.layer.cornerRadius = 15
-        header.backgroundColor = UIColor.systemGray5.withAlphaComponent(0.5)
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height/8))
+        //header.layer.cornerRadius = 15
+       // header.backgroundColor = UIColor.systemGray5.withAlphaComponent(0.5)
+        
+        
+        let nameLabel: UILabel = {
+            let name = UILabel()
+            name.text = "Hello,  \(userName)!"
+            name.font = .systemFont(ofSize: 32)
+            name.contentMode = .left
+            name.textColor = UIColor.black.withAlphaComponent(0.8)
+            return name
+        }()
+
+        
+        header.addSubview(nameLabel)
+    
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.topAnchor.constraint(equalTo: header.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: 20).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: header.trailingAnchor, constant: 0).isActive = true
+        nameLabel.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -10).isActive = true
+        
+        
+        
         
         //FOOTER
-        let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
-        footer.layer.cornerRadius = 20
+        let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height/8))
+        footer.layer.cornerRadius = 30
         footer.backgroundColor = UIColor.systemTeal.withAlphaComponent(0.1)
         let avatarImage = UIImageView()
         
@@ -98,9 +130,6 @@ class ProfileVC: MainTheme {
         footer.addSubview(watchedMovies)
         footer.addSubview(watchingMovies)
         footer.addSubview(reviewsMovies)
-        
-        
-        
         avatarImage.image = UIImage(named: "avatar_default2")
         avatarImage.contentMode = .scaleAspectFit
         
@@ -177,10 +206,10 @@ class ProfileVC: MainTheme {
 extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
+        return view.frame.size.height/9.2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
