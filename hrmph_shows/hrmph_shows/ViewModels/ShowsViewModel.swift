@@ -1,0 +1,15 @@
+//
+//  ShowsViewModel.swift
+//  hrmph_shows
+//
+//  Created by Aura Antilochus on 5/6/22.
+//  Copyright © 2022 Roman CHAIKIN. All rights reserved.
+//
+
+import Foundation
+
+class ShowsViewModel {
+    var shows = TVShows()
+    
+    
+}
