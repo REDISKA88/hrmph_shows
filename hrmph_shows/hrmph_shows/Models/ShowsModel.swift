@@ -10,10 +10,15 @@ import Foundation
 
 class TVShows {
     var urlString = "https://api.tvmaze.com/search/shows?q=girls"
+    var returnedShowsArray: [ReturnedShows] = []
     struct ReturnedShows: Codable {
         var score: Double
+        var show: Show
     }
     
+    struct Show: Codable {
+        var name: String
+    }
     func getData(complition: @escaping ()->(Void)) {
         print("go to http: \(urlString)")
         guard let url = URL(string: urlString) else {
@@ -25,8 +30,7 @@ class TVShows {
         let task = session.dataTask(with: url) { (data, response, error) in
             if let error = error { print(error.localizedDescription) }
             do {
-                let decodeData = try JSONDecoder().decode([ReturnedShows].self, from: data!)
-                print("Return decode data: \(decodeData)")
+                self.returnedShowsArray = try JSONDecoder().decode([ReturnedShows].self, from: data!)
             } catch { print(error.localizedDescription) }
             complition()
         }
