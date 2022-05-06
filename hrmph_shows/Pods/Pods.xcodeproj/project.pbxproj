@@ -3,23 +3,36 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25E4789D858FB22CBC98909513798E14 /* Pods-hrmph_shows-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1A3D17022B0E331012ABE47AE28FF /* Pods-hrmph_shows-dummy.m */; };
-		4017551660B4B65F76A11870A7F47719 /* iCarousel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D7D9237A3C380568000DCB51C2E42C /* iCarousel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		412A4E666F4047F36FC68A59B8718F26 /* Pods-hrmph_shows-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DF551A69501497CC47F33061BA6AA11 /* Pods-hrmph_shows-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AD19C6A439F465E961B22F5C79B7E30 /* VideoBackgroundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FC9C5EF28D520354F7F2717D002A3 /* VideoBackgroundError.swift */; };
+		21E43BB559FB8E0B27297C9F29766F3A /* VideoBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1E094CEB9EAC406CCD502DF0E57B21 /* VideoBackground.swift */; };
+		4017551660B4B65F76A11870A7F47719 /* iCarousel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F93166BB84A38DD4C20A84D584101F20 /* iCarousel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		420AA6CB1DDB2790CFC749D13F30DFDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
 		514862FBCE85BC962789B5BDE117F41D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEFE490E4A06D19E868B2B9014BB8BF /* QuartzCore.framework */; };
-		5C0DC51EB5BBB61D1EC7687F5DFAEF74 /* iCarousel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E564CB0369451A26BCF85C69A8373E9 /* iCarousel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		81F3D57503DC58FF2A710749F05FEC74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
-		A7E0D1137B72DD8A3999509196ACACFE /* iCarousel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD82BBE1B02D7FB2C31BD37672A2D2 /* iCarousel-dummy.m */; };
-		C53E36A6F83629A6C3D4B4FB52A9711F /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB7D01ADEDD1776E999C158FA646656 /* iCarousel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5C0DC51EB5BBB61D1EC7687F5DFAEF74 /* iCarousel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E95AC74366A4DF4326C31ACF510269A /* iCarousel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		752F8FF6B956D2A38887E034B81C767E /* SwiftVideoBackground.h in Headers */ = {isa = PBXBuildFile; fileRef = 60FC7A6E71D3325CB1C2514EC27D1BC2 /* SwiftVideoBackground.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A331481BB9B1B69B51A02D57BA7E311 /* Pods-hrmph_shows-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DF551A69501497CC47F33061BA6AA11 /* Pods-hrmph_shows-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8628C9965A65BE62DF0C5443DF69926C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
+		9F30AC4BA03952900BD94AB18407EB47 /* Pods-hrmph_shows-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1A3D17022B0E331012ABE47AE28FF /* Pods-hrmph_shows-dummy.m */; };
+		A7E0D1137B72DD8A3999509196ACACFE /* iCarousel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C680E0CE0DC3B40DBCB7D3976ADCD4 /* iCarousel-dummy.m */; };
+		C35D9BE831B500F0292A149D83D5344C /* SwiftVideoBackground-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C883D98AA1A1CBA1E9BB553AB38B1E6E /* SwiftVideoBackground-dummy.m */; };
+		C53E36A6F83629A6C3D4B4FB52A9711F /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A95885ED7F4B2165FFD6FE492DB0A7B6 /* iCarousel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E4577B41EFA9C46730D0679ACE0E629C /* SwiftVideoBackground-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F31A5EFDD8E424691024CA04F198B46 /* SwiftVideoBackground-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F35066FE951DBFB26085880F2FF54500 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		850ECA8BCF2B1E2C07B22DA13A41120D /* PBXContainerItemProxy */ = {
+		3A632E8069F632B883596A332A8EBD96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15E734B610B8DC61AE5AC6FFE7ED857A;
+			remoteInfo = SwiftVideoBackground;
+		};
+		AF276CD422D2ED2A1F6FA066ECC0B425 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -29,40 +42,43 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05C9CBBB96C803B35511EE054CE13309 /* SwiftVideoBackground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftVideoBackground.release.xcconfig; sourceTree = "<group>"; };
+		0DCD4FA367D84FB6323322F19BCCB5E0 /* SwiftVideoBackground.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftVideoBackground.modulemap; sourceTree = "<group>"; };
 		0FE1A3D17022B0E331012ABE47AE28FF /* Pods-hrmph_shows-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-hrmph_shows-dummy.m"; sourceTree = "<group>"; };
 		2302369B7623B8E360F99A15241BE451 /* Pods-hrmph_shows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-hrmph_shows.debug.xcconfig"; sourceTree = "<group>"; };
 		2FEFE490E4A06D19E868B2B9014BB8BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		390CD91F08CEBBB2EB591BC15231FCD6 /* iCarousel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iCarousel.release.xcconfig; sourceTree = "<group>"; };
+		3824432E3B5BFAC8091F38A63FCCC2D6 /* SwiftVideoBackground-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftVideoBackground-Info.plist"; sourceTree = "<group>"; };
+		3E2C779FB50E1BFEFE1E5540CAC98A82 /* iCarousel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "iCarousel-Info.plist"; sourceTree = "<group>"; };
 		43B218D4C3176210297477EED7BC2890 /* Pods-hrmph_shows-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-hrmph_shows-acknowledgements.plist"; sourceTree = "<group>"; };
-		4BDD82BBE1B02D7FB2C31BD37672A2D2 /* iCarousel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iCarousel-dummy.m"; sourceTree = "<group>"; };
+		4E7C95C6DDABA4483B66DE77004688E3 /* iCarousel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iCarousel.release.xcconfig; sourceTree = "<group>"; };
 		5BA7A57D3C28FFB70AA14D0C713038C1 /* Pods-hrmph_shows-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-hrmph_shows-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5E564CB0369451A26BCF85C69A8373E9 /* iCarousel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = iCarousel.h; path = iCarousel/iCarousel.h; sourceTree = "<group>"; };
+		5E95AC74366A4DF4326C31ACF510269A /* iCarousel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = iCarousel.h; path = iCarousel/iCarousel.h; sourceTree = "<group>"; };
+		5F31A5EFDD8E424691024CA04F198B46 /* SwiftVideoBackground-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftVideoBackground-umbrella.h"; sourceTree = "<group>"; };
 		60F329529C16F1FEF9E7AE3727DD9CF8 /* Pods-hrmph_shows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-hrmph_shows.release.xcconfig"; sourceTree = "<group>"; };
-		62D7D9237A3C380568000DCB51C2E42C /* iCarousel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iCarousel-umbrella.h"; sourceTree = "<group>"; };
-		669F4AB8BB25C73E6FF3F4233AC46CDC /* iCarousel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = iCarousel.modulemap; sourceTree = "<group>"; };
+		60FC7A6E71D3325CB1C2514EC27D1BC2 /* SwiftVideoBackground.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwiftVideoBackground.h; path = SwiftVideoBackground/Sources/SwiftVideoBackground.h; sourceTree = "<group>"; };
+		6D8CDB93561D3B235015E3B4014A69AB /* SwiftVideoBackground */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftVideoBackground; path = SwiftVideoBackground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		779FC9C5EF28D520354F7F2717D002A3 /* VideoBackgroundError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoBackgroundError.swift; path = SwiftVideoBackground/Sources/VideoBackgroundError.swift; sourceTree = "<group>"; };
 		7DF551A69501497CC47F33061BA6AA11 /* Pods-hrmph_shows-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-hrmph_shows-umbrella.h"; sourceTree = "<group>"; };
-		9B091CC7FE89BCFE1A4BE0FA270369CB /* iCarousel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iCarousel-prefix.pch"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		ACB7D01ADEDD1776E999C158FA646656 /* iCarousel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = iCarousel/iCarousel.m; sourceTree = "<group>"; };
-		AE5145D7234C78739128D6C5C4CE4ADD /* iCarousel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "iCarousel-Info.plist"; sourceTree = "<group>"; };
+		A1DEFF1B5A6D339A61273917288D2E7B /* SwiftVideoBackground-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftVideoBackground-prefix.pch"; sourceTree = "<group>"; };
+		A95885ED7F4B2165FFD6FE492DB0A7B6 /* iCarousel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = iCarousel/iCarousel.m; sourceTree = "<group>"; };
 		B5F9A242D77E2CD479F7ED8E36A8F803 /* Pods-hrmph_shows.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-hrmph_shows.modulemap"; sourceTree = "<group>"; };
 		BCCD72BB5A3C4D42C5187726B5CD2421 /* Pods-hrmph_shows-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-hrmph_shows-frameworks.sh"; sourceTree = "<group>"; };
-		C7FF0445F0B14F439CFA1451FD91096C /* iCarousel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iCarousel.debug.xcconfig; sourceTree = "<group>"; };
 		C8217EB109A6A34051F09192C29B676F /* iCarousel */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iCarousel; path = iCarousel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C883D98AA1A1CBA1E9BB553AB38B1E6E /* SwiftVideoBackground-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftVideoBackground-dummy.m"; sourceTree = "<group>"; };
+		D1CD504673741555FD7AB1C18C0EB36D /* SwiftVideoBackground.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftVideoBackground.debug.xcconfig; sourceTree = "<group>"; };
+		D67C30FA987237936E7521B63DCB5D78 /* iCarousel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iCarousel.debug.xcconfig; sourceTree = "<group>"; };
 		DAA78C790CADE39D91EA7FCDD6DB7738 /* Pods-hrmph_shows-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-hrmph_shows-Info.plist"; sourceTree = "<group>"; };
+		E68D66F049DC9C944907A429E7ABEEB5 /* iCarousel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iCarousel-prefix.pch"; sourceTree = "<group>"; };
+		E6C680E0CE0DC3B40DBCB7D3976ADCD4 /* iCarousel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iCarousel-dummy.m"; sourceTree = "<group>"; };
+		EF4BE67FAC1F2EF751347A22A52D8467 /* iCarousel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = iCarousel.modulemap; sourceTree = "<group>"; };
 		F4D57F8C01AA8FB92982C861E086D6DF /* Pods-hrmph_shows */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-hrmph_shows"; path = Pods_hrmph_shows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F93166BB84A38DD4C20A84D584101F20 /* iCarousel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iCarousel-umbrella.h"; sourceTree = "<group>"; };
+		FA1E094CEB9EAC406CCD502DF0E57B21 /* VideoBackground.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoBackground.swift; path = SwiftVideoBackground/Sources/VideoBackground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A4011D2C04BB9B1875C77E677BB7DD0B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				81F3D57503DC58FF2A710749F05FEC74 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B5FFF47D3B4A67F95B5FB590131957E4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,9 +88,52 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0C6711B8A0602DAC63DECAF849A508F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8628C9965A65BE62DF0C5443DF69926C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3B81186259E85FDA67F6BDE3B993CFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F35066FE951DBFB26085880F2FF54500 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		028E3ED582E33B4D7D6A40E3502CAF3B /* SwiftVideoBackground */ = {
+			isa = PBXGroup;
+			children = (
+				60FC7A6E71D3325CB1C2514EC27D1BC2 /* SwiftVideoBackground.h */,
+				FA1E094CEB9EAC406CCD502DF0E57B21 /* VideoBackground.swift */,
+				779FC9C5EF28D520354F7F2717D002A3 /* VideoBackgroundError.swift */,
+				B165A3EEB0158A1E94E724379E9A708C /* Support Files */,
+			);
+			name = SwiftVideoBackground;
+			path = SwiftVideoBackground;
+			sourceTree = "<group>";
+		};
+		10FF0C2C7D718D85FD85E1515D93006C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BE67FAC1F2EF751347A22A52D8467 /* iCarousel.modulemap */,
+				E6C680E0CE0DC3B40DBCB7D3976ADCD4 /* iCarousel-dummy.m */,
+				3E2C779FB50E1BFEFE1E5540CAC98A82 /* iCarousel-Info.plist */,
+				E68D66F049DC9C944907A429E7ABEEB5 /* iCarousel-prefix.pch */,
+				F93166BB84A38DD4C20A84D584101F20 /* iCarousel-umbrella.h */,
+				D67C30FA987237936E7521B63DCB5D78 /* iCarousel.debug.xcconfig */,
+				4E7C95C6DDABA4483B66DE77004688E3 /* iCarousel.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/iCarousel";
+			sourceTree = "<group>";
+		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +148,25 @@
 				66ED9BC383D99219E3D256C5E2EC97FA /* Pods-hrmph_shows */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		34AC835B63A637E577C71223574B42BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8217EB109A6A34051F09192C29B676F /* iCarousel */,
+				F4D57F8C01AA8FB92982C861E086D6DF /* Pods-hrmph_shows */,
+				6D8CDB93561D3B235015E3B4014A69AB /* SwiftVideoBackground */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5D12B8ECEBF233FAFD3DA25BCFF0BF1A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FB1CC7D88622F172AA557B095B42C429 /* iCarousel */,
+				028E3ED582E33B4D7D6A40E3502CAF3B /* SwiftVideoBackground */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		66ED9BC383D99219E3D256C5E2EC97FA /* Pods-hrmph_shows */ = {
@@ -108,13 +186,19 @@
 			path = "Target Support Files/Pods-hrmph_shows";
 			sourceTree = "<group>";
 		};
-		6B5B8A822208228422401EA7DC283544 /* Products */ = {
+		B165A3EEB0158A1E94E724379E9A708C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C8217EB109A6A34051F09192C29B676F /* iCarousel */,
-				F4D57F8C01AA8FB92982C861E086D6DF /* Pods-hrmph_shows */,
+				0DCD4FA367D84FB6323322F19BCCB5E0 /* SwiftVideoBackground.modulemap */,
+				C883D98AA1A1CBA1E9BB553AB38B1E6E /* SwiftVideoBackground-dummy.m */,
+				3824432E3B5BFAC8091F38A63FCCC2D6 /* SwiftVideoBackground-Info.plist */,
+				A1DEFF1B5A6D339A61273917288D2E7B /* SwiftVideoBackground-prefix.pch */,
+				5F31A5EFDD8E424691024CA04F198B46 /* SwiftVideoBackground-umbrella.h */,
+				D1CD504673741555FD7AB1C18C0EB36D /* SwiftVideoBackground.debug.xcconfig */,
+				05C9CBBB96C803B35511EE054CE13309 /* SwiftVideoBackground.release.xcconfig */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/SwiftVideoBackground";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -122,8 +206,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				ED2AD11940207C53D20D5B7EFE14961D /* Pods */,
-				6B5B8A822208228422401EA7DC283544 /* Products */,
+				5D12B8ECEBF233FAFD3DA25BCFF0BF1A /* Pods */,
+				34AC835B63A637E577C71223574B42BE /* Products */,
 				286A1397F1C5D48E4FF19DE6C43E78D8 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -137,48 +221,25 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		E091E4137FF739E0BC8C50B03E5646A0 /* iCarousel */ = {
+		FB1CC7D88622F172AA557B095B42C429 /* iCarousel */ = {
 			isa = PBXGroup;
 			children = (
-				5E564CB0369451A26BCF85C69A8373E9 /* iCarousel.h */,
-				ACB7D01ADEDD1776E999C158FA646656 /* iCarousel.m */,
-				F2F971C9940EF076917CAB6BBC9D185A /* Support Files */,
+				5E95AC74366A4DF4326C31ACF510269A /* iCarousel.h */,
+				A95885ED7F4B2165FFD6FE492DB0A7B6 /* iCarousel.m */,
+				10FF0C2C7D718D85FD85E1515D93006C /* Support Files */,
 			);
 			name = iCarousel;
 			path = iCarousel;
 			sourceTree = "<group>";
 		};
-		ED2AD11940207C53D20D5B7EFE14961D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E091E4137FF739E0BC8C50B03E5646A0 /* iCarousel */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		F2F971C9940EF076917CAB6BBC9D185A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				669F4AB8BB25C73E6FF3F4233AC46CDC /* iCarousel.modulemap */,
-				4BDD82BBE1B02D7FB2C31BD37672A2D2 /* iCarousel-dummy.m */,
-				AE5145D7234C78739128D6C5C4CE4ADD /* iCarousel-Info.plist */,
-				9B091CC7FE89BCFE1A4BE0FA270369CB /* iCarousel-prefix.pch */,
-				62D7D9237A3C380568000DCB51C2E42C /* iCarousel-umbrella.h */,
-				C7FF0445F0B14F439CFA1451FD91096C /* iCarousel.debug.xcconfig */,
-				390CD91F08CEBBB2EB591BC15231FCD6 /* iCarousel.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/iCarousel";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		4733D93930D24A7285A74A12C08F6D07 /* Headers */ = {
+		36BD183A03AC4B630029B77952F5C14C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				412A4E666F4047F36FC68A59B8718F26 /* Pods-hrmph_shows-umbrella.h in Headers */,
+				7A331481BB9B1B69B51A02D57BA7E311 /* Pods-hrmph_shows-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,9 +252,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AF363CE1323125473BA2705DE3695940 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				752F8FF6B956D2A38887E034B81C767E /* SwiftVideoBackground.h in Headers */,
+				E4577B41EFA9C46730D0679ACE0E629C /* SwiftVideoBackground-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		15E734B610B8DC61AE5AC6FFE7ED857A /* SwiftVideoBackground */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 306250A57EF1E9925A106AE70FD5B889 /* Build configuration list for PBXNativeTarget "SwiftVideoBackground" */;
+			buildPhases = (
+				AF363CE1323125473BA2705DE3695940 /* Headers */,
+				9A1CF5595A7D491154FED4D3106227EF /* Sources */,
+				F3B81186259E85FDA67F6BDE3B993CFA /* Frameworks */,
+				BCB3203E2FFA040DC397EF8EDE83B078 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftVideoBackground;
+			productName = SwiftVideoBackground;
+			productReference = 6D8CDB93561D3B235015E3B4014A69AB /* SwiftVideoBackground */;
+			productType = "com.apple.product-type.framework";
+		};
 		548E0F26A10990707D8D4870D2490ACC /* iCarousel */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63BB9764CEAD02DF3D818053FCDA3A4D /* Build configuration list for PBXNativeTarget "iCarousel" */;
@@ -214,17 +302,18 @@
 		};
 		6AFE80B02B67CD204FD3255A815366D5 /* Pods-hrmph_shows */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CFB5065EB9BE06531EC889018431B40 /* Build configuration list for PBXNativeTarget "Pods-hrmph_shows" */;
+			buildConfigurationList = 67797B23CC1686142E0210D38AAA1E9C /* Build configuration list for PBXNativeTarget "Pods-hrmph_shows" */;
 			buildPhases = (
-				4733D93930D24A7285A74A12C08F6D07 /* Headers */,
-				0B5DB61E68D9A33214F48903D7D45AB2 /* Sources */,
-				A4011D2C04BB9B1875C77E677BB7DD0B /* Frameworks */,
-				58C9DD5CEA2DDC28B26685BBFBC6FD45 /* Resources */,
+				36BD183A03AC4B630029B77952F5C14C /* Headers */,
+				D2FEB066857E0C3F03E2776505192067 /* Sources */,
+				F0C6711B8A0602DAC63DECAF849A508F /* Frameworks */,
+				2FC33AF23816BEF664B124143483F835 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				752E1BC0BE98605D86EAC4562A215436 /* PBXTargetDependency */,
+				EAA5D438DB73205B69594DB2A5B1764B /* PBXTargetDependency */,
+				D796F55053C244321B0C794590CAE528 /* PBXTargetDependency */,
 			);
 			name = "Pods-hrmph_shows";
 			productName = Pods_hrmph_shows;
@@ -241,7 +330,7 @@
 				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -249,18 +338,19 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 6B5B8A822208228422401EA7DC283544 /* Products */;
+			productRefGroup = 34AC835B63A637E577C71223574B42BE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				548E0F26A10990707D8D4870D2490ACC /* iCarousel */,
 				6AFE80B02B67CD204FD3255A815366D5 /* Pods-hrmph_shows */,
+				15E734B610B8DC61AE5AC6FFE7ED857A /* SwiftVideoBackground */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		58C9DD5CEA2DDC28B26685BBFBC6FD45 /* Resources */ = {
+		2FC33AF23816BEF664B124143483F835 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -274,17 +364,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		0B5DB61E68D9A33214F48903D7D45AB2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		BCB3203E2FFA040DC397EF8EDE83B078 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25E4789D858FB22CBC98909513798E14 /* Pods-hrmph_shows-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		4F2658FB84350F9989FC6A895D703D53 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,14 +383,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9A1CF5595A7D491154FED4D3106227EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C35D9BE831B500F0292A149D83D5344C /* SwiftVideoBackground-dummy.m in Sources */,
+				21E43BB559FB8E0B27297C9F29766F3A /* VideoBackground.swift in Sources */,
+				1AD19C6A439F465E961B22F5C79B7E30 /* VideoBackgroundError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2FEB066857E0C3F03E2776505192067 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F30AC4BA03952900BD94AB18407EB47 /* Pods-hrmph_shows-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		752E1BC0BE98605D86EAC4562A215436 /* PBXTargetDependency */ = {
+		D796F55053C244321B0C794590CAE528 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = iCarousel;
 			target = 548E0F26A10990707D8D4870D2490ACC /* iCarousel */;
-			targetProxy = 850ECA8BCF2B1E2C07B22DA13A41120D /* PBXContainerItemProxy */;
+			targetProxy = AF276CD422D2ED2A1F6FA066ECC0B425 /* PBXContainerItemProxy */;
+		};
+		EAA5D438DB73205B69594DB2A5B1764B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftVideoBackground;
+			target = 15E734B610B8DC61AE5AC6FFE7ED857A /* SwiftVideoBackground */;
+			targetProxy = 3A632E8069F632B883596A332A8EBD96 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -372,6 +485,79 @@
 			};
 			name = Debug;
 		};
+		2856FDA3AD087822D3982C3C92829E47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60F329529C16F1FEF9E7AE3727DD9CF8 /* Pods-hrmph_shows.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-hrmph_shows/Pods-hrmph_shows-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-hrmph_shows/Pods-hrmph_shows.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2B9ADCF27964B70BCA9890755FCBF79C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05C9CBBB96C803B35511EE054CE13309 /* SwiftVideoBackground.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftVideoBackground/SwiftVideoBackground-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftVideoBackground/SwiftVideoBackground-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftVideoBackground/SwiftVideoBackground.modulemap";
+				PRODUCT_MODULE_NAME = SwiftVideoBackground;
+				PRODUCT_NAME = SwiftVideoBackground;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		353D2EB3545D27343B51B709D9C0420B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -434,9 +620,43 @@
 			};
 			name = Release;
 		};
+		53A142FF7ED2125546729A492A97FF76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1CD504673741555FD7AB1C18C0EB36D /* SwiftVideoBackground.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftVideoBackground/SwiftVideoBackground-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftVideoBackground/SwiftVideoBackground-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftVideoBackground/SwiftVideoBackground.modulemap";
+				PRODUCT_MODULE_NAME = SwiftVideoBackground;
+				PRODUCT_NAME = SwiftVideoBackground;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		5B6381638BF904497B44A966844F2AB6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 390CD91F08CEBBB2EB591BC15231FCD6 /* iCarousel.release.xcconfig */;
+			baseConfigurationReference = 4E7C95C6DDABA4483B66DE77004688E3 /* iCarousel.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -469,45 +689,7 @@
 			};
 			name = Release;
 		};
-		730BE0E4D95B67263444B2B957E44654 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60F329529C16F1FEF9E7AE3727DD9CF8 /* Pods-hrmph_shows.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-hrmph_shows/Pods-hrmph_shows-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-hrmph_shows/Pods-hrmph_shows.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B6F207D250AF57D218FF746F6D45DF9F /* Debug */ = {
+		9B032E35CBF96A551ED3F2980AEB9274 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2302369B7623B8E360F99A15241BE451 /* Pods-hrmph_shows.debug.xcconfig */;
 			buildSettings = {
@@ -546,7 +728,7 @@
 		};
 		EF598D717DBB5F2F912CB1BDF58C61E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7FF0445F0B14F439CFA1451FD91096C /* iCarousel.debug.xcconfig */;
+			baseConfigurationReference = D67C30FA987237936E7521B63DCB5D78 /* iCarousel.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -581,6 +763,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		306250A57EF1E9925A106AE70FD5B889 /* Build configuration list for PBXNativeTarget "SwiftVideoBackground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53A142FF7ED2125546729A492A97FF76 /* Debug */,
+				2B9ADCF27964B70BCA9890755FCBF79C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -590,20 +781,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4CFB5065EB9BE06531EC889018431B40 /* Build configuration list for PBXNativeTarget "Pods-hrmph_shows" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B6F207D250AF57D218FF746F6D45DF9F /* Debug */,
-				730BE0E4D95B67263444B2B957E44654 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		63BB9764CEAD02DF3D818053FCDA3A4D /* Build configuration list for PBXNativeTarget "iCarousel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EF598D717DBB5F2F912CB1BDF58C61E8 /* Debug */,
 				5B6381638BF904497B44A966844F2AB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67797B23CC1686142E0210D38AAA1E9C /* Build configuration list for PBXNativeTarget "Pods-hrmph_shows" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B032E35CBF96A551ED3F2980AEB9274 /* Debug */,
+				2856FDA3AD087822D3982C3C92829E47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
