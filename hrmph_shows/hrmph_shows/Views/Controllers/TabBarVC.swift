@@ -25,7 +25,10 @@ class TabBarVC: UITabBarController {
     private func setupTabBar() {
         self.tabBar.barTintColor = .black
         self.tabBar.tintColor = .systemTeal
+       
         let searchBarController = SearchVC()
+        let searchNavigationController = UINavigationController(rootViewController: searchBarController)
+        searchNavigationController.navigationBar.tintColor = .clear
         let profileBarController = ProfileVC()
         let favoritesBarController = FavoritesVC()
         let modernHomeBarController = ModernHomeVC()
@@ -33,7 +36,7 @@ class TabBarVC: UITabBarController {
         searchBarController.title = "Search"
         profileBarController.title = "Profile"
         favoritesBarController.title = "Favorites"
-        self.setViewControllers([modernHomeBarController,  searchBarController, favoritesBarController, profileBarController], animated: false)
+        self.setViewControllers([modernHomeBarController, searchNavigationController, favoritesBarController, profileBarController], animated: false)
     }
     
     private func setImagesForTabBarItems() {
