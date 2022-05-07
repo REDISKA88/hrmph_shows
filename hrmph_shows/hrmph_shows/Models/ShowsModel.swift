@@ -12,13 +12,31 @@ class TVShows {
     var urlString = "https://api.tvmaze.com/search/shows?q=girls"
     var returnedShowsArray: [ReturnedShows] = []
     struct ReturnedShows: Codable {
-        var score: Double
         var show: Show
     }
     
     struct Show: Codable {
         var name: String
+        var language: String?
+        var summary: String?
+        var genres: [String]?
+        var rating: Rating?
+        var network: Network?
+        var image: Image?
     }
+    
+    struct Rating: Codable {
+        var average: Double?
+    }
+    
+    struct Network: Codable {
+        var name: String?
+    }
+    
+    struct Image: Codable {
+        var original: String?
+    }
+    
     func getData(complition: @escaping ()->(Void)) {
         print("go to http: \(urlString)")
         guard let url = URL(string: urlString) else {
@@ -30,7 +48,8 @@ class TVShows {
         let task = session.dataTask(with: url) { (data, response, error) in
             if let error = error { print(error.localizedDescription) }
             do {
-                self.returnedShowsArray = try JSONDecoder().decode([ReturnedShows].self, from: data!)
+                let decodeData = try JSONDecoder().decode([ReturnedShows].self, from: data!)
+                self.returnedShowsArray = decodeData
             } catch { print(error.localizedDescription) }
             complition()
         }

@@ -58,6 +58,7 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     let image = UIImage(named: allImages[indexPath.row])
     cell.show.image = image
     
+    
     return cell
     }
      
