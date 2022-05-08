@@ -31,7 +31,8 @@ class TabBarVC: UITabBarController {
         searchNavigationController.navigationBar.tintColor = .clear
         
         let showVC = ShowInfoVC()
-        
+        let scroll = ViewController()
+        scroll.title = "scroll"
         let profileBarController = ProfileVC()
         let favoritesBarController = FavoritesVC()
         let modernHomeBarController = ModernHomeVC()
@@ -40,25 +41,15 @@ class TabBarVC: UITabBarController {
         searchBarController.title = "Search"
         profileBarController.title = "Profile"
         favoritesBarController.title = "Favorites"
-        self.setViewControllers([showVC, modernHomeBarController, searchNavigationController, favoritesBarController, profileBarController], animated: false)
+        self.setViewControllers([scroll, showVC, modernHomeBarController, searchNavigationController, favoritesBarController, profileBarController], animated: false)
     }
     
     private func setImagesForTabBarItems() {
-        let images = [UIImage(systemName: "star.fill"),UIImage(systemName: "house"),  UIImage(systemName: "magnifyingglass"), UIImage(systemName: "suit.heart"), UIImage(systemName: "person")]
+        let images = [UIImage(systemName: "eye"),UIImage(systemName: "star.fill"),UIImage(systemName: "house"),  UIImage(systemName: "magnifyingglass"), UIImage(systemName: "suit.heart"), UIImage(systemName: "person")]
         guard let tabBarItems = self.tabBar.items else { return }
         for tabBar in tabBarItems.enumerated() {
             tabBar.element.image = images[tabBar.offset]
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
