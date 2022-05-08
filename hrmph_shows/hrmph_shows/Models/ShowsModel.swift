@@ -38,7 +38,7 @@ class TVShows {
     }
     
     func getData(complition: @escaping ()->(Void)) {
-        print("go to http: \(urlString)")
+      //  print("go to http: \(urlString)")
         guard let url = URL(string: urlString) else {
             print("Error: URL Fail")
             complition()

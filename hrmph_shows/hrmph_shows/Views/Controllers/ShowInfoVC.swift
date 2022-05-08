@@ -18,15 +18,56 @@ class ShowInfoVC: MainTheme {
         title.textAlignment = .center
         return title
     }()
-    let showRelease :UILabel = {
+    let showRelease: UILabel = {
         let year = UILabel()
         year.textColor = .black
         year.font = .systemFont(ofSize: 25)
         year.textAlignment = .center
         return year
     }()
-    let showRating = UILabel()
-    let showRatingImage = UIImage()
+    /*
+    let showRatingView: UIView = {
+        let rateView = UIView()
+        let rateImage = UIImageView()
+        rateView.translatesAutoresizingMaskIntoConstraints = false
+        rateImage.translatesAutoresizingMaskIntoConstraints = false
+        
+        //MARK: -CHANGE SYSTEM SIZE
+        let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .bold, scale: .large)
+        rateImage.image = UIImage(systemName: "star.circle.fill", withConfiguration: config)
+        rateImage.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        rateImage.tintColor = .green
+        rateView.addSubview(rateImage)
+        rateImage.centerYAnchor.constraint(equalTo: rateView.centerYAnchor, constant: 0).isActive = true
+        rateImage.centerXAnchor.constraint(equalTo: rateView.centerXAnchor, constant: 0).isActive = true
+        return rateView
+    }()
+    */
+    let showRatingImage: UIImageView = {
+        let rateImage = UIImageView()
+        rateImage.tintColor = .green
+        rateImage.translatesAutoresizingMaskIntoConstraints = false
+        let config = UIImage.SymbolConfiguration(pointSize: 19, weight: .bold, scale: .large)
+        rateImage.image = UIImage(systemName: "star.circle.fill", withConfiguration: config)
+        rateImage.tintColor = .green
+        return rateImage
+    }()
+    
+    let showRatingCount: UILabel = {
+        let count = UILabel()
+        count.textColor = .green
+        count.font = .boldSystemFont(ofSize: 24)
+        count.textAlignment = .left
+        count.translatesAutoresizingMaskIntoConstraints = false
+        return count
+    }()
+    
+    let showRatingView: UIView = {
+       let rateView = UIView()
+        rateView.translatesAutoresizingMaskIntoConstraints = false
+        return rateView
+    }()
+    
     let topView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -80,16 +121,40 @@ class ShowInfoVC: MainTheme {
         showInfoView.leadingAnchor.constraint(equalTo: showImage.leadingAnchor, constant: -35).isActive = true
         showInfoView.trailingAnchor.constraint(equalTo: showImage.trailingAnchor, constant: 35).isActive = true
         showInfoView.topAnchor.constraint(equalTo: showImage.bottomAnchor, constant: 15).isActive = true
-        showInfoView.bottomAnchor.constraint(equalTo: showImage.bottomAnchor, constant: 120).isActive = true
+        showInfoView.bottomAnchor.constraint(equalTo: showImage.bottomAnchor, constant: 140).isActive = true
+        
+        
         showInfoView.addSubview(showTitle)
         showTitle.translatesAutoresizingMaskIntoConstraints = false
-        showTitle.centerYAnchor.constraint(equalTo: showInfoView.topAnchor, constant: 25).isActive = true
+        showTitle.centerYAnchor.constraint(equalTo: showInfoView.topAnchor, constant: 20).isActive = true
         showTitle.centerXAnchor.constraint(equalTo: showInfoView.centerXAnchor, constant: 0).isActive = true
         showTitle.text = "Batman"
+        
+        showInfoView.addSubview(showRelease)
+        showRelease.translatesAutoresizingMaskIntoConstraints = false
+        showRelease.centerYAnchor.constraint(equalTo: showTitle.centerYAnchor, constant: 40).isActive = true
+        showRelease.centerXAnchor.constraint(equalTo: showTitle.centerXAnchor, constant: 0).isActive = true
+        showRelease.text = "2022"
+        
+        
+        showInfoView.addSubview(showRatingImage)
+        showInfoView.addSubview(showRatingCount)
+        
+    
+        showRatingImage.leadingAnchor.constraint(equalTo: showRelease.leadingAnchor, constant: 0).isActive = true
+        showRatingImage.centerYAnchor.constraint(equalTo: showRelease.centerYAnchor, constant: 40).isActive = true
+        
+        showRatingCount.text = "9.7"
+        showRatingCount.leadingAnchor.constraint(equalTo: showRatingImage.leadingAnchor, constant: 35).isActive = true
+        showRatingCount.centerYAnchor.constraint(equalTo: showRatingImage.centerYAnchor, constant: 0).isActive = true
+        showRatingCount.trailingAnchor.constraint(equalTo: showRelease.trailingAnchor, constant: 0).isActive = true
+        
+        
     }
     
+    
     func setupShowImageView() {
-         view.addSubview(showImage)
+        view.addSubview(showImage)
         showImage.translatesAutoresizingMaskIntoConstraints = false
         showImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         showImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80).isActive = true
