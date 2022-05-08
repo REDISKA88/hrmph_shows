@@ -20,7 +20,8 @@ class ShowBackgroundTheme: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackgroundTheme()
-        view.backgroundColor = .black
+        //view.backgroundColor = .black
+        view.backgroundColor = #colorLiteral(red: 0.1254716814, green: 0.125500828, blue: 0.1254698336, alpha: 1)
     }
     
    func setupBackgroundTheme() {

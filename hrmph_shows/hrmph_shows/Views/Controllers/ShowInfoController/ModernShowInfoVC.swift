@@ -9,7 +9,8 @@
 import UIKit
 
 class ModernShowInfoVC: ShowBackgroundTheme {
-
+    
+    let actorsArray = ["cast1", "cast2","cast3","cast4","cast5","cast6","cast7"]
     let showImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
@@ -111,8 +112,27 @@ class ModernShowInfoVC: ShowBackgroundTheme {
         return review
     }()
     
+    let castShow: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = -20
+        let cast = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cast.translatesAutoresizingMaskIntoConstraints = false
+        cast.showsHorizontalScrollIndicator = false
+        cast.register(CastCell.self, forCellWithReuseIdentifier: "CastCell")
+        return cast
+    }()
+    let summaryShow: UITextView = {
+        let text = UITextView()
+        text.isEditable = false
+        text.textAlignment = .left
+        text.backgroundColor = .clear
+        text.font = UIFont.systemFont(ofSize: 20)
+        text.textColor = UIColor.white.withAlphaComponent(0.8)
+        text.translatesAutoresizingMaskIntoConstraints = false
+        return text
+    }()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -127,9 +147,33 @@ class ModernShowInfoVC: ShowBackgroundTheme {
         setupTopView()
         setupMiddleView()
         setupActionView()
-        
-        
-        
+        setupCastCollectionView()
+        setupSummaryTextView()
+
+    
+    }
+    
+    
+    func setupCastCollectionView() {
+        bottomView.addSubview(castShow)
+        castShow.delegate = self
+        castShow.dataSource = self
+        castShow.backgroundColor = .clear
+        castShow.layer.cornerRadius = 20
+        castShow.backgroundColor = UIColor.darkGray.withAlphaComponent(0.1)
+        castShow.topAnchor.constraint(equalTo: middleView.bottomAnchor, constant: 10).isActive = true
+         castShow.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 10).isActive = true
+         castShow.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -10).isActive = true
+        castShow.heightAnchor.constraint(equalToConstant: 160).isActive = true
+    }
+    
+    func setupSummaryTextView() {
+        bottomView.addSubview(summaryShow)
+        summaryShow.text = "Based on the bestselling book series A Song of Ice and Fire by George R.R. Martin, this sprawling new HBO drama is set in a world where summers span decades and winters can last a lifetime. From the scheming south and the savage eastern lands, to the frozen north and ancient Wall that protects the realm from the mysterious darkness beyond, the powerful families of the Seven Kingdoms are locked in a battle for the Iron Throne. This is a story of duplicity and treachery, nobility and honor, conquest and triumph. In the Game of Thrones, you either win or you die."
+        summaryShow.topAnchor.constraint(equalTo: castShow.bottomAnchor, constant: 20).isActive = true
+        summaryShow.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 30).isActive = true
+        summaryShow.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -30).isActive = true
+        summaryShow.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor, constant: 0).isActive = true
     }
     
     func setupActionView() {
@@ -264,8 +308,10 @@ class ModernShowInfoVC: ShowBackgroundTheme {
 
     let bottomView: UIView = {
         let view = UIView()
-        view.heightAnchor.constraint(equalToConstant: 1200).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 700).isActive = true
         view.backgroundColor = #colorLiteral(red: 0.1254716814, green: 0.125500828, blue: 0.1254698336, alpha: 1)
+        
+        //view.backgroundColor = .green
         return view
     }()
 }
