@@ -29,7 +29,7 @@ class CustomTableViewCell: UITableViewCell {
     let title: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.textColor = .systemTeal
+        label.textColor = UIColor.white.withAlphaComponent(0.8)
         label.font = .boldSystemFont(ofSize: 25)
         label.text = "Title for the show"
         return label
@@ -40,7 +40,7 @@ class CustomTableViewCell: UITableViewCell {
         text.numberOfLines = 0
         text.minimumScaleFactor = 0.5
         text.textAlignment = .left
-        text.textColor = .white
+        text.textColor = UIColor.white.withAlphaComponent(0.6)
        // text.backgroundColor = UIColor.systemTeal.withAlphaComponent(0.3)
 
         text.font = .systemFont(ofSize: 22)
@@ -51,7 +51,7 @@ class CustomTableViewCell: UITableViewCell {
     let year: UILabel = {
         let date = UILabel()
         date.textAlignment = .center
-        date.textColor = UIColor.systemTeal.withAlphaComponent(0.7)
+        date.textColor = UIColor.systemRed.withAlphaComponent(0.8)
      //  date.backgroundColor = UIColor.systemGray.withAlphaComponent(0.4)
         date.font = .boldSystemFont(ofSize: 21)
         date.clipsToBounds = true
@@ -62,7 +62,7 @@ class CustomTableViewCell: UITableViewCell {
     let rate: UILabel = {
         let rate = UILabel()
         rate.textAlignment = .center
-        rate.textColor = UIColor.white
+        rate.textColor = UIColor.green.withAlphaComponent(0.8)
        // rate.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         rate.font = .boldSystemFont(ofSize: 20)
         rate.clipsToBounds = true
@@ -72,15 +72,17 @@ class CustomTableViewCell: UITableViewCell {
     
     let rateStar :UIImageView = {
         let star = UIImageView()
-        star.image = UIImage(systemName: "star.fill")
-        star.tintColor = UIColor.systemTeal.withAlphaComponent(0.7)
+        star.image = UIImage(systemName: "star.circle.fill")
+        star.tintColor = UIColor.green.withAlphaComponent(0.8)
+       // star.tintColor = UIColor.systemTeal.withAlphaComponent(0.7)
         star.contentMode = .scaleAspectFit
         return star
     }()
     
     let botView: UIView = {
        let bot = UIView()
-        bot.backgroundColor = UIColor.systemTeal.withAlphaComponent(0.1)
+        //bot.backgroundColor = UIColor.systemTeal.withAlphaComponent(0.1)
+        bot.backgroundColor = UIColor.darkGray.withAlphaComponent(0.1)
         bot.layer.cornerRadius = 10
         return bot
     }()
