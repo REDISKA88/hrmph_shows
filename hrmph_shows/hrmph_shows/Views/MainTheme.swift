@@ -12,7 +12,8 @@ class MainTheme: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupMainThemeBackgroundColor()
+        view.backgroundColor = #colorLiteral(red: 0.1254716814, green: 0.125500828, blue: 0.1254698336, alpha: 1)
+        //setupMainThemeBackgroundColor()
         // Do any additional setup after loading the view.
     }
     

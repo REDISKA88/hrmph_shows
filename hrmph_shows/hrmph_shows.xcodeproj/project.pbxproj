@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		52931F6B4F8BDD84B9FC7E73 /* Pods_hrmph_shows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2211E737C6F089773F70D8 /* Pods_hrmph_shows.framework */; };
 		B8157BE028209084001B2702 /* ModernHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8157BDF28209084001B2702 /* ModernHomeVC.swift */; };
-		B84528C12827DA79004B287D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84528C02827DA79004B287D /* ViewController.swift */; };
+		B84528C12827DA79004B287D /* ModernShowInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84528C02827DA79004B287D /* ModernShowInfoVC.swift */; };
 		B84528C32827DFBB004B287D /* ShowBackgroundTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84528C22827DFBB004B287D /* ShowBackgroundTheme.swift */; };
 		B8663B6A2827760800D3DC13 /* ShowInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8663B692827760800D3DC13 /* ShowInfoVC.swift */; };
 		B8821DA72825054000A2F0DC /* ShowsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8821DA62825054000A2F0DC /* ShowsModel.swift */; };
@@ -82,7 +82,7 @@
 /* Begin PBXFileReference section */
 		2F4094B70B70AC4B74AF47AB /* Pods-hrmph_shows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hrmph_shows.release.xcconfig"; path = "Target Support Files/Pods-hrmph_shows/Pods-hrmph_shows.release.xcconfig"; sourceTree = "<group>"; };
 		B8157BDF28209084001B2702 /* ModernHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernHomeVC.swift; sourceTree = "<group>"; };
-		B84528C02827DA79004B287D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B84528C02827DA79004B287D /* ModernShowInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernShowInfoVC.swift; sourceTree = "<group>"; };
 		B84528C22827DFBB004B287D /* ShowBackgroundTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBackgroundTheme.swift; sourceTree = "<group>"; };
 		B8663B692827760800D3DC13 /* ShowInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoVC.swift; sourceTree = "<group>"; };
 		B8821DA62825054000A2F0DC /* ShowsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsModel.swift; sourceTree = "<group>"; };
@@ -285,7 +285,7 @@
 				B8663B692827760800D3DC13 /* ShowInfoVC.swift */,
 				B8A9027E281D9E5200D789F4 /* FavoritesVC.swift */,
 				B8A90280281D9E6600D789F4 /* SearchVC.swift */,
-				B84528C02827DA79004B287D /* ViewController.swift */,
+				B84528C02827DA79004B287D /* ModernShowInfoVC.swift */,
 				B8157BDF28209084001B2702 /* ModernHomeVC.swift */,
 				B8A3F956281ED054005970A9 /* MainVC.swift */,
 				B8C48585282025BF005F5977 /* TabBarVC.swift */,
@@ -509,7 +509,7 @@
 				B88550B628218EDE00B27E5E /* CustomTableViewCell.swift in Sources */,
 				B8663B6A2827760800D3DC13 /* ShowInfoVC.swift in Sources */,
 				B8A9027F281D9E5200D789F4 /* FavoritesVC.swift in Sources */,
-				B84528C12827DA79004B287D /* ViewController.swift in Sources */,
+				B84528C12827DA79004B287D /* ModernShowInfoVC.swift in Sources */,
 				B8821DA9282509DC00A2F0DC /* ShowsViewModel.swift in Sources */,
 				B8A90243281D8BDE00D789F4 /* AppDelegate.swift in Sources */,
 				B8C4858B28204D97005F5977 /* PopularCViewCell.swift in Sources */,

@@ -178,7 +178,6 @@ class ShowInfoVC: MainTheme {
         mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         mainView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         mainView.addSubview(scrollView)
-    
         scrollView.topAnchor.constraint(lessThanOrEqualTo: mainView.topAnchor, constant: 0).isActive = true
         scrollView.leadingAnchor.constraint(lessThanOrEqualTo: mainView.leadingAnchor, constant: 0).isActive = true
         scrollView.trailingAnchor.constraint(lessThanOrEqualTo: mainView.trailingAnchor, constant: 0).isActive = true

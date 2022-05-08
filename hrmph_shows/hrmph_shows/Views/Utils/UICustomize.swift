@@ -12,8 +12,12 @@ extension MainTheme {
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
+//    func setupMainThemeBackgroundColor() {
+//       setGradientBackground(colorTop: .systemTeal, colorBottom: .black)
+//    }
+    
     func setupMainThemeBackgroundColor() {
-       setGradientBackground(colorTop: .systemTeal, colorBottom: .black)
+        setGradientBackground(colorTop: .black, colorBottom: .black)
     }
 }
 

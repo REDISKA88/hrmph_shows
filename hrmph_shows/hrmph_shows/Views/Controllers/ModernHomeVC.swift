@@ -70,7 +70,10 @@ class ModernHomeVC: MainTheme {
         mainView.addSubview(popularLable)
         popularLable.text = "Popular shows tonight"
         //popularLable.textColor = .systemTeal
-        popularLable.textColor = UIColor.systemTeal.withAlphaComponent(0.6)
+        //popularLable.textColor = UIColor.systemTeal.withAlphaComponent(0.6)
+        //popularLable.textColor = #colorLiteral(red: 1, green: 0, blue: 0.9970282912, alpha: 1).withAlphaComponent(0.5)
+       // popularLable.textColor = #colorLiteral(red: 1, green: 0.6628466249, blue: 0.9197291732, alpha: 1).withAlphaComponent(0.7)
+        popularLable.textColor = UIColor.white.withAlphaComponent(0.8)
         popularLable.layer.cornerRadius = 10
         popularLable.layer.masksToBounds = true
         popularLable.font = .boldSystemFont(ofSize: 30)

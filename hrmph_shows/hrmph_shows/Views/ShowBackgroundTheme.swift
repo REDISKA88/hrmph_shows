@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowBackgroundTheme: MainTheme {
+class ShowBackgroundTheme: UIViewController {
     let topViewImage = UIImageView()
     
     let topView: UIView = {
@@ -20,12 +20,13 @@ class ShowBackgroundTheme: MainTheme {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackgroundTheme()
+        view.backgroundColor = .black
     }
     
    func setupBackgroundTheme() {
         view.addSubview(topView)
         topView.addSubview(topViewImage)
-        topView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height/3)
+    topView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height/2.8)
         topViewImage.frame = topView.frame
         topViewImage.image = UIImage(named: "bg0")
         topViewImage.contentMode = .scaleAspectFill
