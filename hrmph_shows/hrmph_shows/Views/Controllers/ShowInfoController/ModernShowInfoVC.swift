@@ -9,7 +9,7 @@
 import UIKit
 
 class ModernShowInfoVC: ShowBackgroundTheme {
-    
+    var show: Show!
     let actorsArray = ["cast1", "cast2","cast3","cast4","cast5","cast6","cast7"]
     let showImage: UIImageView = {
         let imageView = UIImageView()
@@ -139,14 +139,45 @@ class ModernShowInfoVC: ShowBackgroundTheme {
         genres.layer.masksToBounds = true
         genres.layer.cornerRadius = 20
         genres.translatesAutoresizingMaskIntoConstraints = false
-        genres.textColor = UIColor.white.withAlphaComponent(0.6)
+        genres.textColor = UIColor.white.withAlphaComponent(0.9)
         genres.textAlignment = .center
         return genres
     }()
 
+    
+    func updateUserInterface() {
+        showTitle.text = show.name
+        show.summary = show.summary?.replacingOccurrences(of: "<[^>]+>", with: "",
+            options: .regularExpression, range: nil)
+        summaryShow.text = show.summary
+        if let rating = show.rating?.average {
+            showRatingCount.text = "\(rating)"
+        } else { showRatingCount.text = "-" }
+        
+        if show.genres != nil {
+            var list = ""
+            for genre in show.genres! {
+                list += " \(genre), "
+            }
+            list.removeLast()
+            list.removeLast()
+            genresShow.text = list
+        }
+        guard let url = URL(string: show.image?.original ?? "") else { return }
+        do {
+            let data = try Data(contentsOf: url)
+            showImage.image = UIImage(data: data)
+        } catch { print("error fail load image from url") }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
+        guard show != nil else {
+            print("!!!Show is nil in ModernShowInfoVc")
+            return
+        }
         view.addSubview(scrollView)
         scrollView.addSubview(scrollViewContainer)
         scrollViewContainer.addArrangedSubview(topVeiw)
@@ -161,7 +192,7 @@ class ModernShowInfoVC: ShowBackgroundTheme {
         setupCastCollectionView()
         setupGenresShow()
         setupSummaryTextView()
-
+        updateUserInterface()
     
     }
 
