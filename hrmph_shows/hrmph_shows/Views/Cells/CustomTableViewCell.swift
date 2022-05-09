@@ -51,7 +51,7 @@ class CustomTableViewCell: UITableViewCell {
     let year: UILabel = {
         let date = UILabel()
         date.textAlignment = .center
-        date.textColor = UIColor.systemRed.withAlphaComponent(0.8)
+        date.textColor = UIColor.systemRed.withAlphaComponent(0.9)
      //  date.backgroundColor = UIColor.systemGray.withAlphaComponent(0.4)
         date.font = .boldSystemFont(ofSize: 21)
         date.clipsToBounds = true
@@ -62,7 +62,7 @@ class CustomTableViewCell: UITableViewCell {
     let rate: UILabel = {
         let rate = UILabel()
         rate.textAlignment = .center
-        rate.textColor = UIColor.green.withAlphaComponent(0.8)
+        rate.textColor = UIColor.green.withAlphaComponent(0.7)
        // rate.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         rate.font = .boldSystemFont(ofSize: 20)
         rate.clipsToBounds = true
@@ -73,7 +73,7 @@ class CustomTableViewCell: UITableViewCell {
     let rateStar :UIImageView = {
         let star = UIImageView()
         star.image = UIImage(systemName: "star.circle.fill")
-        star.tintColor = UIColor.green.withAlphaComponent(0.8)
+        star.tintColor = UIColor.green.withAlphaComponent(0.7)
        // star.tintColor = UIColor.systemTeal.withAlphaComponent(0.7)
         star.contentMode = .scaleAspectFit
         return star
