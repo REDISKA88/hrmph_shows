@@ -10,6 +10,7 @@
 		52931F6B4F8BDD84B9FC7E73 /* Pods_hrmph_shows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2211E737C6F089773F70D8 /* Pods_hrmph_shows.framework */; };
 		B8094874282958F000B9B620 /* ModernProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8094873282958F000B9B620 /* ModernProfileVC.swift */; };
 		B80948762829756200B9B620 /* SearchBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80948752829756200B9B620 /* SearchBarVC.swift */; };
+		B809487828298A3400B9B620 /* SearchBarNextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809487728298A3400B9B620 /* SearchBarNextVC.swift */; };
 		B8157BE028209084001B2702 /* ModernHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8157BDF28209084001B2702 /* ModernHomeVC.swift */; };
 		B84528C12827DA79004B287D /* ModernShowInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84528C02827DA79004B287D /* ModernShowInfoVC.swift */; };
 		B84528C32827DFBB004B287D /* ShowBackgroundTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84528C22827DFBB004B287D /* ShowBackgroundTheme.swift */; };
@@ -36,7 +37,7 @@
 		B8A90268281D8BDF00D789F4 /* hrmph_showsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A90267281D8BDF00D789F4 /* hrmph_showsUITests.swift */; };
 		B8A9027D281D9E3B00D789F4 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9027C281D9E3B00D789F4 /* HomeVC.swift */; };
 		B8A9027F281D9E5200D789F4 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9027E281D9E5200D789F4 /* FavoritesVC.swift */; };
-		B8A90281281D9E6600D789F4 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A90280281D9E6600D789F4 /* SearchVC.swift */; };
+		B8A90281281D9E6600D789F4 /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A90280281D9E6600D789F4 /* SearchResultVC.swift */; };
 		B8A90283281D9E7800D789F4 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A90282281D9E7800D789F4 /* ProfileVC.swift */; };
 		B8A90286281D9F0500D789F4 /* UICustomize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A90285281D9F0500D789F4 /* UICustomize.swift */; };
 		B8A90288281DA66900D789F4 /* MainTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A90287281DA66900D789F4 /* MainTheme.swift */; };
@@ -91,6 +92,7 @@
 		2F4094B70B70AC4B74AF47AB /* Pods-hrmph_shows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hrmph_shows.release.xcconfig"; path = "Target Support Files/Pods-hrmph_shows/Pods-hrmph_shows.release.xcconfig"; sourceTree = "<group>"; };
 		B8094873282958F000B9B620 /* ModernProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernProfileVC.swift; sourceTree = "<group>"; };
 		B80948752829756200B9B620 /* SearchBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarVC.swift; sourceTree = "<group>"; };
+		B809487728298A3400B9B620 /* SearchBarNextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarNextVC.swift; sourceTree = "<group>"; };
 		B8157BDF28209084001B2702 /* ModernHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernHomeVC.swift; sourceTree = "<group>"; };
 		B84528C02827DA79004B287D /* ModernShowInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernShowInfoVC.swift; sourceTree = "<group>"; };
 		B84528C22827DFBB004B287D /* ShowBackgroundTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBackgroundTheme.swift; sourceTree = "<group>"; };
@@ -123,7 +125,7 @@
 		B8A90269281D8BDF00D789F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8A9027C281D9E3B00D789F4 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		B8A9027E281D9E5200D789F4 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
-		B8A90280281D9E6600D789F4 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		B8A90280281D9E6600D789F4 /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
 		B8A90282281D9E7800D789F4 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		B8A90285281D9F0500D789F4 /* UICustomize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomize.swift; sourceTree = "<group>"; };
 		B8A90287281DA66900D789F4 /* MainTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTheme.swift; sourceTree = "<group>"; };
@@ -184,8 +186,9 @@
 		B871DEBE282911C600A40FEA /* SearchController */ = {
 			isa = PBXGroup;
 			children = (
-				B8A90280281D9E6600D789F4 /* SearchVC.swift */,
+				B8A90280281D9E6600D789F4 /* SearchResultVC.swift */,
 				B80948752829756200B9B620 /* SearchBarVC.swift */,
+				B809487728298A3400B9B620 /* SearchBarNextVC.swift */,
 				B871DEBF282911DC00A40FEA /* SearchDelegate.swift */,
 				B871DEC12829120100A40FEA /* SearchCells.swift */,
 			);
@@ -572,11 +575,12 @@
 				B8D5BA2828249AFF00301CBA /* ProfileVCDelegate.swift in Sources */,
 				B8A90283281D9E7800D789F4 /* ProfileVC.swift in Sources */,
 				B89C152E282351C300F59E05 /* ProfileTableViewCell.swift in Sources */,
+				B809487828298A3400B9B620 /* SearchBarNextVC.swift in Sources */,
 				B87BB3BA28280450007BD1C0 /* ShowInfoDelegate.swift in Sources */,
 				B8A9024D281D8BDE00D789F4 /* hrmph_shows.xcdatamodeld in Sources */,
 				B8821DA72825054000A2F0DC /* ShowsModel.swift in Sources */,
 				B8A90245281D8BDE00D789F4 /* SceneDelegate.swift in Sources */,
-				B8A90281281D9E6600D789F4 /* SearchVC.swift in Sources */,
+				B8A90281281D9E6600D789F4 /* SearchResultVC.swift in Sources */,
 				B8C48586282025BF005F5977 /* TabBarVC.swift in Sources */,
 				B8094874282958F000B9B620 /* ModernProfileVC.swift in Sources */,
 				B84528C32827DFBB004B287D /* ShowBackgroundTheme.swift in Sources */,

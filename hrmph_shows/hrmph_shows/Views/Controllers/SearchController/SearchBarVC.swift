@@ -139,6 +139,22 @@ class SearchBarVC: MainTheme {
         searchActorButton.trailingAnchor.constraint(equalTo: searchActor.trailingAnchor).isActive = true
         searchActorButton.bottomAnchor.constraint(equalTo: searchActor.bottomAnchor).isActive = true
         
+        
+        searchShowButton.addTarget(self, action: #selector(searchShowPressed), for: .touchUpInside)
+        searchActorButton.addTarget(self, action: #selector(searchActorPressed), for: .touchUpInside)
+    }
+    
+    
+    @objc func searchShowPressed() {
+        let vc = SearchBarNextVC()
+        vc.request = "show"
+        self.present(vc,animated: true)
+    }
+    
+    @objc func searchActorPressed() {
+        let vc = SearchBarNextVC()
+        vc.request = "actor"
+        self.present(vc,animated: true)
     }
     
     func setupSearchViews() {

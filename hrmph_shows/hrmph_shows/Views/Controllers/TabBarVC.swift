@@ -29,14 +29,12 @@ class TabBarVC: UITabBarController {
         let searchBarController = SearchBarVC()
         let searchNavigationController = UINavigationController(rootViewController: searchBarController)
         searchNavigationController.navigationBar.tintColor = .clear
-       // let profileBarController = ProfileVC()
         let modernProfileController = ModernProfileVC()
         let favoritesBarController = FavoritesVC()
         let modernHomeBarController = ModernHomeVC()
 
         modernHomeBarController.title = "Home"
         searchBarController.title = "Search"
-        //profileBarController.title = "Profile"
         modernProfileController.title = "Profile"
         favoritesBarController.title = "Favorites"
         self.setViewControllers([modernHomeBarController, searchNavigationController, favoritesBarController, modernProfileController], animated: false)
