@@ -11,34 +11,15 @@ import UIKit
 extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.frame.size.height/6.5
+        return 50
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileTableViewCell
-        switch indexPath.row {
-        case 0:
-            cell.nameForCurrentCell = "Watching list"
-            cell.fon.image = UIImage(named: "watchlist")
-           
-        case 1:
-            cell.nameForCurrentCell = "Show reviews"
-            cell.fon.image = UIImage(named: "reviews")
-          
-        case 2:
-            cell.nameForCurrentCell = "Settings"
-            cell.fon.image = UIImage(named: "settings")
-        
-        case 3:
-            cell.nameForCurrentCell = "Logout"
-            cell.fon.image = UIImage(named: "logout")
-        default:
-            cell.nameForCurrentCell = "default"
-        }
-      //  cell.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableCell", for: indexPath) as! ProfileTableCell
+        cell.backgroundColor = .systemIndigo
         return cell
     }
     

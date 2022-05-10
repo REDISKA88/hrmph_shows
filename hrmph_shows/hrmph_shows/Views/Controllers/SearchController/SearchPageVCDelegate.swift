@@ -36,7 +36,7 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.size.width, height: 50)
     }
-    
+
     @objc func showSortAlert() {
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet, blurStyle: .dark)
         
@@ -60,6 +60,18 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
 }
 
 extension UIAlertController {
+
+}
+extension UIView {
+
+    var recursiveSubviews: [UIView] {
+        var subviews = self.subviews.compactMap({$0})
+        subviews.forEach { subviews.append(contentsOf: $0.recursiveSubviews) }
+        return subviews
+    }
+}
+extension UIAlertController {
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         pruneNegativeWidthConstraints()
@@ -72,17 +84,6 @@ extension UIAlertController {
             }
         }
     }
-}
-extension UIView {
-
-    var recursiveSubviews: [UIView] {
-        var subviews = self.subviews.compactMap({$0})
-        subviews.forEach { subviews.append(contentsOf: $0.recursiveSubviews) }
-        return subviews
-    }
-}
-extension UIAlertController {
-
     private struct AssociatedKeys {
         static var blurStyleKey = "UIAlertController.blurStyleKey"
     }
@@ -131,16 +132,4 @@ extension UIAlertController {
         cancelActionView?.backgroundColor = cancelButtonColor
     }
 }
-
-//
-//extension UIAlertController {
-//    func pruneNegativeWidthConstraints() {
-//        for subView in self.view.subviews {
-//            for constraint in subView.constraints where constraint.debugDescription.contains("width == - 16") {
-//                subView.removeConstraint(constraint)
-//            }
-//        }
-//    }
-//}
-
 
