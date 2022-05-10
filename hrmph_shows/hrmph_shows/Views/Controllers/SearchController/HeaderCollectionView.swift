@@ -28,10 +28,8 @@ class HeaderCollectionView: UICollectionReusableView {
         sort.translatesAutoresizingMaskIntoConstraints = false
         let config = UIImage.SymbolConfiguration(pointSize: 26, weight: .light, scale: .large)
         sort.setImage(UIImage(systemName: "arrow.up.arrow.down.square.fill", withConfiguration: config), for: .normal)
-        
         return sort
     }()
-    
     let sortLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
