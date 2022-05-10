@@ -46,7 +46,7 @@ class SearchPageVC: MainTheme {
         search.translatesAutoresizingMaskIntoConstraints = false
         return search
     }()
-    
+    /*
     let sortButton: UIButton = {
         let sort = UIButton()
         sort.tintColor = UIColor.white.withAlphaComponent(0.8)
@@ -77,6 +77,7 @@ class SearchPageVC: MainTheme {
         return filter
     }()
     
+ */
     let showCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -85,9 +86,11 @@ class SearchPageVC: MainTheme {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.showsHorizontalScrollIndicator = false
+        cv.showsVerticalScrollIndicator = false
+        cv.layer.cornerRadius = 20
         cv.register(ShowsCell.self, forCellWithReuseIdentifier: "ShowsCell")
         cv.register(HeaderCollectionView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionView.identifier)
-        cv.backgroundColor = .darkGray
+        cv.backgroundColor = .clear
         return cv
     }()
     override func viewDidLoad() {
@@ -108,7 +111,7 @@ class SearchPageVC: MainTheme {
         view.addSubview(showCollectionView)
         showCollectionView.delegate = self
         showCollectionView.dataSource = self
-        showCollectionView.topAnchor.constraint(equalTo: searchView.bottomAnchor, constant: 20).isActive = true
+        showCollectionView.topAnchor.constraint(equalTo: searchView.bottomAnchor, constant: 5).isActive = true
         showCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
         showCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
         showCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
@@ -130,7 +133,7 @@ class SearchPageVC: MainTheme {
         searchField.leadingAnchor.constraint(equalTo: searchView.leadingAnchor, constant: 10).isActive = true
         searchField.trailingAnchor.constraint(equalTo: searchView.trailingAnchor, constant: -50).isActive = true
     }
-    
+    /*
     func setupSort() {
         view.addSubview(sortButton)
         sortButton.topAnchor.constraint(equalTo: searchView.bottomAnchor, constant: 20).isActive = true
@@ -145,6 +148,8 @@ class SearchPageVC: MainTheme {
         sortLabel.centerYAnchor.constraint(equalTo: sortButton.centerYAnchor).isActive = true
         sortLabel.centerXAnchor.constraint(equalTo: searchView.centerXAnchor).isActive = true
     }
+ 
+ */
 }
 
 
