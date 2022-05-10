@@ -8,10 +8,10 @@
 
 import UIKit
 
-class GenresCell: UICollectionViewCell {
-    let  genre: UILabel = {
+class ShowsCell: UICollectionViewCell {
+    let title: UILabel = {
         let name = UILabel()
-        name.text = "genre"
+        name.text = "title"
         name.textColor = UIColor.white.withAlphaComponent(0.8)
         name.adjustsFontSizeToFitWidth = true
         name.font = .systemFont(ofSize: 20)
@@ -21,12 +21,12 @@ class GenresCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        contentView.addSubview(genre)
+        contentView.addSubview(title)
             
-        genre.translatesAutoresizingMaskIntoConstraints = false
+        title.translatesAutoresizingMaskIntoConstraints = false
         
-        genre.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0).isActive = true
-        genre.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        title.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0).isActive = true
+        title.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
         
     }
     
