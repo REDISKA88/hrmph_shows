@@ -15,10 +15,9 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShowsCell", for: indexPath) as! ShowsCell
-        cell.title.text = thisShowsImages[indexPath.row]
-        cell.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
-        cell.layer.masksToBounds = true
-        cell.layer.cornerRadius = 20
+        cell.titleLabel.text = "Game of Thrones: part 2: aloha trues"
+        cell.showImageView.image = UIImage(named: thisShowsImages[indexPath.row])
+        cell.backgroundColor = .clear
         return cell
     }
     
@@ -35,7 +34,7 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.size.width, height: 100)
+        return CGSize(width: view.frame.size.width, height: 50)
     }
 
 }

@@ -11,9 +11,6 @@ import UIKit
 class SearchPageVC: MainTheme {
     
     var thisShowsImages = ["0", "1", "2","3","4","5","6","7","8", "9", "10","11","12","13","14","15", "16", "17","18","19","20","21","22","23","24","25","26","27","28"]
-    
-    let mostPopularText = "Sort by: Most popular"
-    let mostFollowedText = "Sort by: Most Followed"
     let searchView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
@@ -23,7 +20,8 @@ class SearchPageVC: MainTheme {
         let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .large)
         button.setImage(UIImage(systemName: "magnifyingglass.circle.fill", withConfiguration: config), for: .normal)
         
-        view.backgroundColor = UIColor.darkGray.withAlphaComponent(0.15)
+       // view.backgroundColor = UIColor.darkGray.withAlphaComponent(0.15)
+        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.05)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
         button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
@@ -46,43 +44,12 @@ class SearchPageVC: MainTheme {
         search.translatesAutoresizingMaskIntoConstraints = false
         return search
     }()
-    /*
-    let sortButton: UIButton = {
-        let sort = UIButton()
-        sort.tintColor = UIColor.white.withAlphaComponent(0.8)
-        sort.translatesAutoresizingMaskIntoConstraints = false
-        let config = UIImage.SymbolConfiguration(pointSize: 26, weight: .light, scale: .large)
-        sort.setImage(UIImage(systemName: "arrow.up.arrow.down.square.fill", withConfiguration: config), for: .normal)
-        
-        return sort
-    }()
-    
-    let sortLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.text = "Sort by:   Most popular"
-        label.textColor = UIColor.white.withAlphaComponent(0.7)
-        label.font = .systemFont(ofSize: 20)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let filterButton: UIButton = {
-        let filter = UIButton()
-        filter.tintColor = UIColor.white.withAlphaComponent(0.8)
-        filter.translatesAutoresizingMaskIntoConstraints = false
-        let config = UIImage.SymbolConfiguration(pointSize: 26, weight: .light, scale: .large)
-        filter.setImage(UIImage(systemName: "equal.square.fill", withConfiguration: config), for: .normal)
-        
-        return filter
-    }()
-    
- */
+
     let showCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 20
-        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 2
+        layout.minimumInteritemSpacing = 2
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.showsHorizontalScrollIndicator = false
@@ -95,13 +62,8 @@ class SearchPageVC: MainTheme {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         thisShowsImages.shuffle()
-        
-       
         setupSearchView()
-        //setupSort()
         setupCollectionView()
         self.navigationController?.isNavigationBarHidden = true
         
@@ -115,9 +77,6 @@ class SearchPageVC: MainTheme {
         showCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
         showCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
         showCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        
-        
-        
 
     }
     func setupSearchView() {
@@ -133,23 +92,6 @@ class SearchPageVC: MainTheme {
         searchField.leadingAnchor.constraint(equalTo: searchView.leadingAnchor, constant: 10).isActive = true
         searchField.trailingAnchor.constraint(equalTo: searchView.trailingAnchor, constant: -50).isActive = true
     }
-    /*
-    func setupSort() {
-        view.addSubview(sortButton)
-        sortButton.topAnchor.constraint(equalTo: searchView.bottomAnchor, constant: 20).isActive = true
-        sortButton.leadingAnchor.constraint(equalTo: searchView.leadingAnchor, constant: 15).isActive = true
-        
-        view.addSubview(filterButton)
-        filterButton.centerYAnchor.constraint(equalTo: sortButton.centerYAnchor).isActive = true
-        filterButton.trailingAnchor.constraint(equalTo: searchView.trailingAnchor, constant: -15).isActive = true
-       
-        view.addSubview(sortLabel)
-        sortLabel.text = mostFollowedText
-        sortLabel.centerYAnchor.constraint(equalTo: sortButton.centerYAnchor).isActive = true
-        sortLabel.centerXAnchor.constraint(equalTo: searchView.centerXAnchor).isActive = true
-    }
- 
- */
 }
 
 

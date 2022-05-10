@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReturndedShowCell: UITableViewCell {
+class ReturnedShowCell: UITableViewCell {
     
     let titleShow: UILabel = {
         let label = UILabel()

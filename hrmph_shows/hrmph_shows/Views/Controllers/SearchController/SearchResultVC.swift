@@ -63,7 +63,7 @@ class SearchVC: MainTheme {
         tableView.bottomAnchor.constraint(equalTo: sortBySegmentedControl.topAnchor, constant: 0).isActive = true
         
         
-        tableView.register(ReturndedShowCell.self, forCellReuseIdentifier: "ReturndedShowCell")
+        tableView.register(ReturnedShowCell.self, forCellReuseIdentifier: "ReturnedShowCell")
     }
     
     func setupSegmentedControl() {

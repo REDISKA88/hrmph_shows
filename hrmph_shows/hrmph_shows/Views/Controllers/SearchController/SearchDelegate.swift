@@ -24,7 +24,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
         return self.view.frame.size.height/10
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReturndedShowCell", for: indexPath) as! ReturndedShowCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReturnedShowCell", for: indexPath) as! ReturnedShowCell
         let currentShow = viewModel.shows.returnedShowsArray[indexPath.row]
         cell.titleShow.text = currentShow.show.name
         guard let rating = currentShow.show.rating?.average else {
