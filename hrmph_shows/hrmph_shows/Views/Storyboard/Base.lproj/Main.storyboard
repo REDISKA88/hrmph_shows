@@ -578,7 +578,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="magnifyingglass.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ehq-Ax-G1C">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="equal.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ehq-Ax-G1C">
                                         <rect key="frame" x="3" y="55.5" width="47" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -599,6 +599,7 @@
     <resources>
         <image name="arrow.up.arrow.down" catalog="system" width="64" height="48"/>
         <image name="avatar_default2" width="500" height="500"/>
+        <image name="equal.square.fill" catalog="system" width="64" height="56"/>
         <image name="eye" catalog="system" width="64" height="40"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>

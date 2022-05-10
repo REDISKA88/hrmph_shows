@@ -57,6 +57,8 @@
 		B8D5BA2D28249B2C00301CBA /* ProfileVCSetupTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D5BA2B28249B2C00301CBA /* ProfileVCSetupTable.swift */; };
 		B8D5BA2E28249B2C00301CBA /* ProfileVCSetupTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D5BA2B28249B2C00301CBA /* ProfileVCSetupTable.swift */; };
 		B8E3CADC282A322B00A428EF /* SearchPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E3CADB282A322B00A428EF /* SearchPageVC.swift */; };
+		B8E660E7282A4AD4000EE498 /* GenresCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E660E6282A4AD4000EE498 /* GenresCell.swift */; };
+		B8E660E9282A4B70000EE498 /* SearchPageVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E660E8282A4B70000EE498 /* SearchPageVCDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +140,8 @@
 		B8D5BA2728249AFF00301CBA /* ProfileVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCDelegate.swift; sourceTree = "<group>"; };
 		B8D5BA2B28249B2C00301CBA /* ProfileVCSetupTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCSetupTable.swift; sourceTree = "<group>"; };
 		B8E3CADB282A322B00A428EF /* SearchPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageVC.swift; sourceTree = "<group>"; };
+		B8E660E6282A4AD4000EE498 /* GenresCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresCell.swift; sourceTree = "<group>"; };
+		B8E660E8282A4B70000EE498 /* SearchPageVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageVCDelegate.swift; sourceTree = "<group>"; };
 		BA2211E737C6F089773F70D8 /* Pods_hrmph_shows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hrmph_shows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA74DDB5638A66187F26B18E /* Pods-hrmph_shows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hrmph_shows.debug.xcconfig"; path = "Target Support Files/Pods-hrmph_shows/Pods-hrmph_shows.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,11 +193,13 @@
 			isa = PBXGroup;
 			children = (
 				B8E3CADB282A322B00A428EF /* SearchPageVC.swift */,
+				B8E660E8282A4B70000EE498 /* SearchPageVCDelegate.swift */,
 				B8A90280281D9E6600D789F4 /* SearchResultVC.swift */,
 				B80948752829756200B9B620 /* SearchBarVC.swift */,
 				B809487728298A3400B9B620 /* SearchBarNextVC.swift */,
 				B871DEBF282911DC00A40FEA /* SearchDelegate.swift */,
 				B871DEC12829120100A40FEA /* SearchCells.swift */,
+				B8E660E6282A4AD4000EE498 /* GenresCell.swift */,
 			);
 			path = SearchController;
 			sourceTree = "<group>";
@@ -220,9 +226,6 @@
 		B8A90236281D8BDE00D789F4 = {
 			isa = PBXGroup;
 			children = (
-				B89C152F2823AB3500F59E05 /* gif.mp4 */,
-				B8D5BA192824899000301CBA /* clip1.mp4 */,
-				B8D5BA2328248C4800301CBA /* runner.mov */,
 				B8A90241281D8BDE00D789F4 /* hrmph_shows */,
 				B8A9025B281D8BDF00D789F4 /* hrmph_showsTests */,
 				B8A90266281D8BDF00D789F4 /* hrmph_showsUITests */,
@@ -324,6 +327,7 @@
 		B8A9027A281D96DD00D789F4 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				B8E660E5282A3AD7000EE498 /* VideosForBackground */,
 				B8A9024E281D8BDF00D789F4 /* Assets.xcassets */,
 				B8A90253281D8BDF00D789F4 /* Info.plist */,
 			);
@@ -374,6 +378,16 @@
 				B8094873282958F000B9B620 /* ModernProfileVC.swift */,
 			);
 			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		B8E660E5282A3AD7000EE498 /* VideosForBackground */ = {
+			isa = PBXGroup;
+			children = (
+				B8D5BA192824899000301CBA /* clip1.mp4 */,
+				B89C152F2823AB3500F59E05 /* gif.mp4 */,
+				B8D5BA2328248C4800301CBA /* runner.mov */,
+			);
+			path = VideosForBackground;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -568,6 +582,7 @@
 				B84528C12827DA79004B287D /* ModernShowInfoVC.swift in Sources */,
 				B8821DA9282509DC00A2F0DC /* ShowsViewModel.swift in Sources */,
 				B871DEC0282911DC00A40FEA /* SearchDelegate.swift in Sources */,
+				B8E660E9282A4B70000EE498 /* SearchPageVCDelegate.swift in Sources */,
 				B8A90243281D8BDE00D789F4 /* AppDelegate.swift in Sources */,
 				B8C4858B28204D97005F5977 /* PopularCViewCell.swift in Sources */,
 				B871DEC22829120100A40FEA /* SearchCells.swift in Sources */,
@@ -578,6 +593,7 @@
 				B8D5BA2828249AFF00301CBA /* ProfileVCDelegate.swift in Sources */,
 				B8A90283281D9E7800D789F4 /* ProfileVC.swift in Sources */,
 				B89C152E282351C300F59E05 /* ProfileTableViewCell.swift in Sources */,
+				B8E660E7282A4AD4000EE498 /* GenresCell.swift in Sources */,
 				B809487828298A3400B9B620 /* SearchBarNextVC.swift in Sources */,
 				B87BB3BA28280450007BD1C0 /* ShowInfoDelegate.swift in Sources */,
 				B8A9024D281D8BDE00D789F4 /* hrmph_shows.xcdatamodeld in Sources */,

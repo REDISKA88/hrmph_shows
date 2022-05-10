@@ -9,7 +9,9 @@
 import UIKit
 
 class SearchPageVC: MainTheme {
-
+    
+    let mostPopularText = "Sort by: Most popular"
+    let mostFollowedText = "Sort by: Most Followed"
     let searchView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
@@ -27,7 +29,6 @@ class SearchPageVC: MainTheme {
         return view
     }()
     
-    
     let searchField: UITextField = {
        let search = UITextField()
         search.backgroundColor = .clear
@@ -44,10 +45,40 @@ class SearchPageVC: MainTheme {
         return search
     }()
     
+    let sortButton: UIButton = {
+        let sort = UIButton()
+        sort.tintColor = UIColor.white.withAlphaComponent(0.8)
+        sort.translatesAutoresizingMaskIntoConstraints = false
+        let config = UIImage.SymbolConfiguration(pointSize: 26, weight: .light, scale: .large)
+        sort.setImage(UIImage(systemName: "arrow.up.arrow.down.square.fill", withConfiguration: config), for: .normal)
+        
+        return sort
+    }()
+    
+    let sortLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.text = "Sort by:   Most popular"
+        label.textColor = UIColor.white.withAlphaComponent(0.7)
+        label.font = .systemFont(ofSize: 20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let filterButton: UIButton = {
+        let filter = UIButton()
+        filter.tintColor = UIColor.white.withAlphaComponent(0.8)
+        filter.translatesAutoresizingMaskIntoConstraints = false
+        let config = UIImage.SymbolConfiguration(pointSize: 26, weight: .light, scale: .large)
+        filter.setImage(UIImage(systemName: "equal.square.fill", withConfiguration: config), for: .normal)
+        
+        return filter
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchView()
+        setupSort()
         self.navigationController?.isNavigationBarHidden = true
         
     }
@@ -64,5 +95,20 @@ class SearchPageVC: MainTheme {
         searchField.bottomAnchor.constraint(equalTo: searchView.bottomAnchor).isActive = true
         searchField.leadingAnchor.constraint(equalTo: searchView.leadingAnchor, constant: 10).isActive = true
         searchField.trailingAnchor.constraint(equalTo: searchView.trailingAnchor, constant: -50).isActive = true
+    }
+    
+    func setupSort() {
+        view.addSubview(sortButton)
+        sortButton.topAnchor.constraint(lessThanOrEqualTo: searchView.bottomAnchor, constant: 20).isActive = true
+        sortButton.leadingAnchor.constraint(lessThanOrEqualTo: searchView.leadingAnchor, constant: 5).isActive = true
+        
+        view.addSubview(filterButton)
+        filterButton.centerYAnchor.constraint(equalTo: sortButton.centerYAnchor).isActive = true
+        filterButton.trailingAnchor.constraint(lessThanOrEqualTo: searchView.trailingAnchor, constant: -5).isActive = true
+       
+        view.addSubview(sortLabel)
+        sortLabel.text = mostFollowedText
+        sortLabel.centerYAnchor.constraint(equalTo: sortButton.centerYAnchor).isActive = true
+        sortLabel.centerXAnchor.constraint(equalTo: searchView.centerXAnchor).isActive = true
     }
 }
