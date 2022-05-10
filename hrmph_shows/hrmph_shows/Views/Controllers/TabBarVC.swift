@@ -26,7 +26,7 @@ class TabBarVC: UITabBarController {
         self.tabBar.barTintColor = .black
         self.tabBar.tintColor = .white
        
-        let searchBarController = SearchBarVC()
+        let searchBarController = SearchPageVC()
         let searchNavigationController = UINavigationController(rootViewController: searchBarController)
         searchNavigationController.navigationBar.tintColor = .clear
         let modernProfileController = ModernProfileVC()
