@@ -8,6 +8,19 @@
 
 import Foundation
 
+
+struct SearchPageInstance: Codable {
+    var name: String
+    var language: String?
+    var summary: String?
+    var genres: [String]?
+    var rating: Rating?
+    var network: Network?
+    var image: Image?
+}
+
+
+
 struct Show: Codable {
        var name: String
        var language: String?
@@ -25,8 +38,9 @@ struct Show: Codable {
    struct Network: Codable {
        var name: String?
    }
-   
-   struct Image: Codable {
-       var original: String?
-   }
-   
+
+struct Image: Codable {
+    var original: String?
+    var medium: String?
+}
+

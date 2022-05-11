@@ -10,18 +10,18 @@ import UIKit
 
 extension SearchListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(viewModel.shows.returnedShowsArray.count)
-        return viewModel.shows.returnedShowsArray.count
+        
+    return viewModel.shows.returnedShowsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReturnedShowCell", for: indexPath) as! ReturnedShowCell
-        let currentShow = viewModel.shows.returnedShowsArray[indexPath.row]
-        cell.titleShow.text = currentShow.show.name
+        let currentShow = viewModel.shows.returnedShowsArray[indexPath.row].show
+        cell.titleShow.text = currentShow.name
         
-        if currentShow.show.genres != nil {
+        if currentShow.genres != nil {
             var list = ""
-            for genre in currentShow.show.genres! {
+            for genre in currentShow.genres! {
                 list += " \(genre), "
             }
             if list.count > 2 {
@@ -30,12 +30,12 @@ extension SearchListVC: UITableViewDelegate, UITableViewDataSource {
             }
             cell.genresShow.text = list
         }
-        if let rating = currentShow.show.rating?.average {
+        if let rating = currentShow.rating?.average {
             cell.ratingShow.text = "\(rating)"
         } else { cell.ratingShow.text = ""
             cell.ratingStarShow.image = UIImage()
         }
-        guard let url = URL(string: currentShow.show.image?.original ?? "") else { return cell }
+        guard let url = URL(string: currentShow.image?.original ?? "") else { return cell }
         do {
             let data = try Data(contentsOf: url)
             cell.imageShow.image = UIImage(data: data)

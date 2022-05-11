@@ -11,7 +11,7 @@ import iCarousel
 
 
 class ModernHomeVC: MainTheme {
-    
+    var viewModel = ShowsViewModel()
     let topIDCell = "topCell"
     let customCollectionView: iCarousel = {
         let carousel = iCarousel()
@@ -48,6 +48,14 @@ class ModernHomeVC: MainTheme {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.home.getData {
+            DispatchQueue.main.async {
+                self.customCollectionView.reloadData()
+                self.midCV.reloadData()
+            }
+            
+        }
         popularImages.shuffle()
         allImages.shuffle()
         view.addSubview(topView)
@@ -109,13 +117,18 @@ extension ModernHomeVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
         return CGSize(width: collectionView.frame.width/2.5, height: collectionView.frame.height)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allImages.count
+        return viewModel.home.returnedShowsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        let imageName = allImages[indexPath.item]
-        cell.bg.image = UIImage(named: imageName)
+        
+        let currentShow = viewModel.home.returnedShowsArray[indexPath.row]
+                guard let url = URL(string: currentShow.image?.original ?? "") else { return cell }
+        do {
+            let data = try Data(contentsOf: url)
+            cell.bg.image = UIImage(data: data)
+        } catch { print("error fail load image from url") }
         return cell
     }
     
@@ -124,7 +137,7 @@ extension ModernHomeVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
 // MARK: -iCarousel
 extension ModernHomeVC: iCarouselDataSource {
     func numberOfItems(in carousel: iCarousel) -> Int {
-        return popularImages.count
+        return viewModel.home.returnedShowsArray.count
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
@@ -140,10 +153,19 @@ extension ModernHomeVC: iCarouselDataSource {
         view.addSubview(imageShow)
         view.backgroundColor = .clear
         
-        imageShow.image = UIImage(named: popularImages[index])
-       imageShow.layer.cornerRadius = 25
-        imageShow.layer.masksToBounds = true
+        let current = viewModel.home.returnedShowsArray.shuffled()
+        guard let url = URL(string: current[index].image?.original ?? "") else { return view }
+           do {
+               let data = try Data(contentsOf: url)
+               imageShow.image = UIImage(data: data)
+            imageShow.layer.cornerRadius = 25
+            imageShow.layer.masksToBounds = true
+           } catch { print("error fail load image from url") }
         return view
+//        imageShow.image = UIImage(named: popularImages[index])
+//        imageShow.layer.cornerRadius = 25
+//        imageShow.layer.masksToBounds = true
+//        return view
     }
     
     

@@ -139,7 +139,7 @@ class ReturnedShowCell: UITableViewCell {
     
     func setupTitle() {
         addSubview(titleShow)
-    //    titleShow.text = "Game of Thrones"
+       titleShow.text = "Game of Thrones"
         titleShow.topAnchor.constraint(equalTo: imageShow.topAnchor, constant: 10).isActive = true
         titleShow.leadingAnchor.constraint(equalTo: imageShow.trailingAnchor, constant: 20).isActive = true
         titleShow.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true

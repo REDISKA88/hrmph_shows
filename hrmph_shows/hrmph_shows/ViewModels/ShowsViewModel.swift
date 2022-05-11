@@ -10,5 +10,6 @@ import Foundation
 
 class ShowsViewModel {
     var shows = TVShows()
-    
+    var home = HomePageShows()
+    var searchPageShows = SearchPageShows()
 }

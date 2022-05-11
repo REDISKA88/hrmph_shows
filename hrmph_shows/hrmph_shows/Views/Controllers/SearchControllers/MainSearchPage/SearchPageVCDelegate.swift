@@ -10,15 +10,26 @@ import UIKit
 
 extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return thisShowsImages.count
+        return viewModel.searchPageShows.returnedShowsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShowsCell", for: indexPath) as! ShowsCell
-        cell.titleLabel.text = "Game of Thrones: part 2: aloha trues"
-        cell.showImageView.image = UIImage(named: thisShowsImages[indexPath.row])
         cell.backgroundColor = .clear
-        return cell
+        let currentShow = viewModel.searchPageShows.returnedShowsArray[indexPath.row]
+        cell.titleLabel.text = currentShow.name
+             guard let url = URL(string: currentShow.image?.medium ?? "") else { return cell }
+             do {
+                 let data = try Data(contentsOf: url)
+                 cell.showImageView.image = UIImage(data: data)
+             } catch { print("error fail load image from url") }
+             return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ModernShowInfoVC()
+        vc.show = viewModel.shows.returnedShowsArray[indexPath.row].show
+             self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
