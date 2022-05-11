@@ -9,7 +9,8 @@
 import UIKit
 
 class SearchListVC: MainTheme {
-    
+    let viewModel = ShowsViewModel()
+    var viewModelImages =  ["0", "1", "2","3","4","5","6","7", "8", "9", "10","11","12","13","14","15", "16", "17","18","19","20","21","22","23","24","25","26","27","28"]
     var whatUsearch = "Search: "
     let backButton: UIButton = {
         let button = UIButton()
@@ -32,7 +33,7 @@ class SearchListVC: MainTheme {
         return label
     }()
     
-    let serchListTable = UITableView()
+    let listTable = UITableView()
     
     
     @objc func popBack() {
@@ -48,11 +49,21 @@ class SearchListVC: MainTheme {
     }
     
     func setupSearchListTable() {
-        view.addSubview(serchListTable)
-        serchListTable.delegate = self
-        
-        serchListTable.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.05)
+        view.addSubview(listTable)
+        viewModelImages.shuffle()
+        listTable.delegate = self
+        listTable.dataSource = self
+        listTable.layer.masksToBounds = true
+        listTable.layer.cornerRadius = 30
+        listTable.showsVerticalScrollIndicator = false
+        listTable.backgroundColor = UIColor.lightGray.withAlphaComponent(0.05)
+        listTable.register(ReturnedShowCell.self, forCellReuseIdentifier: "ReturnedShowCell")
+        listTable.translatesAutoresizingMaskIntoConstraints = false
+        //view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.05)
+        listTable.topAnchor.constraint(equalTo: searchForLabel.bottomAnchor, constant: 20).isActive = true
+        listTable.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        listTable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        listTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
     }
     
     
