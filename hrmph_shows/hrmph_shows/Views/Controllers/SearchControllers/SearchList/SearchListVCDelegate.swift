@@ -24,13 +24,17 @@ extension SearchListVC: UITableViewDelegate, UITableViewDataSource {
             for genre in currentShow.show.genres! {
                 list += " \(genre), "
             }
-            list.removeLast()
-            list.removeLast()
+            if list.count > 2 {
+                list.removeLast()
+                list.removeLast()
+            }
             cell.genresShow.text = list
         }
         if let rating = currentShow.show.rating?.average {
             cell.ratingShow.text = "\(rating)"
-        } else { cell.ratingShow.text = "--" }
+        } else { cell.ratingShow.text = ""
+            cell.ratingStarShow.image = UIImage()
+        }
         guard let url = URL(string: currentShow.show.image?.original ?? "") else { return cell }
         do {
             let data = try Data(contentsOf: url)

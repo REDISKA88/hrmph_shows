@@ -147,7 +147,7 @@ class ReturnedShowCell: UITableViewCell {
     
     func setupImage() {
         addSubview(imageShow)
-          imageShow.backgroundColor = .red
+          imageShow.backgroundColor = .clear
           imageShow.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
           imageShow.heightAnchor.constraint(equalToConstant: 130).isActive = true
           imageShow.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
