@@ -81,6 +81,7 @@ extension ModernShowInfoVC {
     
     func setupTopView() {
         topVeiw.addSubview(showImage)
+
         showImage.translatesAutoresizingMaskIntoConstraints = false
         showImage.topAnchor.constraint(equalTo: topVeiw.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         showImage.leadingAnchor.constraint(equalTo: topVeiw.leadingAnchor, constant: 80).isActive = true

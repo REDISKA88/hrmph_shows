@@ -11,7 +11,9 @@ import UIKit
 class SearchListVC: MainTheme {
     let viewModel = ShowsViewModel()
     var viewModelImages =  ["0", "1", "2","3","4","5","6","7", "8", "9", "10","11","12","13","14","15", "16", "17","18","19","20","21","22","23","24","25","26","27","28"]
-    var whatUsearch = "Search: "
+    var whatUsearch = ""
+    
+    // arrowshape.turn.up.left.2.fill
     let backButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(popBack), for: .touchUpInside)
@@ -19,7 +21,7 @@ class SearchListVC: MainTheme {
         button.translatesAutoresizingMaskIntoConstraints = false
         let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .light, scale: .large)
         button.setImage(UIImage(systemName: "chevron.left", withConfiguration: config), for: .normal)
-        // lessthan.square.fill
+        
         return button
     }()
     
@@ -42,6 +44,12 @@ class SearchListVC: MainTheme {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.shows.urlString += whatUsearch
+        viewModel.shows.getData {
+            DispatchQueue.main.async {
+                          self.listTable.reloadData()
+                      }
+        }
         setupTopSearchBar()
         setupSearchListTable()
         self.hideKeyboardWhenTappedAround()
@@ -74,7 +82,7 @@ class SearchListVC: MainTheme {
        backButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         view.addSubview(searchForLabel)
-        searchForLabel.text = whatUsearch
+        searchForLabel.text = "Search: " + whatUsearch
 
         searchForLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor).isActive = true
         searchForLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true

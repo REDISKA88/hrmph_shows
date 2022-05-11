@@ -230,9 +230,9 @@
 		B87BB3BB2828144D007BD1C0 /* ShowInfoController */ = {
 			isa = PBXGroup;
 			children = (
-				B871DEBA282909CB00A40FEA /* SetupViews.swift */,
 				B84528C02827DA79004B287D /* ModernShowInfoVC.swift */,
 				B87BB3B928280450007BD1C0 /* ShowInfoDelegate.swift */,
+				B871DEBA282909CB00A40FEA /* SetupViews.swift */,
 			);
 			path = ShowInfoController;
 			sourceTree = "<group>";

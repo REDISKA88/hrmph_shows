@@ -9,7 +9,8 @@
 import Foundation
 
 class TVShows {
-    var urlString = "https://api.tvmaze.com/search/shows?q=girls"
+   // var urlString = "https://api.tvmaze.com/search/shows?q=girls"
+    var urlString = "https://api.tvmaze.com/search/shows?q="
     var returnedShowsArray: [ReturnedShows] = []
     struct ReturnedShows: Codable {
         var show: Show

@@ -19,7 +19,20 @@ class ModernShowInfoVC: ShowBackgroundTheme {
         return imageView
     }()
     
+    let backButton: UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(popBack), for: .touchUpInside)
+        button.tintColor = UIColor.white.withAlphaComponent(0.9)
+          button.translatesAutoresizingMaskIntoConstraints = false
+          let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .light, scale: .large)
+          button.setImage(UIImage(systemName: "chevron.left", withConfiguration: config), for: .normal)
+        // lessthan.square.fill
+        return button
+    }()
     
+    @objc func popBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
     let showInfoView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -178,6 +191,11 @@ class ModernShowInfoVC: ShowBackgroundTheme {
             print("!!!Show is nil in ModernShowInfoVc")
             return
         }
+        
+//        scrollViewContainer.addSubview(backButton)
+//        backButton.topAnchor.constraint(equalTo: scrollViewContainer.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+//        backButton.leadingAnchor.constraint(equalTo: scrollViewContainer.leadingAnchor, constant: 20).isActive = true
+//        backButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         view.addSubview(scrollView)
         scrollView.addSubview(scrollViewContainer)
         scrollViewContainer.addArrangedSubview(topVeiw)
@@ -193,6 +211,9 @@ class ModernShowInfoVC: ShowBackgroundTheme {
         setupGenresShow()
         setupSummaryTextView()
         updateUserInterface()
+        
+        
+        
     
     }
 
@@ -216,6 +237,7 @@ class ModernShowInfoVC: ShowBackgroundTheme {
     let topVeiw: UIView = {
         let view = UIView()
         let subview = UIView()
+        
         subview.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(subview)
         subview.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
