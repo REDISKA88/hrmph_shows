@@ -132,6 +132,11 @@ extension ModernHomeVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ModernShowInfoVC()
+        vc.show = viewModel.home.returnedShowsArray[indexPath.row]
+        present(vc, animated: true)
+    }
 
 }
 // MARK: -iCarousel

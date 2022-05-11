@@ -28,7 +28,7 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = ModernShowInfoVC()
-        vc.show = viewModel.shows.returnedShowsArray[indexPath.row].show
+        vc.show = viewModel.searchPageShows.returnedShowsArray[indexPath.row]
              self.navigationController?.pushViewController(vc, animated: true)
     }
     

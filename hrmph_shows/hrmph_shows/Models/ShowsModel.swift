@@ -11,7 +11,7 @@ class HomePageShows {
    // var urlString = "https://api.tvmaze.com/search/shows?q=girls"
  //   var urlString = "https://api.tvmaze.com/search/shows?q="
     var urlString = "https://api.tvmaze.com/shows?page=1"
-    var returnedShowsArray: [SearchPageInstance] = []
+    var returnedShowsArray: [Show] = []
     
    
     func getData(complition: @escaping ()->(Void)) {
@@ -27,7 +27,7 @@ class HomePageShows {
                 print("tussuu")
             }
             do {
-                let decodeData = try JSONDecoder().decode([SearchPageInstance].self, from: data!)
+                let decodeData = try JSONDecoder().decode([Show].self, from: data!)
                 self.returnedShowsArray = decodeData
             } catch {print("suka tut eror")
                 print(error)
@@ -44,7 +44,7 @@ class SearchPageShows {
    // var urlString = "https://api.tvmaze.com/search/shows?q=girls"
  //   var urlString = "https://api.tvmaze.com/search/shows?q="
     var urlString = "https://api.tvmaze.com/shows?"
-    var returnedShowsArray: [SearchPageInstance] = []
+    var returnedShowsArray: [Show] = []
     
    
     func getData(complition: @escaping ()->(Void)) {
@@ -60,7 +60,7 @@ class SearchPageShows {
                 print("tussuu")
             }
             do {
-                let decodeData = try JSONDecoder().decode([SearchPageInstance].self, from: data!)
+                let decodeData = try JSONDecoder().decode([Show].self, from: data!)
                 self.returnedShowsArray = decodeData
             } catch {print("suka tut eror")
                 print(error)
