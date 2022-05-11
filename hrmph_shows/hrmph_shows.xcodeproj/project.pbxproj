@@ -60,6 +60,7 @@
 		B8E3CADC282A322B00A428EF /* SearchPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E3CADB282A322B00A428EF /* SearchPageVC.swift */; };
 		B8E660E7282A4AD4000EE498 /* CollectionViewShowsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E660E6282A4AD4000EE498 /* CollectionViewShowsCell.swift */; };
 		B8E660E9282A4B70000EE498 /* SearchPageVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E660E8282A4B70000EE498 /* SearchPageVCDelegate.swift */; };
+		B8F48E1D282B942B00201B8E /* SearchListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F48E1C282B942B00201B8E /* SearchListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		B8E3CADB282A322B00A428EF /* SearchPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageVC.swift; sourceTree = "<group>"; };
 		B8E660E6282A4AD4000EE498 /* CollectionViewShowsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewShowsCell.swift; sourceTree = "<group>"; };
 		B8E660E8282A4B70000EE498 /* SearchPageVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageVCDelegate.swift; sourceTree = "<group>"; };
+		B8F48E1C282B942B00201B8E /* SearchListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListVC.swift; sourceTree = "<group>"; };
 		BA2211E737C6F089773F70D8 /* Pods_hrmph_shows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hrmph_shows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA74DDB5638A66187F26B18E /* Pods-hrmph_shows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hrmph_shows.debug.xcconfig"; path = "Target Support Files/Pods-hrmph_shows/Pods-hrmph_shows.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,19 +202,19 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		B871DEBE282911C600A40FEA /* SearchController */ = {
+		B871DEBE282911C600A40FEA /* SearchControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B8E3CADB282A322B00A428EF /* SearchPageVC.swift */,
-				B8E660E8282A4B70000EE498 /* SearchPageVCDelegate.swift */,
-				B8A90280281D9E6600D789F4 /* SearchResultVC.swift */,
+				B8F48E1A282B939A00201B8E /* MainSearchPage */,
+				B8F48E1B282B93CA00201B8E /* SearchList */,
 				B80948752829756200B9B620 /* SearchBarVC.swift */,
+				B8A90280281D9E6600D789F4 /* SearchResultVC.swift */,
 				B809487728298A3400B9B620 /* SearchBarNextVC.swift */,
 				B871DEBF282911DC00A40FEA /* SearchDelegate.swift */,
 				B8B06403282A757A00896074 /* HeaderCollectionView.swift */,
 				B86FC326282A7D2900700D70 /* Cells */,
 			);
-			path = SearchController;
+			path = SearchControllers;
 			sourceTree = "<group>";
 		};
 		B87BB3B62828000F007BD1C0 /* Deprecated */ = {
@@ -348,7 +350,7 @@
 		B8A9027B281D981800D789F4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B871DEBE282911C600A40FEA /* SearchController */,
+				B871DEBE282911C600A40FEA /* SearchControllers */,
 				B87BB3BB2828144D007BD1C0 /* ShowInfoController */,
 				B8D5BA2F28249B7C00301CBA /* ProfileViewController */,
 				B87BB3B62828000F007BD1C0 /* Deprecated */,
@@ -399,6 +401,23 @@
 				B8D5BA2328248C4800301CBA /* runner.mov */,
 			);
 			path = VideosForBackground;
+			sourceTree = "<group>";
+		};
+		B8F48E1A282B939A00201B8E /* MainSearchPage */ = {
+			isa = PBXGroup;
+			children = (
+				B8E3CADB282A322B00A428EF /* SearchPageVC.swift */,
+				B8E660E8282A4B70000EE498 /* SearchPageVCDelegate.swift */,
+			);
+			path = MainSearchPage;
+			sourceTree = "<group>";
+		};
+		B8F48E1B282B93CA00201B8E /* SearchList */ = {
+			isa = PBXGroup;
+			children = (
+				B8F48E1C282B942B00201B8E /* SearchListVC.swift */,
+			);
+			path = SearchList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -587,6 +606,7 @@
 				B8A9027D281D9E3B00D789F4 /* HomeVC.swift in Sources */,
 				B8B06404282A757A00896074 /* HeaderCollectionView.swift in Sources */,
 				B88550B628218EDE00B27E5E /* CustomTableViewCell.swift in Sources */,
+				B8F48E1D282B942B00201B8E /* SearchListVC.swift in Sources */,
 				B8663B6A2827760800D3DC13 /* ShowInfoVC.swift in Sources */,
 				B871DEBD2829118100A40FEA /* ShowInstance.swift in Sources */,
 				B8A9027F281D9E5200D789F4 /* FavoritesVC.swift in Sources */,

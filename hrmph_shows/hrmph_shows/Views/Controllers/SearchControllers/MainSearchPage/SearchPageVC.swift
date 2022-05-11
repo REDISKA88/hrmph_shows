@@ -15,6 +15,7 @@ class SearchPageVC: MainTheme {
         let view = UIView()
         view.layer.cornerRadius = 25
         let button = UIButton()
+        button.addTarget(self, action: #selector(searchShowButton), for: .touchUpInside)
         button.tintColor = UIColor.white.withAlphaComponent(0.7)
         button.translatesAutoresizingMaskIntoConstraints = false
         let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .large)
@@ -28,6 +29,14 @@ class SearchPageVC: MainTheme {
         button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         return view
     }()
+    
+    
+    @objc func searchShowButton() {
+        let vc = SearchListVC()
+        guard let searching = searchField.text, searching.count > 0 else {return}
+        vc.whatUsearch += searching
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     let searchField: UITextField = {
        let search = UITextField()
@@ -66,9 +75,12 @@ class SearchPageVC: MainTheme {
         setupSearchView()
         setupCollectionView()
         self.navigationController?.isNavigationBarHidden = true
+        self.hideKeyboardWhenTappedAround()
+        
+        //search
+        self.view.layoutIfNeeded()
         
     }
-        
     func setupCollectionView() {
         view.addSubview(showCollectionView)
         showCollectionView.delegate = self
