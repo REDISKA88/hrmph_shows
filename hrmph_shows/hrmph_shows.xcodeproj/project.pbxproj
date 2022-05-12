@@ -11,6 +11,8 @@
 		B8094874282958F000B9B620 /* ModernProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8094873282958F000B9B620 /* ModernProfileVC.swift */; };
 		B80948762829756200B9B620 /* SearchBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80948752829756200B9B620 /* SearchBarVC.swift */; };
 		B809487828298A3400B9B620 /* SearchBarNextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809487728298A3400B9B620 /* SearchBarNextVC.swift */; };
+		B8109D0A282D0B720077AE79 /* OldShowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8109D09282D0B720077AE79 /* OldShowModel.swift */; };
+		B8109D0C282D0FEA0077AE79 /* PopularShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8109D0B282D0FEA0077AE79 /* PopularShow.swift */; };
 		B8157BE028209084001B2702 /* ModernHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8157BDF28209084001B2702 /* ModernHomeVC.swift */; };
 		B84528C12827DA79004B287D /* ModernShowInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84528C02827DA79004B287D /* ModernShowInfoVC.swift */; };
 		B84528C32827DFBB004B287D /* ShowBackgroundTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84528C22827DFBB004B287D /* ShowBackgroundTheme.swift */; };
@@ -26,7 +28,7 @@
 		B871DEC22829120100A40FEA /* ReturnedShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B871DEC12829120100A40FEA /* ReturnedShowCell.swift */; };
 		B87BB3B8282803ED007BD1C0 /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BB3B7282803ED007BD1C0 /* CastCell.swift */; };
 		B87BB3BA28280450007BD1C0 /* ShowInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BB3B928280450007BD1C0 /* ShowInfoDelegate.swift */; };
-		B8821DA72825054000A2F0DC /* ShowsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8821DA62825054000A2F0DC /* ShowsModel.swift */; };
+		B8821DA72825054000A2F0DC /* ShowNetworker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8821DA62825054000A2F0DC /* ShowNetworker.swift */; };
 		B8821DA9282509DC00A2F0DC /* ShowsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8821DA8282509DC00A2F0DC /* ShowsViewModel.swift */; };
 		B88517C3282BA748007D1E4F /* SearchListVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88517C2282BA748007D1E4F /* SearchListVCDelegate.swift */; };
 		B88550B628218EDE00B27E5E /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88550B528218EDE00B27E5E /* CustomTableViewCell.swift */; };
@@ -104,6 +106,8 @@
 		B8094873282958F000B9B620 /* ModernProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernProfileVC.swift; sourceTree = "<group>"; };
 		B80948752829756200B9B620 /* SearchBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarVC.swift; sourceTree = "<group>"; };
 		B809487728298A3400B9B620 /* SearchBarNextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarNextVC.swift; sourceTree = "<group>"; };
+		B8109D09282D0B720077AE79 /* OldShowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldShowModel.swift; sourceTree = "<group>"; };
+		B8109D0B282D0FEA0077AE79 /* PopularShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularShow.swift; sourceTree = "<group>"; };
 		B8157BDF28209084001B2702 /* ModernHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernHomeVC.swift; sourceTree = "<group>"; };
 		B84528C02827DA79004B287D /* ModernShowInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernShowInfoVC.swift; sourceTree = "<group>"; };
 		B84528C22827DFBB004B287D /* ShowBackgroundTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBackgroundTheme.swift; sourceTree = "<group>"; };
@@ -119,7 +123,7 @@
 		B871DEC12829120100A40FEA /* ReturnedShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnedShowCell.swift; sourceTree = "<group>"; };
 		B87BB3B7282803ED007BD1C0 /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
 		B87BB3B928280450007BD1C0 /* ShowInfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoDelegate.swift; sourceTree = "<group>"; };
-		B8821DA62825054000A2F0DC /* ShowsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsModel.swift; sourceTree = "<group>"; };
+		B8821DA62825054000A2F0DC /* ShowNetworker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNetworker.swift; sourceTree = "<group>"; };
 		B8821DA8282509DC00A2F0DC /* ShowsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsViewModel.swift; sourceTree = "<group>"; };
 		B88517C2282BA748007D1E4F /* SearchListVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListVCDelegate.swift; sourceTree = "<group>"; };
 		B88550B528218EDE00B27E5E /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -208,8 +212,8 @@
 		B84C855B282CE42000663045 /* HomeController */ = {
 			isa = PBXGroup;
 			children = (
-				B8157BDF28209084001B2702 /* ModernHomeVC.swift */,
 				B84C8560282CE4E900663045 /* SetupHomeVeiws.swift */,
+				B8157BDF28209084001B2702 /* ModernHomeVC.swift */,
 				B84C855C282CE43F00663045 /* ModernHomeVCDelegate.swift */,
 				B84C855E282CE48A00663045 /* CustomCVCell.swift */,
 			);
@@ -219,7 +223,8 @@
 		B84C8566282CEC8900663045 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B8821DA62825054000A2F0DC /* ShowsModel.swift */,
+				B8821DA62825054000A2F0DC /* ShowNetworker.swift */,
+				B8109D09282D0B720077AE79 /* OldShowModel.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				B871DEBC2829118100A40FEA /* Show.swift */,
+				B8109D0B282D0FEA0077AE79 /* PopularShow.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -671,14 +677,16 @@
 				B8157BE028209084001B2702 /* ModernHomeVC.swift in Sources */,
 				B8D5BA2828249AFF00301CBA /* ProfileVCDelegate.swift in Sources */,
 				B8A90283281D9E7800D789F4 /* ProfileVC.swift in Sources */,
+				B8109D0A282D0B720077AE79 /* OldShowModel.swift in Sources */,
 				B89C152E282351C300F59E05 /* ProfileTableViewCell.swift in Sources */,
 				B8E660E7282A4AD4000EE498 /* CollectionViewShowsCell.swift in Sources */,
 				B88517C3282BA748007D1E4F /* SearchListVCDelegate.swift in Sources */,
 				B809487828298A3400B9B620 /* SearchBarNextVC.swift in Sources */,
 				B87BB3BA28280450007BD1C0 /* ShowInfoDelegate.swift in Sources */,
 				B8A9024D281D8BDE00D789F4 /* hrmph_shows.xcdatamodeld in Sources */,
-				B8821DA72825054000A2F0DC /* ShowsModel.swift in Sources */,
+				B8821DA72825054000A2F0DC /* ShowNetworker.swift in Sources */,
 				B8A90245281D8BDE00D789F4 /* SceneDelegate.swift in Sources */,
+				B8109D0C282D0FEA0077AE79 /* PopularShow.swift in Sources */,
 				B8A90281281D9E6600D789F4 /* SearchResultVC.swift in Sources */,
 				B8C48586282025BF005F5977 /* TabBarVC.swift in Sources */,
 				B8094874282958F000B9B620 /* ModernProfileVC.swift in Sources */,

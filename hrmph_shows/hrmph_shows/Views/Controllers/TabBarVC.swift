@@ -9,16 +9,13 @@
 import UIKit
 
 class TabBarVC: UITabBarController {
-    
-    var showsVM = ShowsViewModel()
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
         setImagesForTabBarItems()
-        showsVM.shows.getData {
-            
-        }
+    
     }
     
 
