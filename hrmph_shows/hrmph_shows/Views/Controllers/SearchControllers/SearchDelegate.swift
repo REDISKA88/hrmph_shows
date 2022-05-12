@@ -7,7 +7,11 @@
 //
 
 import UIKit
-
+//var returnedShow: Show!
+// viewModel.networker.idShow = currentShow.id
+// viewModel.networker.presentShowById {
+//     returnedShow = self.viewModel.networker.returnedShow
+// }
 
 extension SearchVC: UITableViewDelegate, UITableViewDataSource {
     

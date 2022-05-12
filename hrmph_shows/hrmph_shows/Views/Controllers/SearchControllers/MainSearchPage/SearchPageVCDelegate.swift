@@ -10,26 +10,41 @@ import UIKit
 
 extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.searchPageShows.returnedShowsArray.count
+      // **  return viewModel.searchPageShows.returnedShowsArray.count
+        if viewModel.networker.homeTopShowsCollection.count > 100 {
+            return 100
+        }
+        return viewModel.networker.homeTopShowsCollection.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShowsCell", for: indexPath) as! ShowsCell
         cell.backgroundColor = .clear
-        let currentShow = viewModel.searchPageShows.returnedShowsArray[indexPath.row]
+     //**   let currentShow = viewModel.searchPageShows.returnedShowsArray[indexPath.row]
+        let currentShow = viewModel.networker.homeTopShowsCollection[indexPath.row]
         cell.titleLabel.text = currentShow.name
              guard let url = URL(string: currentShow.image?.medium ?? "") else { return cell }
              do {
                  let data = try Data(contentsOf: url)
                  cell.showImageView.image = UIImage(data: data)
+                cell.titleForShow = currentShow.name
              } catch { print("error fail load image from url") }
              return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let currentShow = viewModel.networker.homeTopShowsCollection[indexPath.row]
         let vc = ModernShowInfoVC()
-        vc.show = viewModel.searchPageShows.returnedShowsArray[indexPath.row]
-             self.navigationController?.pushViewController(vc, animated: true)
+        viewModel.networker.idShow = currentShow.id
+        viewModel.networker.presentShowById {
+            vc.show = self.viewModel.networker.returnedShow
+            DispatchQueue.main.async {
+                vc.updateUserInterface()
+            }
+              
+
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

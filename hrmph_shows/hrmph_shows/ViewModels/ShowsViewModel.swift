@@ -9,6 +9,7 @@
 import Foundation
 
 class ShowsViewModel {
+    var selectedShowId: Int?
     var networker = ShowNetworker()
     var shows = TVShows()
     var home = HomePageShows()

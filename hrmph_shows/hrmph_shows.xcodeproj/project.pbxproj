@@ -12,7 +12,7 @@
 		B80948762829756200B9B620 /* SearchBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80948752829756200B9B620 /* SearchBarVC.swift */; };
 		B809487828298A3400B9B620 /* SearchBarNextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809487728298A3400B9B620 /* SearchBarNextVC.swift */; };
 		B8109D0A282D0B720077AE79 /* OldShowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8109D09282D0B720077AE79 /* OldShowModel.swift */; };
-		B8109D0C282D0FEA0077AE79 /* PopularShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8109D0B282D0FEA0077AE79 /* PopularShow.swift */; };
+		B8109D0C282D0FEA0077AE79 /* ShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8109D0B282D0FEA0077AE79 /* ShowModels.swift */; };
 		B8157BE028209084001B2702 /* ModernHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8157BDF28209084001B2702 /* ModernHomeVC.swift */; };
 		B84528C12827DA79004B287D /* ModernShowInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84528C02827DA79004B287D /* ModernShowInfoVC.swift */; };
 		B84528C32827DFBB004B287D /* ShowBackgroundTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84528C22827DFBB004B287D /* ShowBackgroundTheme.swift */; };
@@ -107,7 +107,7 @@
 		B80948752829756200B9B620 /* SearchBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarVC.swift; sourceTree = "<group>"; };
 		B809487728298A3400B9B620 /* SearchBarNextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarNextVC.swift; sourceTree = "<group>"; };
 		B8109D09282D0B720077AE79 /* OldShowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldShowModel.swift; sourceTree = "<group>"; };
-		B8109D0B282D0FEA0077AE79 /* PopularShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularShow.swift; sourceTree = "<group>"; };
+		B8109D0B282D0FEA0077AE79 /* ShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowModels.swift; sourceTree = "<group>"; };
 		B8157BDF28209084001B2702 /* ModernHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernHomeVC.swift; sourceTree = "<group>"; };
 		B84528C02827DA79004B287D /* ModernShowInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernShowInfoVC.swift; sourceTree = "<group>"; };
 		B84528C22827DFBB004B287D /* ShowBackgroundTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBackgroundTheme.swift; sourceTree = "<group>"; };
@@ -338,7 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				B871DEBC2829118100A40FEA /* Show.swift */,
-				B8109D0B282D0FEA0077AE79 /* PopularShow.swift */,
+				B8109D0B282D0FEA0077AE79 /* ShowModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -686,7 +686,7 @@
 				B8A9024D281D8BDE00D789F4 /* hrmph_shows.xcdatamodeld in Sources */,
 				B8821DA72825054000A2F0DC /* ShowNetworker.swift in Sources */,
 				B8A90245281D8BDE00D789F4 /* SceneDelegate.swift in Sources */,
-				B8109D0C282D0FEA0077AE79 /* PopularShow.swift in Sources */,
+				B8109D0C282D0FEA0077AE79 /* ShowModels.swift in Sources */,
 				B8A90281281D9E6600D789F4 /* SearchResultVC.swift in Sources */,
 				B8C48586282025BF005F5977 /* TabBarVC.swift in Sources */,
 				B8094874282958F000B9B620 /* ModernProfileVC.swift in Sources */,

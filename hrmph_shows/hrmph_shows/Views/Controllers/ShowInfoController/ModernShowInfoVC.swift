@@ -186,11 +186,7 @@ class ModernShowInfoVC: ShowBackgroundTheme {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        guard show != nil else {
-            print("!!!Show is nil in ModernShowInfoVc")
-            return
-        }
+
         
 //        scrollViewContainer.addSubview(backButton)
 //        backButton.topAnchor.constraint(equalTo: scrollViewContainer.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
@@ -210,7 +206,7 @@ class ModernShowInfoVC: ShowBackgroundTheme {
         setupCastCollectionView()
         setupGenresShow()
         setupSummaryTextView()
-        updateUserInterface()
+     //   updateUserInterface()
         
         
         

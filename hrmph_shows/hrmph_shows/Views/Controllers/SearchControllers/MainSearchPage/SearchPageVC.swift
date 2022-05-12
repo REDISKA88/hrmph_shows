@@ -72,16 +72,16 @@ class SearchPageVC: MainTheme {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.searchPageShows.getData {
-            DispatchQueue.main.async {
-                self.showCollectionView.reloadData()
-            }
-        }
-        thisShowsImages.shuffle()
+      //  thisShowsImages.shuffle()
         setupSearchView()
         setupCollectionView()
         self.hideKeyboardWhenTappedAround()
         
+        viewModel.networker.getPopularShows {
+            DispatchQueue.main.async {
+                self.showCollectionView.reloadData()
+            }
+        }
         //search
        // self.view.layoutIfNeeded()
         

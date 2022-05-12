@@ -9,15 +9,15 @@
 import Foundation
 
 
-struct SearchPageInstance: Codable {
-    var name: String
-    var language: String?
-    var summary: String?
-    var genres: [String]?
-    var rating: Rating?
-    var network: Network?
-    var image: Image?
-}
+//struct SearchPageInstance: Codable {
+//    var name: String
+//    var language: String?
+//    var summary: String?
+//    var genres: [String]?
+//    var rating: Rating?
+//    var network: Network?
+//    var image: Image?
+//}
 
 
 

@@ -14,3 +14,5 @@ struct PopularShow: Codable {
     var name: String
     var image: Image?
 }
+
+
