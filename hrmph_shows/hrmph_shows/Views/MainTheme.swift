@@ -13,6 +13,7 @@ class MainTheme: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.1254716814, green: 0.125500828, blue: 0.1254698336, alpha: 1)
+         self.navigationController?.isNavigationBarHidden = true
         //setupMainThemeBackgroundColor()
         // Do any additional setup after loading the view.
     }

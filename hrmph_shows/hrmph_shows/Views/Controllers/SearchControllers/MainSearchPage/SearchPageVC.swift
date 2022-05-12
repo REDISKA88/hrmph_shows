@@ -80,7 +80,6 @@ class SearchPageVC: MainTheme {
         thisShowsImages.shuffle()
         setupSearchView()
         setupCollectionView()
-        self.navigationController?.isNavigationBarHidden = true
         self.hideKeyboardWhenTappedAround()
         
         //search

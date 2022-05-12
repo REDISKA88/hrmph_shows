@@ -14,6 +14,11 @@
 		B8157BE028209084001B2702 /* ModernHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8157BDF28209084001B2702 /* ModernHomeVC.swift */; };
 		B84528C12827DA79004B287D /* ModernShowInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84528C02827DA79004B287D /* ModernShowInfoVC.swift */; };
 		B84528C32827DFBB004B287D /* ShowBackgroundTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84528C22827DFBB004B287D /* ShowBackgroundTheme.swift */; };
+		B84C855D282CE43F00663045 /* ModernHomeVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84C855C282CE43F00663045 /* ModernHomeVCDelegate.swift */; };
+		B84C855F282CE48A00663045 /* CustomCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84C855E282CE48A00663045 /* CustomCVCell.swift */; };
+		B84C8561282CE4E900663045 /* SetupHomeVeiws.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84C8560282CE4E900663045 /* SetupHomeVeiws.swift */; };
+		B84C8563282CE83300663045 /* SetupProfileViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84C8562282CE83300663045 /* SetupProfileViews.swift */; };
+		B84C8565282CE88000663045 /* ProfileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84C8564282CE88000663045 /* ProfileTableCell.swift */; };
 		B8663B6A2827760800D3DC13 /* ShowInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8663B692827760800D3DC13 /* ShowInfoVC.swift */; };
 		B871DEBB282909CB00A40FEA /* SetupViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B871DEBA282909CB00A40FEA /* SetupViews.swift */; };
 		B871DEBD2829118100A40FEA /* ShowInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B871DEBC2829118100A40FEA /* ShowInstance.swift */; };
@@ -102,6 +107,11 @@
 		B8157BDF28209084001B2702 /* ModernHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernHomeVC.swift; sourceTree = "<group>"; };
 		B84528C02827DA79004B287D /* ModernShowInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernShowInfoVC.swift; sourceTree = "<group>"; };
 		B84528C22827DFBB004B287D /* ShowBackgroundTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBackgroundTheme.swift; sourceTree = "<group>"; };
+		B84C855C282CE43F00663045 /* ModernHomeVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernHomeVCDelegate.swift; sourceTree = "<group>"; };
+		B84C855E282CE48A00663045 /* CustomCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCVCell.swift; sourceTree = "<group>"; };
+		B84C8560282CE4E900663045 /* SetupHomeVeiws.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupHomeVeiws.swift; sourceTree = "<group>"; };
+		B84C8562282CE83300663045 /* SetupProfileViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViews.swift; sourceTree = "<group>"; };
+		B84C8564282CE88000663045 /* ProfileTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableCell.swift; sourceTree = "<group>"; };
 		B8663B692827760800D3DC13 /* ShowInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoVC.swift; sourceTree = "<group>"; };
 		B871DEBA282909CB00A40FEA /* SetupViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViews.swift; sourceTree = "<group>"; };
 		B871DEBC2829118100A40FEA /* ShowInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInstance.swift; sourceTree = "<group>"; };
@@ -193,6 +203,17 @@
 				BA2211E737C6F089773F70D8 /* Pods_hrmph_shows.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B84C855B282CE42000663045 /* HomeController */ = {
+			isa = PBXGroup;
+			children = (
+				B8157BDF28209084001B2702 /* ModernHomeVC.swift */,
+				B84C8560282CE4E900663045 /* SetupHomeVeiws.swift */,
+				B84C855C282CE43F00663045 /* ModernHomeVCDelegate.swift */,
+				B84C855E282CE48A00663045 /* CustomCVCell.swift */,
+			);
+			path = HomeController;
 			sourceTree = "<group>";
 		};
 		B86FC326282A7D2900700D70 /* Cells */ = {
@@ -365,7 +386,7 @@
 				B87BB3BB2828144D007BD1C0 /* ShowInfoController */,
 				B8D5BA2F28249B7C00301CBA /* ProfileViewController */,
 				B87BB3B62828000F007BD1C0 /* Deprecated */,
-				B8157BDF28209084001B2702 /* ModernHomeVC.swift */,
+				B84C855B282CE42000663045 /* HomeController */,
 				B8A3F956281ED054005970A9 /* MainVC.swift */,
 				B8C48585282025BF005F5977 /* TabBarVC.swift */,
 			);
@@ -394,10 +415,12 @@
 			isa = PBXGroup;
 			children = (
 				B8A90282281D9E7800D789F4 /* ProfileVC.swift */,
+				B84C8562282CE83300663045 /* SetupProfileViews.swift */,
 				B8D5BA2728249AFF00301CBA /* ProfileVCDelegate.swift */,
 				B8D5BA2B28249B2C00301CBA /* ProfileVCSetupTable.swift */,
 				B89C152D282351C300F59E05 /* ProfileTableViewCell.swift */,
 				B8094873282958F000B9B620 /* ModernProfileVC.swift */,
+				B84C8564282CE88000663045 /* ProfileTableCell.swift */,
 			);
 			path = ProfileViewController;
 			sourceTree = "<group>";
@@ -614,6 +637,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B84C855D282CE43F00663045 /* ModernHomeVCDelegate.swift in Sources */,
 				B8A9027D281D9E3B00D789F4 /* HomeVC.swift in Sources */,
 				B8B06404282A757A00896074 /* HeaderCollectionView.swift in Sources */,
 				B88550B628218EDE00B27E5E /* CustomTableViewCell.swift in Sources */,
@@ -624,12 +648,16 @@
 				B87BB3B8282803ED007BD1C0 /* CastCell.swift in Sources */,
 				B84528C12827DA79004B287D /* ModernShowInfoVC.swift in Sources */,
 				B8821DA9282509DC00A2F0DC /* ShowsViewModel.swift in Sources */,
+				B84C8565282CE88000663045 /* ProfileTableCell.swift in Sources */,
+				B84C8561282CE4E900663045 /* SetupHomeVeiws.swift in Sources */,
 				B871DEC0282911DC00A40FEA /* SearchDelegate.swift in Sources */,
 				B8E660E9282A4B70000EE498 /* SearchPageVCDelegate.swift in Sources */,
 				B8A90243281D8BDE00D789F4 /* AppDelegate.swift in Sources */,
 				B8C4858B28204D97005F5977 /* PopularCViewCell.swift in Sources */,
+				B84C8563282CE83300663045 /* SetupProfileViews.swift in Sources */,
 				B871DEC22829120100A40FEA /* ReturnedShowCell.swift in Sources */,
 				B8C4858D28204DEC005F5977 /* MiddleCViewCell.swift in Sources */,
+				B84C855F282CE48A00663045 /* CustomCVCell.swift in Sources */,
 				B8A3F957281ED054005970A9 /* MainVC.swift in Sources */,
 				B8A90288281DA66900D789F4 /* MainTheme.swift in Sources */,
 				B8157BE028209084001B2702 /* ModernHomeVC.swift in Sources */,

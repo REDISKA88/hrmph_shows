@@ -26,19 +26,35 @@ class TabBarVC: UITabBarController {
         self.tabBar.barTintColor = .black
         self.tabBar.tintColor = .white
        
+        
+        
+        let homeBarController = ModernHomeVC()
+        let homeNavigationController = UINavigationController(rootViewController: homeBarController)
+          homeNavigationController.navigationBar.tintColor = .clear
+        
+        
         let searchBarController = SearchPageVC()
         let searchNavigationController = UINavigationController(rootViewController: searchBarController)
         searchNavigationController.navigationBar.tintColor = .clear
-      //  let modernProfileController = ModernProfileVC()
-        let profileController = ProfileVC()
+        
         let favoritesBarController = FavoritesVC()
-        let modernHomeBarController = ModernHomeVC()
+        let favoritesNavigationController = UINavigationController(rootViewController: favoritesBarController)
+        favoritesNavigationController.navigationBar.tintColor = .clear
+        
+      //  let modernProfileController = ModernProfileVC()
+        let profileBarController = ProfileVC()
+        let profileNavigationController = UINavigationController(rootViewController: profileBarController)
+        profileNavigationController.navigationBar.tintColor = .clear
+       
+        
+        
 
-        modernHomeBarController.title = "Home"
+        homeBarController.title = "Home"
         searchBarController.title = "Search"
-        profileController.title = "Profile"
         favoritesBarController.title = "Favorites"
-        self.setViewControllers([modernHomeBarController, searchNavigationController, favoritesBarController, profileController], animated: false)
+        profileBarController.title = "Profile"
+        
+        self.setViewControllers([homeNavigationController, searchNavigationController, favoritesNavigationController, profileNavigationController], animated: false)
     }
     
     private func setImagesForTabBarItems() {
