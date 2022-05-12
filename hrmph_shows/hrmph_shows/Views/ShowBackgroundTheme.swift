@@ -29,7 +29,7 @@ class ShowBackgroundTheme: UIViewController {
         topView.addSubview(topViewImage)
     topView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height/2.8)
         topViewImage.frame = topView.frame
-        topViewImage.image = UIImage(named: "bg0")
+       // topViewImage.image = UIImage(named: "bg0")
         topViewImage.contentMode = .scaleAspectFill
         
         let lightBlure = UIBlurEffect(style: .regular)

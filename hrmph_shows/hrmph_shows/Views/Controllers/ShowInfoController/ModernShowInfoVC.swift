@@ -10,6 +10,7 @@ import UIKit
 
 class ModernShowInfoVC: ShowBackgroundTheme {
     var show: Show!
+    var bgImage: String!
     let actorsArray = ["cast1", "cast2","cast3","cast4","cast5","cast6","cast7"]
     let showImage: UIImageView = {
         let imageView = UIImageView()
@@ -181,6 +182,13 @@ class ModernShowInfoVC: ShowBackgroundTheme {
             let data = try Data(contentsOf: url)
             showImage.image = UIImage(data: data)
         } catch { print("error fail load image from url") }
+    
+        guard let urlBG = URL(string: bgImage ?? "") else { return }
+               do {
+                   let dataBG = try Data(contentsOf: urlBG)
+                   topViewImage.image = UIImage(data: dataBG)
+               } catch { print("error fail load BG image from url") }
+        
         
     }
     

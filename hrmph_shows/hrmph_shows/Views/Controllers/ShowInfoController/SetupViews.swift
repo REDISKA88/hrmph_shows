@@ -17,7 +17,7 @@ extension ModernShowInfoVC {
     }
     func setupCastCollectionView() {
         bottomView.addSubview(castShow)
-        genresShow.text = "Action, Adventure, Love"
+       // genresShow.text = "Action, Adventure, Love"
         castShow.delegate = self
         castShow.dataSource = self
         castShow.backgroundColor = .clear
@@ -31,7 +31,7 @@ extension ModernShowInfoVC {
     
     func setupSummaryTextView() {
         bottomView.addSubview(summaryShow)
-        summaryShow.text = "Based on the bestselling book series A Song of Ice and Fire by George R.R. Martin, this sprawling new HBO drama is set in a world where summers span decades and winters can last a lifetime. From the scheming south and the savage eastern lands, to the frozen north and ancient Wall that protects the realm from the mysterious darkness beyond, the powerful families of the Seven Kingdoms are locked in a battle for the Iron Throne. This is a story of duplicity and treachery, nobility and honor, conquest and triumph. In the Game of Thrones, you either win or you die."
+      //  summaryShow.text = "Based on the bestselling book series A Song of Ice and Fire by George R.R. Martin, this sprawling new HBO drama is set in a world where summers span decades and winters can last a lifetime. From the scheming south and the savage eastern lands, to the frozen north and ancient Wall that protects the realm from the mysterious darkness beyond, the powerful families of the Seven Kingdoms are locked in a battle for the Iron Throne. This is a story of duplicity and treachery, nobility and honor, conquest and triumph. In the Game of Thrones, you either win or you die."
         summaryShow.topAnchor.constraint(equalTo: genresShow.bottomAnchor, constant: 10).isActive = true
         summaryShow.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 30).isActive = true
         summaryShow.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -30).isActive = true
@@ -87,7 +87,7 @@ extension ModernShowInfoVC {
         showImage.leadingAnchor.constraint(equalTo: topVeiw.leadingAnchor, constant: 80).isActive = true
         showImage.trailingAnchor.constraint(equalTo: topVeiw.trailingAnchor, constant: -80).isActive = true
         showImage.bottomAnchor.constraint(equalTo: topVeiw.bottomAnchor, constant: 0).isActive = true
-        showImage.image = UIImage(named: "pp1")
+      //  showImage.image = UIImage(named: "pp1")
         showImage.contentMode = .scaleAspectFill
         showImage.layer.cornerRadius = 40
         showImage.layer.masksToBounds = true

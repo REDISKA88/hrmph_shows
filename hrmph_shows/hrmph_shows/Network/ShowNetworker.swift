@@ -17,7 +17,8 @@ class ShowNetworker {
     let urlHomeTopShows = "https://api.tvmaze.com/shows"
     let urlPopularTonight = "https://api.tvmaze.com/shows?page=2"
     var urlWhithShowId = "https://api.tvmaze.com/shows/"
-    
+    var ImagesString = "/images"
+    var returnedShowImages :[ImagesShowElement] = []
     var returnedShow: Show!
     // * * wrap this in model classes later * *
     // -- for home view controller
@@ -64,6 +65,28 @@ class ShowNetworker {
         
         guard idShow != nil else { return }
         let newUrl = urlWhithShowId + "\(idShow!)"
+        let newImageUrl = urlWhithShowId + "\(idShow!)" + ImagesString
+        guard let url2 = URL(string: newImageUrl) else {
+            print("Error: URL Fail")
+            return
+        }
+        let session2 = URLSession.shared
+        
+        let task2 = session2.dataTask(with: url2) { (data, response, error) in
+            if let error = error { print(error.localizedDescription)
+                print("image bg1")
+            }
+            do {
+                let decodeData = try JSONDecoder().decode([ImagesShowElement].self, from: data!)
+                self.returnedShowImages = decodeData
+            } catch {
+                print("image bg2")
+                print(error)
+                print(error.localizedDescription) }
+        }
+        task2.resume()
+        
+        
         print("New URL: \(newUrl)")
         guard let url = URL(string: newUrl) else {
             print("Error: URL Fail")
@@ -78,6 +101,37 @@ class ShowNetworker {
             do {
                 let decodeData = try JSONDecoder().decode(Show.self, from: data!)
                 self.returnedShow = decodeData
+            } catch {
+                print(error)
+                print(error.localizedDescription) }
+            complition()
+        }
+        task.resume()
+        
+    }
+    
+    
+    func getShowImagesById(complition: @escaping ()->(Void)) {
+      //  print("go to http: \(urlString)")
+        
+        guard idShow != nil else { return }
+        let newImageUrl = urlWhithShowId + "\(idShow!)" + ImagesString
+        
+        print("New URL: \(newImageUrl)")
+        
+        guard let url = URL(string: newImageUrl) else {
+            print("Error: URL Fail")
+            complition()
+            return
+        }
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let error = error { print(error.localizedDescription)
+                print("tussuu")
+            }
+            do {
+                let decodeData = try JSONDecoder().decode([ImagesShowElement].self, from: data!)
+                self.returnedShowImages = decodeData
             } catch {
                 print(error)
                 print(error.localizedDescription) }

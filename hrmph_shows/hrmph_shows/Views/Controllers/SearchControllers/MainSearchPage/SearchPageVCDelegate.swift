@@ -38,12 +38,23 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
         viewModel.networker.idShow = currentShow.id
         viewModel.networker.presentShowById {
             vc.show = self.viewModel.networker.returnedShow
+            var currentImg: String!
+            for im in self.viewModel.networker.returnedShowImages {
+                if im.type == "background" {
+                    if im.resolutions?.original?.url != nil {
+                        currentImg = im.resolutions?.original?.url
+                        break
+                    }
+                }
+            }
+            if currentImg != nil {
+                vc.bgImage = currentImg
+            }
             DispatchQueue.main.async {
                 vc.updateUserInterface()
             }
-              
-
         }
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
