@@ -7,6 +7,21 @@
 //
 
 import Foundation
+
+
+
+class ShowNetworker {
+    var searchRequest = "https://api.tvmaze.com/search/shows?q="
+    let urlAllShows = "https://api.tvmaze.com/search/shows?q="
+    let urlPopularPage = "https://api.tvmaze.com/shows?page=1"
+    
+    // * * wrap this in model classes later
+    var homeShowsCollection: [Show] = []
+    var searchPageCollection: [Show] = []
+    
+    // * *
+    
+}
 class HomePageShows {
    // var urlString = "https://api.tvmaze.com/search/shows?q=girls"
  //   var urlString = "https://api.tvmaze.com/search/shows?q="

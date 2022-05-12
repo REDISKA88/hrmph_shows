@@ -21,7 +21,7 @@
 		B84C8565282CE88000663045 /* ProfileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84C8564282CE88000663045 /* ProfileTableCell.swift */; };
 		B8663B6A2827760800D3DC13 /* ShowInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8663B692827760800D3DC13 /* ShowInfoVC.swift */; };
 		B871DEBB282909CB00A40FEA /* SetupViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B871DEBA282909CB00A40FEA /* SetupViews.swift */; };
-		B871DEBD2829118100A40FEA /* ShowInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B871DEBC2829118100A40FEA /* ShowInstance.swift */; };
+		B871DEBD2829118100A40FEA /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B871DEBC2829118100A40FEA /* Show.swift */; };
 		B871DEC0282911DC00A40FEA /* SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B871DEBF282911DC00A40FEA /* SearchDelegate.swift */; };
 		B871DEC22829120100A40FEA /* ReturnedShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B871DEC12829120100A40FEA /* ReturnedShowCell.swift */; };
 		B87BB3B8282803ED007BD1C0 /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BB3B7282803ED007BD1C0 /* CastCell.swift */; };
@@ -114,7 +114,7 @@
 		B84C8564282CE88000663045 /* ProfileTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableCell.swift; sourceTree = "<group>"; };
 		B8663B692827760800D3DC13 /* ShowInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoVC.swift; sourceTree = "<group>"; };
 		B871DEBA282909CB00A40FEA /* SetupViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViews.swift; sourceTree = "<group>"; };
-		B871DEBC2829118100A40FEA /* ShowInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInstance.swift; sourceTree = "<group>"; };
+		B871DEBC2829118100A40FEA /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		B871DEBF282911DC00A40FEA /* SearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDelegate.swift; sourceTree = "<group>"; };
 		B871DEC12829120100A40FEA /* ReturnedShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnedShowCell.swift; sourceTree = "<group>"; };
 		B87BB3B7282803ED007BD1C0 /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
@@ -216,6 +216,14 @@
 			path = HomeController;
 			sourceTree = "<group>";
 		};
+		B84C8566282CEC8900663045 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B8821DA62825054000A2F0DC /* ShowsModel.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		B86FC326282A7D2900700D70 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +304,7 @@
 				B8A90279281D96B100D789F4 /* MainDelegate */,
 				B8A90276281D8C2100D789F4 /* Views */,
 				B8A90277281D8C2900D789F4 /* ViewModels */,
+				B84C8566282CEC8900663045 /* Network */,
 				B8A90275281D8C1700D789F4 /* Models */,
 				B8A9024B281D8BDE00D789F4 /* hrmph_shows.xcdatamodeld */,
 			);
@@ -323,8 +332,7 @@
 		B8A90275281D8C1700D789F4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B8821DA62825054000A2F0DC /* ShowsModel.swift */,
-				B871DEBC2829118100A40FEA /* ShowInstance.swift */,
+				B871DEBC2829118100A40FEA /* Show.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -643,7 +651,7 @@
 				B88550B628218EDE00B27E5E /* CustomTableViewCell.swift in Sources */,
 				B8F48E1D282B942B00201B8E /* SearchListVC.swift in Sources */,
 				B8663B6A2827760800D3DC13 /* ShowInfoVC.swift in Sources */,
-				B871DEBD2829118100A40FEA /* ShowInstance.swift in Sources */,
+				B871DEBD2829118100A40FEA /* Show.swift in Sources */,
 				B8A9027F281D9E5200D789F4 /* FavoritesVC.swift in Sources */,
 				B87BB3B8282803ED007BD1C0 /* CastCell.swift in Sources */,
 				B84528C12827DA79004B287D /* ModernShowInfoVC.swift in Sources */,
