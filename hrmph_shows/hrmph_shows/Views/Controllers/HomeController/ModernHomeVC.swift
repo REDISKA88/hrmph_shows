@@ -20,15 +20,17 @@ class ModernHomeVC: MainTheme {
         carousel.type = .rotary
         return carousel
     }()
-    let topView: UIView = {
+    let topHomeView: UIView = {
         let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: 500, height: 100)
+       // view.frame = CGRect(x: 0, y: 0, width: 500, height: 100)
+        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
         return view
        }()
-    let mainView: UIView = {
+    let mainHomeView: UIView = {
         let view = UIView()
-        view.frame = CGRect(x: 0, y: 150, width: 500, height: 600)
+      //  view.frame = CGRect(x: 0, y: 150, width: 500, height: 600)
+        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
         return view
     }()
@@ -44,14 +46,80 @@ class ModernHomeVC: MainTheme {
         return cv
     }()
 
+    let homeScrollView: UIScrollView = {
+         let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+         scrollView.translatesAutoresizingMaskIntoConstraints = false
+         return scrollView
+     }()
+
+     let homeScrollViewContainer: UIStackView = {
+         let view = UIStackView()
+
+         view.axis = .vertical
+         view.spacing = 0
+
+         view.translatesAutoresizingMaskIntoConstraints = false
+         return view
+     }()
+    
+        let topBGView: UIView = {
+        let view = UIView()
+        let subview = UIView()
+        
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(subview)
+        subview.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        subview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        subview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        subview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 100).isActive = true
+        // MARK: -top corner backgroundView
+        subview.backgroundColor = #colorLiteral(red: 0.1254716814, green: 0.125500828, blue: 0.1254698336, alpha: 1)
+        subview.layer.cornerRadius = 50
+        view.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        view.backgroundColor = .clear
+        return view
+    }()
+
+    let middleBGView: UIView = {
+        let view = UIView()
+        view.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        view.backgroundColor = #colorLiteral(red: 0.1254716814, green: 0.125500828, blue: 0.1254698336, alpha: 1)
+        return view
+    }()
+
+    let bottomBGView: UIView = {
+        let view = UIView()
+        view.heightAnchor.constraint(equalToConstant: 340).isActive = true
+        view.backgroundColor = #colorLiteral(red: 0.1254716814, green: 0.125500828, blue: 0.1254698336, alpha: 1)
+        
+        //view.backgroundColor = .green
+        return view
+    }()
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(homeScrollView)
+        homeScrollView.addSubview(homeScrollViewContainer)
+        homeScrollViewContainer.addArrangedSubview(topBGView)
+        homeScrollViewContainer.addArrangedSubview(middleBGView)
+        homeScrollViewContainer.addArrangedSubview(bottomBGView)
         
         getHomeShows()
+        
+        setupHomeScrollView()
+        setupHomeScrollViewContainer()
         setupHomeTopView()
-        setupCollectionView()
-        setupHomeLabel()
-        setupHomeMiddleCollectionView()
+        setupHomeMiddleView()
+        setupLabelHomeBottomView()
+        setupCollectionViewHomeBottomView()
+//        setupHomeTopView()
+//        setupCollectionView()
+//        setupHomeLabel()
+//        setupHomeMiddleCollectionView()
     }
 
     func getHomeShows() {

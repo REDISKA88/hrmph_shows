@@ -395,12 +395,12 @@
 		B8A9027B281D981800D789F4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B88517C4282BAA82007D1E4F /* FavoritesViewController */,
-				B871DEBE282911C600A40FEA /* SearchControllers */,
 				B87BB3BB2828144D007BD1C0 /* ShowInfoController */,
+				B84C855B282CE42000663045 /* HomeController */,
+				B871DEBE282911C600A40FEA /* SearchControllers */,
+				B88517C4282BAA82007D1E4F /* FavoritesViewController */,
 				B8D5BA2F28249B7C00301CBA /* ProfileViewController */,
 				B87BB3B62828000F007BD1C0 /* Deprecated */,
-				B84C855B282CE42000663045 /* HomeController */,
 				B8A3F956281ED054005970A9 /* MainVC.swift */,
 				B8C48585282025BF005F5977 /* TabBarVC.swift */,
 			);
@@ -874,6 +874,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = hrmph_shows/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -892,6 +893,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = hrmph_shows/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
