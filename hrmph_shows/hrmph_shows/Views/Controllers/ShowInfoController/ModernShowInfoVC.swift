@@ -157,40 +157,64 @@ class ModernShowInfoVC: ShowBackgroundTheme {
         genres.textAlignment = .center
         return genres
     }()
-
     
-    func updateUserInterface() {
-        showTitle.text = show.name
-        show.summary = show.summary?.replacingOccurrences(of: "<[^>]+>", with: "",
-            options: .regularExpression, range: nil)
-        summaryShow.text = show.summary
-        if let rating = show.rating?.average {
+    
+    func updateUserInterface(with tvShow: Show) {
+        
+        showTitle.text = tvShow.name
+        let about = tvShow.summary?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+        summaryShow.text = about
+        if let rating = tvShow.rating?.average {
             showRatingCount.text = "\(rating)"
         } else { showRatingCount.text = "-" }
         
-        if show.genres != nil {
+        if tvShow.genres != nil {
             var list = ""
-            for genre in show.genres! {
+            for genre in tvShow.genres! {
                 list += " \(genre), "
             }
             list.removeLast()
             list.removeLast()
             genresShow.text = list
         }
-        guard let url = URL(string: show.image?.original ?? "") else { return }
-        do {
-            let data = try Data(contentsOf: url)
-            showImage.image = UIImage(data: data)
-        } catch { print("error fail load image from url") }
-    
-        guard let urlBG = URL(string: bgImage ?? "") else { return }
-               do {
-                   let dataBG = try Data(contentsOf: urlBG)
-                   topViewImage.image = UIImage(data: dataBG)
-               } catch { print("error fail load BG image from url") }
-        
-        
+        guard let posterUrl = URL(string: (tvShow.image?.original)!) else { return }
+        showImage.image = nil
+        getImageFrom(url: posterUrl, for: showImage)
     }
+    
+//
+//    func updateUserInterface() {
+//        showTitle.text = show.name
+//        show.summary = show.summary?.replacingOccurrences(of: "<[^>]+>", with: "",
+//            options: .regularExpression, range: nil)
+//        summaryShow.text = show.summary
+//        if let rating = show.rating?.average {
+//            showRatingCount.text = "\(rating)"
+//        } else { showRatingCount.text = "-" }
+//
+//        if show.genres != nil {
+//            var list = ""
+//            for genre in show.genres! {
+//                list += " \(genre), "
+//            }
+//            list.removeLast()
+//            list.removeLast()
+//            genresShow.text = list
+//        }
+//        guard let url = URL(string: show.image?.original ?? "") else { return }
+//        do {
+//            let data = try Data(contentsOf: url)
+//            showImage.image = UIImage(data: data)
+//        } catch { print("error fail load image from url") }
+//
+//        guard let urlBG = URL(string: bgImage ?? "") else { return }
+//               do {
+//                   let dataBG = try Data(contentsOf: urlBG)
+//                   topViewImage.image = UIImage(data: dataBG)
+//               } catch { print("error fail load BG image from url") }
+//
+//
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -268,6 +292,26 @@ class ModernShowInfoVC: ShowBackgroundTheme {
         //view.backgroundColor = .green
         return view
     }()
+}
+
+extension UIViewController {
+    func getImageFrom(url: URL, for poster: UIImageView) {
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                print("load image error: \(error.localizedDescription)")
+                return
+            }
+            guard let data = data else {
+                print("empty image data")
+                return
+            }
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data) {
+                    poster.image = image
+                }
+            }
+        }.resume()
+    }
 }
 
 

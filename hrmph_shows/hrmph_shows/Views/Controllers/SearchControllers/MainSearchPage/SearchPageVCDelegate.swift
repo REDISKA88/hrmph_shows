@@ -51,7 +51,7 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
                 vc.bgImage = currentImg
             }
             DispatchQueue.main.async {
-                vc.updateUserInterface()
+               // vc.updateUserInterface()
             }
         }
         

@@ -98,17 +98,20 @@ class ModernHomeVC: MainTheme {
     }()
     
     
-    
-    
+    var modernVM = ModernViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        
+        
         view.addSubview(homeScrollView)
         homeScrollView.addSubview(homeScrollViewContainer)
         homeScrollViewContainer.addArrangedSubview(topBGView)
         homeScrollViewContainer.addArrangedSubview(middleBGView)
         homeScrollViewContainer.addArrangedSubview(bottomBGView)
         
-        getHomeShows()
+       loadPopularShows()
+     //  getHomeShows()
         
         setupHomeScrollView()
         setupHomeScrollViewContainer()
@@ -120,6 +123,14 @@ class ModernHomeVC: MainTheme {
 //        setupCollectionView()
 //        setupHomeLabel()
 //        setupHomeMiddleCollectionView()
+    }
+    
+    func loadPopularShows() {
+        modernVM.fetchPopularShows { [weak self] in
+            self?.customCollectionView.reloadData()
+            self?.midCV.reloadData()
+        }
+        
     }
 
     func getHomeShows() {
