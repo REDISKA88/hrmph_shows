@@ -70,20 +70,32 @@ class SearchPageVC: MainTheme {
         cv.backgroundColor = .clear
         return cv
     }()
+    
+    var modernVM = ModernViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadMainShows()
       //  thisShowsImages.shuffle()
         setupSearchView()
         setupCollectionView()
         self.hideKeyboardWhenTappedAround()
         
-        viewModel.networker.getPopularShows {
-            DispatchQueue.main.async {
-                self.showCollectionView.reloadData()
-            }
-        }
+//        viewModel.networker.getPopularShows {
+//            DispatchQueue.main.async {
+//                self.showCollectionView.reloadData()
+//            }
+//        }
+        
+        
         //search
        // self.view.layoutIfNeeded()
+        
+    }
+    
+    func loadMainShows() {
+        modernVM.fetchPopularShows { [weak self] in
+            self?.showCollectionView.reloadData()
+        }
         
     }
     func setupCollectionView() {

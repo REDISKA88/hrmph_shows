@@ -11,50 +11,24 @@ import UIKit
 extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
       // **  return viewModel.searchPageShows.returnedShowsArray.count
-        if viewModel.networker.homeTopShowsCollection.count > 100 {
-            return 100
-        }
-        return viewModel.networker.homeTopShowsCollection.count
+        return modernVM.numberOfShows()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShowsCell", for: indexPath) as! ShowsCell
         cell.backgroundColor = .clear
-     //**   let currentShow = viewModel.searchPageShows.returnedShowsArray[indexPath.row]
-        let currentShow = viewModel.networker.homeTopShowsCollection[indexPath.row]
-        cell.titleLabel.text = currentShow.name
-             guard let url = URL(string: currentShow.image?.medium ?? "") else { return cell }
-             do {
-                 let data = try Data(contentsOf: url)
-                 cell.showImageView.image = UIImage(data: data)
-                cell.titleForShow = currentShow.name
-             } catch { print("error fail load image from url") }
+        let thisShow = modernVM.showForIndex(index: indexPath.row)
+        
+        cell.titleLabel.text = thisShow.name
+        guard let image = URL(string:(thisShow.image?.original)!) else { return cell }
+        getImageFrom(url: image, for: cell.showImageView)
              return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let currentShow = viewModel.networker.homeTopShowsCollection[indexPath.row]
+        let thisShow = modernVM.showForIndex(index: indexPath.row)
         let vc = ModernShowInfoVC()
-        viewModel.networker.idShow = currentShow.id
-        viewModel.networker.presentShowById {
-            vc.show = self.viewModel.networker.returnedShow
-            var currentImg: String!
-            for im in self.viewModel.networker.returnedShowImages {
-                if im.type == "background" {
-                    if im.resolutions?.original?.url != nil {
-                        currentImg = im.resolutions?.original?.url
-                        break
-                    }
-                }
-            }
-            if currentImg != nil {
-                vc.bgImage = currentImg
-            }
-            DispatchQueue.main.async {
-               // vc.updateUserInterface()
-            }
-        }
-        
+        vc.updateUserInterface(with: thisShow)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
