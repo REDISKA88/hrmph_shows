@@ -42,13 +42,34 @@ extension ModernHomeVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = ModernShowInfoVC()
-        vc.show = viewModel.home.returnedShowsArray[indexPath.row]
-        present(vc, animated: true)
+         let currentShow = viewModel.networker.homeTopShowsCollection[indexPath.row]
+        viewModel.networker.idShow = currentShow.id
+               viewModel.networker.presentShowById {
+                   vc.show = self.viewModel.networker.returnedShow
+                   var currentImg: String!
+                   for im in self.viewModel.networker.returnedShowImages {
+                       if im.type == "background" {
+                           if im.resolutions?.original?.url != nil {
+                               currentImg = im.resolutions?.original?.url
+                               break
+                           }
+                       }
+                   }
+                   if currentImg != nil {
+                       vc.bgImage = currentImg
+                   }
+                   DispatchQueue.main.async {
+                       vc.updateUserInterface()
+                   }
+               }
+       // vc.show = viewModel.home.returnedShowsArray[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+     //   present(vc, animated: true)
     }
 
 }
 // MARK: -iCarousel
-extension ModernHomeVC: iCarouselDataSource {
+extension ModernHomeVC: iCarouselDataSource, iCarouselDelegate {
     func numberOfItems(in carousel: iCarousel) -> Int {
        //** return viewModel.home.returnedShowsArray.count
         if viewModel.networker.homeTopShowsCollection.count > 15 {
@@ -85,6 +106,34 @@ extension ModernHomeVC: iCarouselDataSource {
 //        imageShow.layer.masksToBounds = true
 //        return view
     }
+
+    // didSelectItemAtIndex
     
+    func carousel(_ carousel: iCarousel, didSelectItemAt index: Int) {
+        let vc = ModernShowInfoVC()
+                let currentShow = viewModel.networker.homeTopShowsCollection[index]
+               viewModel.networker.idShow = currentShow.id
+                      viewModel.networker.presentShowById {
+                          vc.show = self.viewModel.networker.returnedShow
+                          var currentImg: String!
+                          for im in self.viewModel.networker.returnedShowImages {
+                              if im.type == "background" {
+                                  if im.resolutions?.original?.url != nil {
+                                      currentImg = im.resolutions?.original?.url
+                                      break
+                                  }
+                              }
+                          }
+                          if currentImg != nil {
+                              vc.bgImage = currentImg
+                          }
+                          DispatchQueue.main.async {
+                              vc.updateUserInterface()
+                          }
+                      }
+              // vc.show = viewModel.home.returnedShowsArray[indexPath.row]
+               self.navigationController?.pushViewController(vc, animated: true)
+//                present(vc, animated: true)
+    }
     
 }

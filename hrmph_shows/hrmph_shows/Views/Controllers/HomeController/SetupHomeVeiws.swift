@@ -97,6 +97,7 @@ extension ModernHomeVC {
     func setupHomeMiddleView() {
          middleBGView.addSubview(customCollectionView)
         customCollectionView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 300)
+        customCollectionView.delegate = self
         customCollectionView.dataSource = self
     }
     
