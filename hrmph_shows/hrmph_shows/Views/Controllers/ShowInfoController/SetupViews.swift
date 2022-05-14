@@ -63,6 +63,11 @@ extension ModernShowInfoVC {
     }
     
     func setupScrollView() {
+        scrollView.addSubview(backButton)
+        
+        backButton.topAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        backButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20).isActive = true
+       
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -70,6 +75,7 @@ extension ModernShowInfoVC {
     }
     
     func setupScrollViewContainer() {
+        
         scrollViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
         scrollViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
         scrollViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 30).isActive = true
@@ -81,7 +87,6 @@ extension ModernShowInfoVC {
     
     func setupTopView() {
         topVeiw.addSubview(showImage)
-
         showImage.translatesAutoresizingMaskIntoConstraints = false
         showImage.topAnchor.constraint(equalTo: topVeiw.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         showImage.leadingAnchor.constraint(equalTo: topVeiw.leadingAnchor, constant: 80).isActive = true

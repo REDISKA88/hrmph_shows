@@ -25,8 +25,8 @@ class ModernShowInfoVC: ShowBackgroundTheme {
         button.addTarget(self, action: #selector(popBack), for: .touchUpInside)
         button.tintColor = UIColor.white.withAlphaComponent(0.9)
           button.translatesAutoresizingMaskIntoConstraints = false
-          let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .light, scale: .large)
-          button.setImage(UIImage(systemName: "chevron.left", withConfiguration: config), for: .normal)
+              let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .light, scale: .large)
+              button.setImage(UIImage(systemName: "chevron.left", withConfiguration: config), for: .normal)
         // lessthan.square.fill
         return button
     }()
@@ -194,9 +194,6 @@ class ModernShowInfoVC: ShowBackgroundTheme {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-//        scrollViewContainer.addSubview(backButton)
 //        backButton.topAnchor.constraint(equalTo: scrollViewContainer.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
 //        backButton.leadingAnchor.constraint(equalTo: scrollViewContainer.leadingAnchor, constant: 20).isActive = true
 //        backButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
