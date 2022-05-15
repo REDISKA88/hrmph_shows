@@ -111,13 +111,13 @@ extension ModernShowInfoVC {
         showTitle.translatesAutoresizingMaskIntoConstraints = false
         showTitle.centerYAnchor.constraint(equalTo: showInfoView.topAnchor, constant: 20).isActive = true
         showTitle.centerXAnchor.constraint(equalTo: showInfoView.centerXAnchor, constant: 0).isActive = true
-        showTitle.text = "Game of Thrones"
+       // showTitle.text = "Game of Thrones"
         
         showInfoView.addSubview(showRelease)
         showRelease.translatesAutoresizingMaskIntoConstraints = false
         showRelease.centerYAnchor.constraint(equalTo: showTitle.centerYAnchor, constant: 40).isActive = true
         showRelease.centerXAnchor.constraint(equalTo: showTitle.centerXAnchor, constant: 0).isActive = true
-        showRelease.text = "2022"
+      //  showRelease.text = "2022"
         
         
         showInfoView.addSubview(showRatingImage)
@@ -127,7 +127,7 @@ extension ModernShowInfoVC {
         showRatingImage.leadingAnchor.constraint(equalTo: showRelease.leadingAnchor, constant: 0).isActive = true
         showRatingImage.centerYAnchor.constraint(equalTo: showRelease.centerYAnchor, constant: 40).isActive = true
         
-        showRatingCount.text = "9.7"
+      //  showRatingCount.text = "9.7"
         showRatingCount.leadingAnchor.constraint(equalTo: showRatingImage.leadingAnchor, constant: 35).isActive = true
         showRatingCount.centerYAnchor.constraint(equalTo: showRatingImage.centerYAnchor, constant: 0).isActive = true
         showRatingCount.trailingAnchor.constraint(equalTo: showRelease.trailingAnchor, constant: 0).isActive = true

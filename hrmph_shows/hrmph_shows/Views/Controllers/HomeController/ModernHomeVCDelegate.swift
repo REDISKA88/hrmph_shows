@@ -32,6 +32,7 @@ extension ModernHomeVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = ModernShowInfoVC()
         let thisShow = modernVM.showForIndex(index: indexPath.row)
+        
         vc.updateUserInterface(with: thisShow)
         self.navigationController?.pushViewController(vc, animated: true)
     
@@ -83,9 +84,12 @@ extension ModernHomeVC: iCarouselDataSource, iCarouselDelegate {
 
     func carousel(_ carousel: iCarousel, didSelectItemAt index: Int) {
         let vc = ModernShowInfoVC()
+    
         let thisShow = modernVM.showForIndex(index: index)
+        modernVM.fetchBackgroundShowImage(intId: thisShow.id, back: vc.backViewImage)
         vc.updateUserInterface(with: thisShow)
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     

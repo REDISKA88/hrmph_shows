@@ -220,10 +220,10 @@
 		B84C855B282CE42000663045 /* HomeController */ = {
 			isa = PBXGroup;
 			children = (
-				B84C8560282CE4E900663045 /* SetupHomeVeiws.swift */,
 				B8157BDF28209084001B2702 /* ModernHomeVC.swift */,
 				B84C855C282CE43F00663045 /* ModernHomeVCDelegate.swift */,
 				B84C855E282CE48A00663045 /* CustomCVCell.swift */,
+				B84C8560282CE4E900663045 /* SetupHomeVeiws.swift */,
 			);
 			path = HomeController;
 			sourceTree = "<group>";
@@ -407,8 +407,8 @@
 		B8A9027B281D981800D789F4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B87BB3BB2828144D007BD1C0 /* ShowInfoController */,
 				B84C855B282CE42000663045 /* HomeController */,
+				B87BB3BB2828144D007BD1C0 /* ShowInfoController */,
 				B871DEBE282911C600A40FEA /* SearchControllers */,
 				B88517C4282BAA82007D1E4F /* FavoritesViewController */,
 				B8D5BA2F28249B7C00301CBA /* ProfileViewController */,

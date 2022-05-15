@@ -32,7 +32,7 @@ class ModernShowInfoVC: ShowBackgroundTheme {
     }()
     
     @objc func popBack() {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: false)
     }
     let showInfoView: UIView = {
         let view = UIView()
@@ -160,7 +160,9 @@ class ModernShowInfoVC: ShowBackgroundTheme {
     
     
     func updateUserInterface(with tvShow: Show) {
-        
+//        if andBackground != nil {
+//            self.backViewImage = andBackground!
+//        }
         showTitle.text = tvShow.name
         let about = tvShow.summary?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
         summaryShow.text = about

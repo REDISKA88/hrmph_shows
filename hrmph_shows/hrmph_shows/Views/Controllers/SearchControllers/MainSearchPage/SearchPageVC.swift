@@ -9,7 +9,6 @@
 import UIKit
 
 class SearchPageVC: MainTheme {
-    let viewModel = ShowsViewModel()
     var thisShowsImages = ["0", "1", "2","3","4","5","6","7","8", "9", "10","11","12","13","14","15", "16", "17","18","19","20","21","22","23","24","25","26","27","28"]
     let searchView: UIView = {
         let view = UIView()
@@ -75,16 +74,9 @@ class SearchPageVC: MainTheme {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMainShows()
-      //  thisShowsImages.shuffle()
         setupSearchView()
         setupCollectionView()
         self.hideKeyboardWhenTappedAround()
-        
-//        viewModel.networker.getPopularShows {
-//            DispatchQueue.main.async {
-//                self.showCollectionView.reloadData()
-//            }
-//        }
         
         
         //search

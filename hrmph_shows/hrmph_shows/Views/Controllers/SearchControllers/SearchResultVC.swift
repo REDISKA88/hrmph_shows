@@ -10,7 +10,6 @@ import UIKit
 
 class SearchVC: MainTheme {
     
-    let viewModel = ShowsViewModel()
     let sortBySegmentedControl: UISegmentedControl = {
         let sort = UISegmentedControl()
          sort.insertSegment(with: UIImage(systemName: "arrow.up.arrow.down"), at: 0, animated: false)
@@ -33,11 +32,6 @@ class SearchVC: MainTheme {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.shows.getData {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
         
         self.view.addSubview(tableView)
         view.addSubview(sortBySegmentedControl)

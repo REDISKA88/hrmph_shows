@@ -11,8 +11,7 @@ import iCarousel
 
 
 class ModernHomeVC: MainTheme {
-    var viewModel = ShowsViewModel()
-    var array: [PopularShow]!
+   // var array: [PopularShow]!
     let topIDCell = "topCell"
     let popularLable = UILabel()
     let customCollectionView: iCarousel = {
@@ -131,24 +130,8 @@ class ModernHomeVC: MainTheme {
             self?.midCV.reloadData()
         }
         
+        
     }
 
-    func getHomeShows() {
-        
-        viewModel.networker.getPopularShows {
-            DispatchQueue.main.async {
-                self.customCollectionView.reloadData()
-                self.midCV.reloadData()
-            }
-        }
-//
-//        viewModel.home.getData {
-//            DispatchQueue.main.async {
-//                self.customCollectionView.reloadData()
-//                self.midCV.reloadData()
-//            }
-//
-//        }
-    }
 
 }

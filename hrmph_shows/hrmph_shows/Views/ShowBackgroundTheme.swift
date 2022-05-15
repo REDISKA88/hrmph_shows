@@ -9,7 +9,7 @@
 import UIKit
 
 class ShowBackgroundTheme: UIViewController {
-    let topViewImage = UIImageView()
+    var backViewImage = UIImageView()
     
     let topView: UIView = {
         let view = UIView()
@@ -26,17 +26,17 @@ class ShowBackgroundTheme: UIViewController {
     
    func setupBackgroundTheme() {
         view.addSubview(topView)
-        topView.addSubview(topViewImage)
+        topView.addSubview(backViewImage)
     topView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height/2.8)
-        topViewImage.frame = topView.frame
+        backViewImage.frame = topView.frame
        // topViewImage.image = UIImage(named: "bg0")
-        topViewImage.contentMode = .scaleAspectFill
+        backViewImage.contentMode = .scaleAspectFill
         
         let lightBlure = UIBlurEffect(style: .regular)
         let effectView = UIVisualEffectView (effect: lightBlure)
         effectView.alpha = 0.5
-        effectView.frame = topViewImage.bounds
-        topViewImage.addSubview(effectView)
+        effectView.frame = backViewImage.bounds
+        backViewImage.addSubview(effectView)
     }
    
 

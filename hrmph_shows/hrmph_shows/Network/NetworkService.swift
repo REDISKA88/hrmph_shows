@@ -12,8 +12,46 @@ import Foundation
 
 class APIService {
     
-    let showsDataArray: [Show] = []
     private var dataTask: URLSessionDataTask?
+    private var urlString = "https://api.tvmaze.com/shows/"
+    private var baseUrl = "https://api.tvmaze.com/shows/"
+    var id: String?
+    
+    func getShowBackgroundImages(id: String, completion: @escaping (Result<[ImagesShowElement], Error>) -> (Void)) {
+           
+           let urlShowsImages = baseUrl + id + "/images"
+           print("SEARCH IMAGE = \(urlShowsImages)")
+           guard let url = URL(string: urlShowsImages) else { return }
+           
+           dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
+               if let error = error {
+                   completion(.failure(error))
+                   print("DataTask IMAGES error: \(error.localizedDescription)")
+                   return
+               }
+               guard let response = response as? HTTPURLResponse else {
+                   print("EMPTY DATA IMAGES")
+                   return
+               }
+               print("IMAGES Response status: \(response.statusCode)")
+               
+               do {
+                   let decoder = JSONDecoder()
+                   let JSONDataImages = try decoder.decode([ImagesShowElement].self, from: data!)
+                   
+                   DispatchQueue.main.async {
+                       completion(.success(JSONDataImages))
+                   }
+               } catch let error {
+                print("ERROR DECODING DATA IMAGES")
+                   completion(.failure(error))
+               }
+               
+           }
+           dataTask?.resume()
+           
+       }
+    
     
     func getPopularShowsData(completion: @escaping (Result<[Show], Error>) -> (Void)) {
         
@@ -48,6 +86,8 @@ class APIService {
         dataTask?.resume()
         
     }
+    
+
     
     
 }

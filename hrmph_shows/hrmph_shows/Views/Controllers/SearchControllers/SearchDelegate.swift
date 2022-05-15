@@ -17,25 +17,25 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ModernShowInfoVC()
-        let selectedShow = viewModel.shows.returnedShowsArray[indexPath.row].show
-        vc.show = selectedShow
+//        let selectedShow = viewModel.shows.returnedShowsArray[indexPath.row].show
+//        vc.show = selectedShow
         self.navigationController?.pushViewController(vc, animated: true)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.shows.returnedShowsArray.count
+        return 10
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.view.frame.size.height/10
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReturnedShowCell", for: indexPath) as! ReturnedShowCell
-        let currentShow = viewModel.shows.returnedShowsArray[indexPath.row].show
-        cell.titleShow.text = currentShow.name
-        guard let rating = currentShow.rating?.average else {
-            cell.ratingShow.text = "-"
-            return cell
-        }
-        cell.ratingShow.text = String(rating)
+//        let currentShow = viewModel.shows.returnedShowsArray[indexPath.row].show
+//        cell.titleShow.text = currentShow.name
+//        guard let rating = currentShow.rating?.average else {
+//            cell.ratingShow.text = "-"
+//            return cell
+//        }
+//        cell.ratingShow.text = String(rating)
         return cell
     }
 }
