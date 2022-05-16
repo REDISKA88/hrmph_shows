@@ -15,7 +15,44 @@ class APIService {
     private var dataTask: URLSessionDataTask?
     private var urlString = "https://api.tvmaze.com/shows/"
     private var baseUrl = "https://api.tvmaze.com/shows/"
+    
     var id: String?
+  
+    
+    func getShowQueryRequest(query: String, completion: @escaping (Result<[ShowQueryRequest], Error>) -> (Void)) {
+           
+           let urlBaseRequest = "https://api.tvmaze.com/search/shows?q="
+           
+           guard let url = URL(string: urlBaseRequest+query) else { return }
+           
+           dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
+               if let error = error {
+                   completion(.failure(error))
+                   print("DataTask error: \(error.localizedDescription)")
+                   return
+               }
+               guard let response = response as? HTTPURLResponse else {
+                   print("EMPTY DATA")
+                   return
+               }
+               print("Response status: \(response.statusCode)")
+               
+               do {
+                   let decoder = JSONDecoder()
+                   let JSONData = try decoder.decode([ShowQueryRequest].self, from: data!)
+                   
+                   DispatchQueue.main.async {
+                       completion(.success(JSONData))
+                   }
+               } catch let error {
+                   completion(.failure(error))
+               }
+               
+           }
+           dataTask?.resume()
+           
+       }
+    
     
     func getShowBackgroundImages(id: String, completion: @escaping (Result<[ImagesShowElement], Error>) -> (Void)) {
            

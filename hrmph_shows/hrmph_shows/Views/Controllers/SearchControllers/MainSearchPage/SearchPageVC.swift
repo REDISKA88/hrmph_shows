@@ -33,8 +33,9 @@ class SearchPageVC: MainTheme {
     @objc func searchShowButton() {
         let vc = SearchListVC()
         guard let searching = searchField.text, searching.count > 0 else {return}
-        
-        vc.whatUsearch += searching
+        vc.whatUsearch = searching
+        let trimmedShow = searching.trimmingCharacters(in: .whitespaces)
+        vc.seachTheShow(byQuery: trimmedShow)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

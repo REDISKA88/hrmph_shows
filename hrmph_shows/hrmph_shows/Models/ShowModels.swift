@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct ShowQueryRequest: Codable {
+    var score: Double
+    var show: Show
+}
+
 struct ImagesShowElement: Codable {
     let id: Int?
     let type: String?

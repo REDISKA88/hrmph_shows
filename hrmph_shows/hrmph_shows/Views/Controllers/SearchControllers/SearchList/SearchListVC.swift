@@ -10,9 +10,8 @@ import UIKit
 
 class SearchListVC: MainTheme {
     var viewModelImages =  ["0", "1", "2","3","4","5","6","7", "8", "9", "10","11","12","13","14","15", "16", "17","18","19","20","21","22","23","24","25","26","27","28"]
+    var returnedList: [ShowQueryRequest]!
     var whatUsearch = ""
-    
-    // arrowshape.turn.up.left.2.fill
     let backButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(popBack), for: .touchUpInside)
@@ -40,7 +39,7 @@ class SearchListVC: MainTheme {
     @objc func popBack() {
         navigationController?.popViewController(animated: true)
     }
-    
+    var searchlistVM = ModernViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -48,6 +47,12 @@ class SearchListVC: MainTheme {
         setupSearchListTable()
         self.hideKeyboardWhenTappedAround()
         
+    }
+    
+    func seachTheShow(byQuery: String) {
+        searchlistVM.fetchShowQueryRequest(show: byQuery) {[weak self] in
+            self?.listTable.reloadData()
+        }
     }
     
     func setupSearchListTable() {

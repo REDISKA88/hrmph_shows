@@ -296,7 +296,7 @@ class ModernShowInfoVC: ShowBackgroundTheme {
     }()
 }
 
-extension UIViewController {
+extension UIView {
     func getImageFrom(url: URL, for poster: UIImageView) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
