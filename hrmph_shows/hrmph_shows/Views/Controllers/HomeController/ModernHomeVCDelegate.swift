@@ -16,13 +16,14 @@ extension ModernHomeVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
         return CGSize(width: collectionView.frame.width/2.5, height: collectionView.frame.height)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return modernVM.numberOfShows()
+        print(modernVM.numberOfTonightShows())
+        return modernVM.numberOfTonightShows()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         
-        let thisShow = modernVM.showForIndex(index: indexPath.row)
+        let thisShow = modernVM.getTonightShowByIndex(index: indexPath.row)
         cell.label.text = thisShow.name
         guard let image = URL(string:(thisShow.image?.original)!) else { return cell }
         getImageFrom(url: image, for: cell.bg)
@@ -31,8 +32,12 @@ extension ModernHomeVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = ModernShowInfoVC()
-        let thisShow = modernVM.showForIndex(index: indexPath.row)
-        
+        let thisShow = modernVM.getTonightShowByIndex(index: indexPath.row)
+         /*
+        !!!  Вынести поиск бэекграунд имэджа в ShowInfoVc в метод updateUserInterface !!!
+          */
+         modernVM.fetchBackgroundShowImage(intId: thisShow.id, back: vc.backViewImage)
+         //!!
         vc.updateUserInterface(with: thisShow)
         self.navigationController?.pushViewController(vc, animated: true)
     
@@ -84,11 +89,14 @@ extension ModernHomeVC: iCarouselDataSource, iCarouselDelegate {
 
     func carousel(_ carousel: iCarousel, didSelectItemAt index: Int) {
         let vc = ModernShowInfoVC()
-    
-        let thisShow = modernVM.showForIndex(index: index)
-        modernVM.fetchBackgroundShowImage(intId: thisShow.id, back: vc.backViewImage)
-        vc.updateUserInterface(with: thisShow)
         
+        let thisShow = modernVM.showForIndex(index: index)
+        /*
+       !!!  Вынести поиск бэекграунд имэджа в ShowInfoVc в метод updateUserInterface !!!
+         */
+        modernVM.fetchBackgroundShowImage(intId: thisShow.id, back: vc.backViewImage)
+        //!!
+        vc.updateUserInterface(with: thisShow)
         self.navigationController?.pushViewController(vc, animated: false)
     }
     

@@ -125,12 +125,13 @@ class ModernHomeVC: MainTheme {
     }
     
     func loadPopularShows() {
-        modernVM.fetchPopularShows { [weak self] in
+        modernVM.fetchPopularShows{ [weak self] in
+            self?.customCollectionView.reloadData()
+        }
+        modernVM.fetchPopularTonight{ [weak self] in
             self?.customCollectionView.reloadData()
             self?.midCV.reloadData()
         }
-        
-        
     }
 
 

@@ -15,13 +15,14 @@ class CastCell: UICollectionViewCell {
         actor.translatesAutoresizingMaskIntoConstraints = false
        actor.contentMode = .scaleAspectFill
         actor.clipsToBounds = true
+        actor.image = nil
         actor.layer.cornerRadius = 46
         return actor
     }()
     
     let actorName: UILabel = {
        let name = UILabel()
-        name.text = "Actor Name"
+        name.text = ""
         name.textColor = UIColor.white.withAlphaComponent(0.8)
         name.adjustsFontSizeToFitWidth = true
         name.font = .systemFont(ofSize: 20)

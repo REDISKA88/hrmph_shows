@@ -18,7 +18,7 @@ class TestViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func loadPopularShows() {
-        modernVM.fetchPopularShows { [weak self] in
+        modernVM.fetchPopularShows{ [weak self] in
             self?.tableView.dataSource = self
             self?.tableView.reloadData()
         }

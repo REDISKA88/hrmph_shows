@@ -9,7 +9,7 @@
 import Foundation
 
 
-
+// STAGE -1
 class ShowNetworker {
     var idShow: Int?
     var searchRequest = "https://api.tvmaze.com/search/shows?q="
@@ -17,6 +17,7 @@ class ShowNetworker {
     let urlHomeTopShows = "https://api.tvmaze.com/shows"
     let urlPopularTonight = "https://api.tvmaze.com/shows?page=0"
     var urlWhithShowId = "https://api.tvmaze.com/shows/"
+    
     var ImagesString = "/images"
     var returnedShowImages :[ImagesShowElement] = []
     var returnedShow: Show!
@@ -140,6 +141,33 @@ class ShowNetworker {
         task.resume()
     }
     
+    func getShowCastById(complition: @escaping ()->(Void)) {
+
+        guard idShow != nil else { return }
+        let newImageUrl = urlWhithShowId + "\(idShow!)" + ImagesString
+        
+        print("New URL: \(newImageUrl)")
+        
+        guard let url = URL(string: newImageUrl) else {
+            print("Error: URL Fail")
+            complition()
+            return
+        }
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let error = error { print(error.localizedDescription)
+                print("tussuu")
+            }
+            do {
+                let decodeData = try JSONDecoder().decode([ImagesShowElement].self, from: data!)
+                self.returnedShowImages = decodeData
+            } catch {
+                print(error)
+                print(error.localizedDescription) }
+            complition()
+        }
+        task.resume()
+    }
     
     
 }

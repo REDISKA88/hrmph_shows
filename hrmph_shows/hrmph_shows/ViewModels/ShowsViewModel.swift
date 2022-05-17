@@ -12,8 +12,10 @@ import Foundation
 class ModernViewModel {
     private var apiService = APIService()
     private var popularShows = [Show]()
+    private var popularTonight = [Show]()
     
     private var searchShows = [ShowQueryRequest]()
+    private var showCast = [Actor]()
     var background: UIImageView?
     var query: String?
     
@@ -28,7 +30,7 @@ class ModernViewModel {
                 print("Eror processing json data in fetchShowQueryRequest: \(error)")
             }
         }
-        apiService.getPopularShowsData { [weak self] (result) in
+        apiService.getPopularShowsData(page: "") { [weak self] (result) in
             switch result {
             case .success(let shows):
                 self?.popularShows = shows
@@ -38,14 +40,11 @@ class ModernViewModel {
             }
         }
     }
-    
-    
-    
     
     
     
     func fetchPopularShows(completion: @escaping () -> ()) {
-        apiService.getPopularShowsData { [weak self] (result) in
+        apiService.getPopularShowsData(page: "") { [weak self] (result) in
             switch result {
             case .success(let shows):
                 self?.popularShows = shows
@@ -56,7 +55,32 @@ class ModernViewModel {
         }
     }
     
+    func fetchPopularTonight(completion: @escaping () -> ()) {
+        apiService.getPopularShowsData(page: "?page=1") { [weak self] (result) in
+            switch result {
+            case .success(let shows):
+                self?.popularTonight = shows
+                completion()
+            case .failure(let error):
+                print("Eror processing json data in fecthPopularShows: \(error)")
+            }
+        }
+    }
     
+    func fetchShowActorsBy(intId: Int?, completion: @escaping () -> ()){
+        guard let intId = intId else { return }
+        let castId = String(intId)
+        apiService.getShowCast(id: castId) { [weak self] (result) in
+            switch result {
+            case .success(let actors):
+                self?.showCast = actors
+                completion()
+            case .failure(let error):
+                print("Eror processing json data in fetchShowActorsBy: \(error)")
+            }
+        }
+        
+    }
     
     func fetchBackgroundShowImage(intId: Int?, back: UIImageView){
         guard let intId = intId else { return }
@@ -78,6 +102,7 @@ class ModernViewModel {
             }
         }
     }
+    
     func getImageFrom(url: URL, for poster: UIImageView) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
@@ -109,22 +134,36 @@ class ModernViewModel {
         }
         return 0
     }
-    func foundShowForIndex(index: Int) -> Show{
+    func foundShowForIndex(index: Int) -> Show {
         return searchShows[index].show
     }
     
-    func showForIndex(index: Int) -> Show{
+    func showForIndex(index: Int) -> Show {
         return popularShows[index]
     }
+    
+    func getActorByIndex(index: Int) -> Actor {
+        return showCast[index]
+    }
+    
+    func numberOfActors() -> Int {
+        if showCast.count != 0 {
+            return showCast.count
+        }
+        return 0
+    }
+    
+    func getTonightShowByIndex(index: Int) -> Show {
+        return popularTonight[index]
+    }
+    
+    func numberOfTonightShows() -> Int {
+        if popularTonight.count != 0 {
+            return popularTonight.count
+        }
+        return 0
+    }
 }
-
-//class ShowsViewModel {
-//    var selectedShowId: Int?
-//    var networker = ShowNetworker()
-//    var shows = TVShows()
-//    var home = HomePageShows()
-//    var searchPageShows = SearchPageShows()
-//}
 
 extension UIViewController {
     func getImageFrom(url: URL, for poster: UIImageView) {

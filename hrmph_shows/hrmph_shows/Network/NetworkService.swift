@@ -13,7 +13,6 @@ import Foundation
 class APIService {
     
     private var dataTask: URLSessionDataTask?
-    private var urlString = "https://api.tvmaze.com/shows/"
     private var baseUrl = "https://api.tvmaze.com/shows/"
     
     var id: String?
@@ -51,8 +50,42 @@ class APIService {
            }
            dataTask?.resume()
            
+        
        }
-    
+    func getShowCast(id: String, completion: @escaping (Result<[Actor], Error>) -> (Void)) {
+           
+           let urlShowsCast = baseUrl + id + "/cast"
+           print("SEARCH CAST = \(urlShowsCast)")
+           guard let url = URL(string: urlShowsCast) else { return }
+           
+           dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
+               if let error = error {
+                   completion(.failure(error))
+                   print("DataTask CAST error: \(error.localizedDescription)")
+                   return
+               }
+               guard let response = response as? HTTPURLResponse else {
+                   print("EMPTY DATA CAST")
+                   return
+               }
+               print("CAST Response status: \(response.statusCode)")
+               
+               do {
+                   let decoder = JSONDecoder()
+                   let JSONDataCast = try decoder.decode([Actor].self, from: data!)
+                   
+                   DispatchQueue.main.async {
+                       completion(.success(JSONDataCast))
+                   }
+               } catch let error {
+                print("ERROR DECODING DATA CAST")
+                   completion(.failure(error))
+               }
+               
+           }
+           dataTask?.resume()
+           
+       }
     
     func getShowBackgroundImages(id: String, completion: @escaping (Result<[ImagesShowElement], Error>) -> (Void)) {
            
@@ -89,10 +122,10 @@ class APIService {
            
        }
     
-    
-    func getPopularShowsData(completion: @escaping (Result<[Show], Error>) -> (Void)) {
+    // "?page=2"
+    func getPopularShowsData(page: String, completion: @escaping (Result<[Show], Error>) -> (Void)) {
         
-        let urlPopularShows = "https://api.tvmaze.com/shows?page=0"
+        let urlPopularShows = "https://api.tvmaze.com/shows" + page
         
         guard let url = URL(string: urlPopularShows) else { return }
         

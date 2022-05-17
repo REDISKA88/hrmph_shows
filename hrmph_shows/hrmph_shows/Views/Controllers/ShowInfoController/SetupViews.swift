@@ -17,7 +17,6 @@ extension ModernShowInfoVC {
     }
     func setupCastCollectionView() {
         bottomView.addSubview(castShow)
-       // genresShow.text = "Action, Adventure, Love"
         castShow.delegate = self
         castShow.dataSource = self
         castShow.backgroundColor = .clear
