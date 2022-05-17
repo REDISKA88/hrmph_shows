@@ -69,15 +69,12 @@ class ReturnedShowCell: UITableViewCell {
         rate.textColor = UIColor.green.withAlphaComponent(0.7)
         rate.font = .systemFont(ofSize: 20)
         rate.clipsToBounds = true
-     //   rate.text = "8.5"
         return rate
     }()
     
     let ratingStarShow :UIImageView = {
         let star = UIImageView()
-        star.image = UIImage(systemName: "star.circle.fill")
         star.tintColor = UIColor.green.withAlphaComponent(0.7)
-        //star.translatesAutoresizingMaskIntoConstraints = false
         star.contentMode = .scaleAspectFit
         return star
     }()
@@ -106,17 +103,40 @@ class ReturnedShowCell: UITableViewCell {
         
         if let rating = tvShow.rating?.average {
             ratingShow.text = "\(rating)"
-        } else { ratingShow.text = "-" }
+            ratingStarShow.image = UIImage(systemName: "star.circle.fill")
+        } else {
+            ratingShow.text = ""
+            ratingStarShow.image = nil
+        }
         
-//        if tvShow.genres != nil {
-//            var list = ""
-//            for genre in tvShow.genres! {
-//                list += " \(genre), "
-//            }
-//            list.removeLast()
-//            list.removeLast()
-//            genresShow.text = list
-//        }
+        if tvShow.genres != nil {
+            var list = ""
+            if tvShow.genres!.count > 2 {
+                list += "\(tvShow.genres![0]), \(tvShow.genres![1]), \(tvShow.genres![2])"
+            } else {
+                for genre in tvShow.genres! {
+                    list += "\(genre), "
+                }
+            }
+            if tvShow.genres?.count == 1 || tvShow.genres?.count == 2{
+                list.removeLast()
+                list.removeLast()
+            }
+            genresShow.text = list
+        }
+        
+        if let premier = tvShow.premiered {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let date = dateFormatter.date(from:premier)
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.year], from: date!)
+            if let year = components.year {
+                yearShow.text = "\(year)"
+            }
+        }
+
         guard let imageUrlString = tvShow.image?.medium else { return }
         guard let url = URL(string: imageUrlString) else { return }
         imageShow.image = nil
@@ -171,7 +191,6 @@ class ReturnedShowCell: UITableViewCell {
     
     func setupYear() {
         addSubview(yearShow)
-        //   yearShow.text = "2010"
         yearShow.topAnchor.constraint(equalTo: titleShow.bottomAnchor, constant: 10).isActive = true
         yearShow.leadingAnchor.constraint(equalTo: titleShow.leadingAnchor, constant: 5).isActive = true
         yearShow.heightAnchor.constraint(equalToConstant: 25).isActive = true
@@ -180,7 +199,6 @@ class ReturnedShowCell: UITableViewCell {
     
     func setupTitle() {
         addSubview(titleShow)
-        //  titleShow.text = "Game of Thrones"
         titleShow.topAnchor.constraint(equalTo: imageShow.topAnchor, constant: 10).isActive = true
         titleShow.leadingAnchor.constraint(equalTo: imageShow.trailingAnchor, constant: 20).isActive = true
         titleShow.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true

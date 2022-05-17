@@ -20,6 +20,7 @@ struct Show: Codable {
     var name: String?
     var language: String?
     var summary: String?
+    var premiered: String?
     var genres: [String]?
     var rating: Rating?
     var network: Network?

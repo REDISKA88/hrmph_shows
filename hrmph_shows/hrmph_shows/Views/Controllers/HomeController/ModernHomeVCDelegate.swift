@@ -46,7 +46,7 @@ extension ModernHomeVC: iCarouselDataSource, iCarouselDelegate {
 }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: (self.view.frame.size.width/1.8), height: 300))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: (self.view.frame.size.width/1.9), height: 300))
         let imageShow: UIImageView = {
             let imageView = UIImageView(frame: view.bounds)
             imageView.contentMode = .scaleToFill

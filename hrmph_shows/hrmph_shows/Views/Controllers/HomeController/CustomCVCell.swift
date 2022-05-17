@@ -15,7 +15,7 @@ class CustomCell: UICollectionViewCell {
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
-        iv.layer.cornerRadius = 15
+        iv.layer.cornerRadius = 25
         return iv
     }()
     

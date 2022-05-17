@@ -96,6 +96,7 @@ class ModernViewModel {
         }.resume()
     }
     
+    
     func numberOfShows() -> Int {
         if popularShows.count != 0 {
             return popularShows.count
