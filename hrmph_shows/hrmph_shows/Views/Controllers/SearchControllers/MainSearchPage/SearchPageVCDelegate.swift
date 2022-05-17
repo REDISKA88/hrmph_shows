@@ -10,7 +10,6 @@ import UIKit
 
 extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      // **  return viewModel.searchPageShows.returnedShowsArray.count
         return modernVM.numberOfShows()
     }
     

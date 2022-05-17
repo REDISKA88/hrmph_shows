@@ -33,12 +33,11 @@ class ModernShowInfoVC: ShowBackgroundTheme {
     }()
     
     @objc func popBack() {
-        self.navigationController?.popViewController(animated: false)
+       self.navigationController?.popViewController(animated: false)
     }
     let showInfoView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
-       // view.backgroundColor = UIColor.darkGray.withAlphaComponent(1)
         return view
     }()
     
@@ -166,11 +165,8 @@ class ModernShowInfoVC: ShowBackgroundTheme {
     }
     
     func updateUserInterface(with tvShow: Show) {
-        //        if andBackground != nil {
-        //            self.backViewImage = andBackground!
-        //        }
-        
         searchCast(by: tvShow.id!)
+        showInfoVM.fetchBackgroundShowImage(intId: tvShow.id, back: backViewImage)
         showTitle.text = tvShow.name
         let about = tvShow.summary?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
         summaryShow.text = about
@@ -210,9 +206,6 @@ class ModernShowInfoVC: ShowBackgroundTheme {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        backButton.topAnchor.constraint(equalTo: scrollViewContainer.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-//        backButton.leadingAnchor.constraint(equalTo: scrollViewContainer.leadingAnchor, constant: 20).isActive = true
-//        backButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         view.addSubview(scrollView)
         scrollView.addSubview(scrollViewContainer)
         scrollViewContainer.addArrangedSubview(topVeiw)
@@ -227,16 +220,12 @@ class ModernShowInfoVC: ShowBackgroundTheme {
         setupCastCollectionView()
         setupGenresShow()
         setupSummaryTextView()
-     //   updateUserInterface()
-        
-        
-        
-    
+
     }
 
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        
+        scrollView.showsVerticalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
