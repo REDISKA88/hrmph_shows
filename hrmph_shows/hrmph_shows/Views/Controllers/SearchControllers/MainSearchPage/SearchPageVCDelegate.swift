@@ -36,24 +36,34 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     }
     
     //MARK: - HEADER FOR COLLECTION VIEW
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionView.identifier, for: indexPath) as! HeaderCollectionView
-        header.sortButton.addTarget(self, action: #selector(showSortAlert), for: .touchUpInside)
-        header.setupSort()
-        return header
-    }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.size.width, height: 50)
     }
 
-    @objc func showSortAlert() {
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionView.identifier, for: indexPath) as! HeaderCollectionView
+        header.setupSort(by: sortState)
+        header.sortButton.addTarget(self, action: #selector(showSortAlert), for: .touchUpInside)
+        header.filterButton.addTarget(self, action: #selector(pressFilterButton), for: .touchUpInside)
         
+        
+        return header
+    }
+    
+    @objc func pressFilterButton() {
+//        let vc = FilterShowsVC()
+//        self.present(vc, animated: true)
+    }
+
+    @objc func showSortAlert() {
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet, blurStyle: .dark)
         
-        let popularAction = UIAlertAction(title: "Most popular", style: .default, handler: nil)
-        let followedAction = UIAlertAction(title: "Most followed", style: .default, handler: nil)
-        let ratingAction = UIAlertAction(title: "Highest rating", style: .default, handler: nil)
+        let popularAction = UIAlertAction(title: "Most popular", style: .default, handler: selectMostPopularSort)
+        let followedAction = UIAlertAction(title: "Most followed", style: .default, handler: selectMostFollowedSort)
+        let ratingAction = UIAlertAction(title: "Highest rating", style: .default, handler: selectHighestRatingSort)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         popularAction.setValue(UIColor.white, forKey: "titleTextColor")
@@ -65,9 +75,24 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
         controller.addAction(ratingAction)
         controller.addAction(cancelAction)
         controller.pruneNegativeWidthConstraints()
-        
         present(controller, animated: true, completion: nil)
     }
+    
+    func selectMostPopularSort(alert: UIAlertAction!) {
+        sortState = "Most Popular"
+        self.showCollectionView.reloadData()
+    }
+    
+    func selectMostFollowedSort(alert: UIAlertAction!) {
+           sortState = "Most Followed"
+           self.showCollectionView.reloadData()
+       }
+    
+    func selectHighestRatingSort(alert: UIAlertAction!) {
+              sortState = "Highest Rating"
+             self.showCollectionView.reloadData()
+          }
+    
 }
 
 extension UIAlertController {

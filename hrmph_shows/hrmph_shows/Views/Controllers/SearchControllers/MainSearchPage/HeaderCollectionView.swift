@@ -10,8 +10,7 @@ import UIKit
 
 class HeaderCollectionView: UICollectionReusableView {
     static let identifier = "HeaderCollectionView"
-    let mostPopularText = "Sort by: Most popular"
-    let mostFollowedText = "Sort by: Most Followed"
+    var sortState = ""
     private let label: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -33,7 +32,6 @@ class HeaderCollectionView: UICollectionReusableView {
     let sortLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Sort by:   Most popular"
         label.textColor = UIColor.white.withAlphaComponent(0.7)
         label.font = .systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -60,7 +58,7 @@ class HeaderCollectionView: UICollectionReusableView {
     }
     
     
-    func setupSort() {
+    func setupSort(by sortState: String) {
         backgroundColor = .clear
         addSubview(sortButton)
         sortButton.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
@@ -71,7 +69,7 @@ class HeaderCollectionView: UICollectionReusableView {
         filterButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15).isActive = true
        
         addSubview(sortLabel)
-        sortLabel.text = mostFollowedText
+        sortLabel.text = "Sort by:   \(sortState)"
         sortLabel.centerYAnchor.constraint(equalTo: sortButton.centerYAnchor).isActive = true
         sortLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
