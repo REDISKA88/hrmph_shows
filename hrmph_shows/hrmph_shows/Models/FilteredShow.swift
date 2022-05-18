@@ -30,7 +30,7 @@ class FilteredShow {
     }
     
     
-    func didSelectRowContent(in indexPath: IndexPath){
+    func didSelectRowContent(in indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
             didSelectGenre(in: indexPath.row)
@@ -115,58 +115,73 @@ class FilteredShow {
     
     
     
-    private func didSelectGenre(in row: Int) {
+    private func didSelectGenre(in row: Int){
         switch row {
         case 0:
             if genres.contains(.Anime) { return }
             self.genres.append(.Anime)
+            
         case 1:
             if genres.contains(.Action) { return }
             self.genres.append(.Action)
+            
         case 2:
             if genres.contains(.Adventure) { return }
             self.genres.append(.Adventure)
+            
         case 3:
             if genres.contains(.Comedy) { return }
             self.genres.append(.Comedy)
+            
         case 4:
             if genres.contains(.Crime) { return }
             self.genres.append(.Crime)
+            
         case 5:
             if genres.contains(.Drama) { return }
             self.genres.append(.Drama)
+            
         case 6:
             if genres.contains(.Family) { return }
             self.genres.append(.Family)
+            
         case 7:
             if genres.contains(.Fantasy) { return }
             self.genres.append(.Fantasy)
+            
         case 8:
             if genres.contains(.Romance) { return }
             self.genres.append(.Romance)
+            
         default:
             if genres.contains(.none) { return }
             self.genres.append(.none)
+            
         }
     }
     
-    private func didSelectStatus(in row: Int){
+    private func didSelectStatus(in row: Int) {
         switch row {
         case 0:
             if status.contains(.Running) { return }
             self.status.append(.Running)
+            
         case 1:
             if status.contains(.Ended) { return }
             self.status.append(.Ended)
+            
         case 2:
             if status.contains(.ToBeDetermined) { return }
             self.status.append(.ToBeDetermined)
+            
         case 3:
             if status.contains(.ToBeDetermined) { return }
             self.status.append(.InDevelopment)
+            
         default:
             if status.contains(.none) { return }
             self.status.append(.none)
+
         }
     }
     
@@ -200,12 +215,13 @@ class FilteredShow {
     }
     
     
-    private func didSelectRuntime(in row: Int) {
+    private func didDeselectRuntime(in row: Int) {
         switch row {
         case 0:
             if runtime.contains(.halfHour) == false { return }
             let index = runtime.firstIndex(of: .halfHour)
             runtime.remove(at: index!)
+            
         
         case 1:
             if runtime.contains(.oneHour) == false { return }
@@ -224,49 +240,61 @@ class FilteredShow {
         }
     }
     
-    private func didDeselectRuntime(in row: Int) {
+    private func didSelectRuntime(in row: Int) {
         switch row {
         case 0:
             if runtime.contains(.halfHour) { return }
             self.runtime.append(.halfHour)
+            
         case 1:
             if runtime.contains(.oneHour) { return }
             self.runtime.append(.oneHour)
+            
         case 2:
             if runtime.contains(.overHour) { return }
             self.runtime.append(.overHour)
+           
         default:
             if runtime.contains(.none) { return }
             self.runtime.append(.none)
+            
         }
     }
     
-    private func didSelectType(in row: Int){
+    private func didSelectType(in row: Int)  {
         switch row {
         case 0:
             if type.contains(.Scripted) { return }
             self.type.append(.Scripted)
+            
         case 1:
             if type.contains(.Animation) { return }
             self.type.append(.Animation)
+            
         case 2:
             if type.contains(.Documentary) { return }
             self.type.append(.Documentary)
+            
         case 3:
             if type.contains(.News) { return }
             self.type.append(.News)
+            
         case 4:
             if type.contains(.AwardShow) { return }
             self.type.append(.AwardShow)
+            
         case 5:
             if type.contains(.Reality) { return }
             self.type.append(.Reality)
+            
         case 6:
             if type.contains(.TalkShow) { return }
             self.type.append(.TalkShow)
+            
         default:
             if type.contains(.none) { return }
             self.type.append(.none)
+            
         }
     }
     
@@ -315,11 +343,14 @@ class FilteredShow {
         
         }
     }
-    
-    
-    
+
 }
 
+
+enum cellState {
+    case select
+    case deselect
+}
 enum GenresShow {
     case Anime
     case Action

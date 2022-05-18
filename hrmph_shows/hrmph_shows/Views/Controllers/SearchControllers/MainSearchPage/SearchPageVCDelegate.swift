@@ -53,8 +53,12 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
         return header
     }
     
+    
+    //MARK: - FILTER BUTITON
     @objc func pressFilterButton() {
         let vc = FilterShowsVC()
+        vc.delegate = self
+        vc.filter = filterPage
         self.present(vc, animated: true)
     }
 

@@ -35,7 +35,15 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.identifier, for: indexPath) as! FilterCell
         let content = selectRowContent(in: indexPath)
-        cell.setupContent(with: content)
+        cell.setupContent(with: content.0, type: content.1)
+        if content.1 == .select {
+            print("!!!!!!! SELECTED")
+            cell.reloadCell()
+        }
+        print(filter.genres)
+        print(filter.status)
+        print(filter.type)
+        print(filter.runtime)
         return cell
     }
     
@@ -47,6 +55,7 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
         print(filter.status)
         print(filter.type)
         print(filter.runtime)
+        print("--------------------")
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -57,23 +66,19 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
         print(filter.runtime)
     }
     
-    func selectRowContent(in indexPath: IndexPath) -> String {
+    func selectRowContent(in indexPath: IndexPath) -> (String, cellState) {
         switch indexPath.section {
         case 0:
-            let genre = selectGenre(in: indexPath.row)
-            return genre
+            return selectGenre(in: indexPath.row)
         case 1:
-            let status = selectStatus(in: indexPath.row)
-            return status
+            return selectStatus(in: indexPath.row)
         case 2:
-            let type = selectType(in: indexPath.row)
-            return type
+            return selectType(in: indexPath.row)
             
         case 3:
-            let runtime = selectRuntime(in: indexPath.row)
-            return runtime
+            return selectRuntime(in: indexPath.row)
         default:
-            return "Unknown content"
+            return ("Unknown content", .deselect)
         }
     }
     
@@ -106,78 +111,103 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func selectGenre(in row: Int) -> String {
+    func selectGenre(in row: Int) -> (String, cellState) {
         switch row {
         case 0:
-            return "Anime"
+            if filter.genres.contains(.Anime) { return ("Anime", .select) }
+            return ("Anime", .deselect)
         case 1:
-            return "Action"
+            if filter.genres.contains(.Action) { return ("Anime", .select) }
+            return ("Action", .deselect)
         case 2:
-            return "Adventure"
+            if filter.genres.contains(.Action) { return ("Adventure", .select) }
+            return ("Adventure", .deselect)
         case 3:
-            return "Comedy"
+             if filter.genres.contains(.Action) { return ("Comedy", .select) }
+             return ("Comedy", .deselect)
         case 4:
-            return "Crime"
+            if filter.genres.contains(.Action) { return ("Crime", .select) }
+            return ("Crime", .deselect)
         case 5:
-            return "Drama"
+            if filter.genres.contains(.Action) { return ("Drama", .select) }
+            return ("Drama", .deselect)
         case 6:
-            return "Family"
+             if filter.genres.contains(.Action) { return ("Family", .select) }
+             return ("Family", .deselect)
         case 7:
-            return "Fantasy"
+            if filter.genres.contains(.Action) { return ("Fantasy", .select) }
+            return ("Fantasy", .deselect)
+        case 8:
+            if filter.genres.contains(.Action) { return ("Romance", .select) }
+            return ("Romance", .deselect)
         default:
-            return "Romance"
+            return ("Unknown genre", .deselect)
         }
     }
     
 
     
     
-    func selectRuntime(in row: Int) -> String {
+    func selectRuntime(in row: Int) -> (String, cellState) {
         switch row {
         case 0:
-            return "30 min"
+            if filter.runtime.contains(.halfHour) == false { return ("30 min", .select ) }
+            return ("30 min", .deselect)
         case 1:
-            return "30 - 60 min"
+            if filter.runtime.contains(.oneHour) == false { return ("30 - 60 min", .select ) }
+            return ("30 - 60 min", .deselect)
         case 2:
-            return "> 60 min"
+             if filter.runtime.contains(.overHour) == false { return ("> 60 min", .select ) }
+             return ("> 60 min", .deselect)
         default:
-            return "Unknown runtime"
+            return ("Unknown runtime", .deselect)
         }
     }
     
-    func selectStatus(in row: Int) -> String {
+    func selectStatus(in row: Int) -> (String, cellState) {
         switch row {
         case 0:
-            return "Running"
+            if filter.status.contains(.Running) == false { return ("Running", .select ) }
+            return ("Running", .deselect)
         case 1:
-            return "Ended"
+            if filter.status.contains(.Ended) == false { return ("Ended", .select ) }
+            return ("Ended", .deselect)
         case 2:
-            return "To Be Determined"
+             if filter.status.contains(.ToBeDetermined) == false { return ("To Be Determined", .select ) }
+             return ("To Be Determined", .deselect)
         case 3:
-            return "In Development"
+             if filter.status.contains(.InDevelopment) == false { return ("In Development", .select ) }
+            return ("In Development", .deselect)
         default:
-            return "Unknown status"
+            return ("Unknown status", .deselect)
         }
     }
     
-    func selectType(in row: Int) -> String {
+    func selectType(in row: Int) -> (String, cellState) {
         switch row {
         case 0:
-            return "Scripted"
+            if filter.type.contains(.Scripted) == false { return ("Scripted", .select) }
+            return ("Scripted", .deselect)
         case 1:
-            return "Animation"
+            if filter.type.contains(.Animation) == false { return ("Animation", .select) }
+            return ("Animation", .deselect)
         case 2:
-            return "Documentary"
+            if filter.type.contains(.Documentary) == false { return ("Documentary", .select) }
+            return ("Documentary", .deselect)
         case 3:
-            return "News"
+            if filter.type.contains(.News) == false { return ("News", .select) }
+            return ("News", .deselect)
         case 4:
-            return "Award Show"
+            if filter.type.contains(.AwardShow) == false { return ("Award Show", .select) }
+            return ("Award Show", .deselect)
         case 5:
-            return "Reality"
+            if filter.type.contains(.Reality) == false { return ("Reality", .select) }
+            return ("Reality", .deselect)
         case 6:
-            return "Talk Show"
+            if filter.type.contains(.TalkShow) == false { return ("Talk Show", .select) }
+            return ("Talk Show", .deselect)
         default:
-            return "Unknown type"
+            return ("Unknown type", .deselect)
         }
     }
     

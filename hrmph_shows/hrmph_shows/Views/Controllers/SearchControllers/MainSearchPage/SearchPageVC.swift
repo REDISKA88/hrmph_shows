@@ -8,7 +8,11 @@
 
 import UIKit
 
-class SearchPageVC: MainTheme {
+protocol ModalDelegate {
+    func changeValue(value: FilteredShow)
+}
+
+class SearchPageVC: MainTheme, ModalDelegate {
 
     @objc func searchShowButton() {
         let vc = SearchListVC()
@@ -19,6 +23,10 @@ class SearchPageVC: MainTheme {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func changeValue(value: FilteredShow) {
+           filterPage = value
+      }
+    var filterPage = FilteredShow()
     var modernVM = ModernViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()

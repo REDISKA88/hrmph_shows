@@ -36,6 +36,8 @@ class FilterCell: UITableViewCell {
         
     }
     
+
+    
     override func layoutSubviews() {
            super.layoutSubviews()
            reloadCell()
@@ -73,12 +75,21 @@ class FilterCell: UITableViewCell {
     }
     
     
-    func setupContent(with text: String) {
+    func setupContent(with text: String, type: cellState)  {
         addSubview(contentLabel)
         addSubview(checkmark)
         
-        checkmark.image = UIImage(systemName: "checkmark")
-        checkmark.tintColor = UIColor.lightGray.withAlphaComponent(0.08)
+        if type == .select {
+            checkmark.image = UIImage(systemName: "checkmark")
+            contentLabel.textColor = UIColor.white
+            checkmark.tintColor = UIColor.white
+        } else {
+            
+            checkmark.image = UIImage(systemName: "checkmark")
+            contentLabel.textColor = UIColor.white.withAlphaComponent(0.6)
+            checkmark.tintColor = UIColor.lightGray.withAlphaComponent(0.08)
+        }
+       
         
         checkmark.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
         checkmark.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
