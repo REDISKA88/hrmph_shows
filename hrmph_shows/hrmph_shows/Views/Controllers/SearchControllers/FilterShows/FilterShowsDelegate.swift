@@ -20,7 +20,7 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.textColor = UIColor.gray.withAlphaComponent(0.95)
+        header.textLabel?.textColor = UIColor.white.withAlphaComponent(0.8)
         header.contentView.backgroundColor = #colorLiteral(red: 0.1254716814, green: 0.125500828, blue: 0.1254698336, alpha: 1)
         header.textLabel?.font = UIFont.boldSystemFont(ofSize: 22)
         header.textLabel?.frame = header.bounds
@@ -43,6 +43,18 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
         filter.didSelectRowContent(in: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.identifier, for: indexPath) as! FilterCell
         cell.reloadCell()
+        print(filter.genres)
+        print(filter.status)
+        print(filter.type)
+        print(filter.runtime)
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        filter.didDeselectRowContent(in: indexPath)
+        print(filter.genres)
+        print(filter.status)
+        print(filter.type)
+        print(filter.runtime)
     }
     
     func selectRowContent(in indexPath: IndexPath) -> String {

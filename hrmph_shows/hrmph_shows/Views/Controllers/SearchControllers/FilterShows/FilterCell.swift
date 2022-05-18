@@ -38,7 +38,6 @@ class FilterCell: UITableViewCell {
     
     override func layoutSubviews() {
            super.layoutSubviews()
-        
            reloadCell()
        }
     
