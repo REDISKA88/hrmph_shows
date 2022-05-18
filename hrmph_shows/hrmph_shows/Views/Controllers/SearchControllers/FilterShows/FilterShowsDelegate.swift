@@ -18,17 +18,15 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
         return title
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header :UITableViewHeaderFooterView = UITableViewHeaderFooterView()
-        header.textLabel?.textColor = .white
-
-      //  header.contentView.backgroundColor = #colorLiteral(red: 0.1254716814, green: 0.125500828, blue: 0.1254698336, alpha: 1)
-        header.contentView.layer.masksToBounds = true
-        header.contentView.layer.cornerRadius = 20
-        header.contentView.backgroundColor = #colorLiteral(red: 0.1490033269, green: 0.1490303576, blue: 0.148994863, alpha: 1)
-        header.contentView.layer.backgroundColor =  #colorLiteral(red: 0.1490033269, green: 0.1490303576, blue: 0.148994863, alpha: 1)
-    return header
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = UIColor.gray.withAlphaComponent(0.95)
+        header.contentView.backgroundColor = #colorLiteral(red: 0.1254716814, green: 0.125500828, blue: 0.1254698336, alpha: 1)
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 22)
+        header.textLabel?.frame = header.bounds
+        header.textLabel?.textAlignment = .center
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = numberOfSectionFields(in: section)
         return count
@@ -37,10 +35,15 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.identifier, for: indexPath) as! FilterCell
         let content = selectRowContent(in: indexPath)
-        cell.setupContentLabel(with: content)
+        cell.setupContent(with: content)
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        filter.didSelectRowContent(in: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.identifier, for: indexPath) as! FilterCell
+        cell.reloadCell()
+    }
     
     func selectRowContent(in indexPath: IndexPath) -> String {
         switch indexPath.section {
@@ -62,6 +65,9 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+
+    
+    
     func selectSectionName(in section: Int) -> String {
         switch section {
         case 0:
@@ -82,7 +88,7 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return 4
         case 2:
-            return 8
+            return 7
         default:
             return 3
         }
@@ -110,6 +116,8 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
             return "Romance"
         }
     }
+    
+
     
     
     func selectRuntime(in row: Int) -> String {
@@ -151,18 +159,16 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
         case 3:
             return "News"
         case 4:
-            return "Scripted"
+            return "Award Show"
         case 5:
-            return "Animation"
+            return "Reality"
         case 6:
-            return "Documentary"
-        case 7:
-            return "News"
+            return "Talk Show"
         default:
             return "Unknown type"
         }
     }
     
-
+    
     
 }

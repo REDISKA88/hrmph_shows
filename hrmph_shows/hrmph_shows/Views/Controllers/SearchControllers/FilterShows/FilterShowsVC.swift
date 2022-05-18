@@ -9,7 +9,8 @@
 import UIKit
 
 class FilterShowsVC: MainTheme {
-    
+    var filter = FilteredShow()
+    var cellIsSelected = false
     var topLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 24)
@@ -39,10 +40,10 @@ class FilterShowsVC: MainTheme {
     
     func setupFilterTableView() {
         view.addSubview(filterTableView)
-        
         filterTableView.delegate = self
         filterTableView.dataSource = self
         filterTableView.layer.cornerRadius = 30
+        filterTableView.allowsMultipleSelection = true
         filterTableView.showsVerticalScrollIndicator = false
         filterTableView.translatesAutoresizingMaskIntoConstraints = false
        // filterTableView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
