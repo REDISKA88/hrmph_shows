@@ -54,8 +54,8 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     }
     
     @objc func pressFilterButton() {
-//        let vc = FilterShowsVC()
-//        self.present(vc, animated: true)
+        let vc = FilterShowsVC()
+        self.present(vc, animated: true)
     }
 
     @objc func showSortAlert() {
