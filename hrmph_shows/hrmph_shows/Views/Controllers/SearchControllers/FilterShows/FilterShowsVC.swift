@@ -10,7 +10,7 @@ import UIKit
 
 class FilterShowsVC: MainTheme {
     var filter = FilteredShow()
-     var delegate: ModalDelegate?
+    var delegate: ModalDelegate?
     var cellIsSelected = false
     var topLabel: UILabel = {
         let label = UILabel()
@@ -42,11 +42,13 @@ class FilterShowsVC: MainTheme {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         applySelectedFilters()
-        
     }
+    
+   
     
     
     func applySelectedFilters() {
+        /*
         let path = IndexPath(row: 1, section: 0)
         let path2 = IndexPath(row: 2, section: 0)
         let path3 = IndexPath(row: 3, section: 0)
@@ -57,6 +59,7 @@ class FilterShowsVC: MainTheme {
         filterTableView.selectRow(at: path2, animated: false, scrollPosition: .none)
         filterTableView.selectRow(at: path4, animated: false, scrollPosition: .none)
         filterTableView.selectRow(at: path5, animated: false, scrollPosition: .none)
+        */
     }
     
     func setupFilterTableView() {

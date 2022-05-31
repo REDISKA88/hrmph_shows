@@ -23,6 +23,7 @@ class ProfileVC: MainTheme {
         setupTopView()
         setupStatsView()
         setupTableView()
+        profileTableView.alwaysBounceVertical = false;
     }
     
     let topView: UIView = {

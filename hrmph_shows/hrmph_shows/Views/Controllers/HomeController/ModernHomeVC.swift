@@ -100,9 +100,6 @@ class ModernHomeVC: MainTheme {
     var modernVM = ModernViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        
-        
         view.addSubview(homeScrollView)
         homeScrollView.addSubview(homeScrollViewContainer)
         homeScrollViewContainer.addArrangedSubview(topBGView)

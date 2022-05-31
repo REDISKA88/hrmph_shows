@@ -11,7 +11,7 @@ import UIKit
 extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
         let title = selectSectionName(in: section)
@@ -36,14 +36,16 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.identifier, for: indexPath) as! FilterCell
         let content = selectRowContent(in: indexPath)
         cell.setupContent(with: content.0, type: content.1)
-        if content.1 == .select {
-            print("!!!!!!! SELECTED")
-            cell.reloadCell()
-        }
+//        if content.1 == .select {
+//            print("!!!!!!! SELECTED")
+//            cell.reloadCell()
+//        }
+        print("***********************************")
         print(filter.genres)
         print(filter.status)
         print(filter.type)
         print(filter.runtime)
+        print("***********************************")
         return cell
     }
     
@@ -51,19 +53,23 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
         filter.didSelectRowContent(in: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.identifier, for: indexPath) as! FilterCell
         cell.reloadCell()
+        print("++++++++++++++++++++++++++++++")
         print(filter.genres)
         print(filter.status)
         print(filter.type)
         print(filter.runtime)
-        print("--------------------")
+        print("++++++++++++++++++++++++++++++")
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         filter.didDeselectRowContent(in: indexPath)
+        print("--------------------------------")
         print(filter.genres)
         print(filter.status)
         print(filter.type)
         print(filter.runtime)
+        print("--------------------------------")
+        
     }
     
     func selectRowContent(in indexPath: IndexPath) -> (String, cellState) {
@@ -93,8 +99,10 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
             return "Show Status"
         case 2:
             return "Show Type"
-        default:
+        case 3:
             return "Runtime"
+        default:
+            return "Unknown Section"
         }
     }
     
@@ -106,8 +114,10 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
             return 4
         case 2:
             return 7
-        default:
+        case 3:
             return 3
+        default:
+            return 1
         }
     }
     
@@ -157,8 +167,8 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
             if filter.runtime.contains(.oneHour) == false { return ("30 - 60 min", .select ) }
             return ("30 - 60 min", .deselect)
         case 2:
-             if filter.runtime.contains(.overHour) == false { return ("> 60 min", .select ) }
-             return ("> 60 min", .deselect)
+             if filter.runtime.contains(.overHour) == false { return (">  60 min", .select ) }
+             return (">  60 min", .deselect)
         default:
             return ("Unknown runtime", .deselect)
         }

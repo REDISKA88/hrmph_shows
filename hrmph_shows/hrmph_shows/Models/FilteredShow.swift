@@ -10,19 +10,20 @@ import Foundation
 
 class FilteredShow {
     
-    var genres = [GenresShow]()
-    var status = [StatusShow]()
-    var runtime = [RuntimeShow]()
-    var type = [TypeShow]()
+    var genres: [GenresShow]
+    var status: [StatusShow]
+    var runtime: [RuntimeShow]
+    var type: [TypeShow]
     
     init() {
-        self.genres.append(GenresShow.none)
-        self.status.append(StatusShow.none)
-        self.runtime.append(RuntimeShow.none)
-        self.type.append(TypeShow.none)
+        self.genres = [GenresShow]()
+        self.status = [StatusShow]()
+        self.runtime = [RuntimeShow]()
+        self.type = [TypeShow]()
     }
     
-    init(selectedGenres: GenresShow, selectedStatus: StatusShow, selectedRuntime: RuntimeShow, selectedType: TypeShow) {
+    convenience init(selectedGenres: GenresShow, selectedStatus: StatusShow, selectedRuntime: RuntimeShow, selectedType: TypeShow) {
+        self.init()
         self.genres.append(selectedGenres)
         self.status.append(selectedStatus)
         self.runtime.append(selectedRuntime)
@@ -116,6 +117,9 @@ class FilteredShow {
     
     
     private func didSelectGenre(in row: Int){
+        if genres.contains(.none) && genres.count == 1 {
+            genres.remove(at: 0)
+        }
         switch row {
         case 0:
             if genres.contains(.Anime) { return }
@@ -161,6 +165,9 @@ class FilteredShow {
     }
     
     private func didSelectStatus(in row: Int) {
+        if status.contains(.none) && status.count == 1 {
+                status.remove(at: 0)
+            }
         switch row {
         case 0:
             if status.contains(.Running) { return }
@@ -241,6 +248,9 @@ class FilteredShow {
     }
     
     private func didSelectRuntime(in row: Int) {
+        if runtime.contains(.none) && runtime.count == 1 {
+                 runtime.remove(at: 0)
+             }
         switch row {
         case 0:
             if runtime.contains(.halfHour) { return }
@@ -262,6 +272,9 @@ class FilteredShow {
     }
     
     private func didSelectType(in row: Int)  {
+        if type.contains(.none) && type.count == 1 {
+                 type.remove(at: 0)
+             }
         switch row {
         case 0:
             if type.contains(.Scripted) { return }
