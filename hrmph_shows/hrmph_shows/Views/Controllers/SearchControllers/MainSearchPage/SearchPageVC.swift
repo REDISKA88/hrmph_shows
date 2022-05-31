@@ -14,20 +14,14 @@ protocol ModalDelegate {
 
 class SearchPageVC: MainTheme, ModalDelegate {
 
-    @objc func searchShowButton() {
-        let vc = SearchListVC()
-        guard let searching = searchField.text, searching.count > 0 else {return}
-        vc.whatUsearch = searching
-        let trimmed = searching.filter {!$0.isWhitespace}
-        vc.seachTheShow(byQuery: trimmed)
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
     func changeValue(value: FilteredShow) {
-           filterPage = value
+           filterState = value
       }
-    var filterPage = FilteredShow()
+    
+    var filterState = FilteredShow()
+    var sortingState = SortingShow()
     var modernVM = ModernViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMainShows()
@@ -38,6 +32,7 @@ class SearchPageVC: MainTheme, ModalDelegate {
        // self.view.layoutIfNeeded()
         
     }
+
     
     func loadMainShows() {
         modernVM.fetchPopularShows { [weak self] in
@@ -45,8 +40,15 @@ class SearchPageVC: MainTheme, ModalDelegate {
         }
         
     }
+    @objc func searchShowButton() {
+        let vc = SearchListVC()
+        guard let searching = searchField.text, searching.count > 0 else {return}
+        vc.whatUsearch = searching
+        let trimmed = searching.filter {!$0.isWhitespace}
+        vc.seachTheShow(byQuery: trimmed)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
-    var sortState = "Most Popular"
     let searchField: UITextField = {
        let search = UITextField()
         search.backgroundColor = .clear

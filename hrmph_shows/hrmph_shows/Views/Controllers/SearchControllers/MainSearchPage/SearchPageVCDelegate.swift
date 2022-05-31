@@ -45,7 +45,8 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionView.identifier, for: indexPath) as! HeaderCollectionView
-        header.setupSort(by: sortState)
+        let state = sortingState.generateResult()
+        header.setupSort(by: state)
         header.sortButton.addTarget(self, action: #selector(showSortAlert), for: .touchUpInside)
         header.filterButton.addTarget(self, action: #selector(pressFilterButton), for: .touchUpInside)
         
@@ -58,7 +59,7 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     @objc func pressFilterButton() {
         let vc = FilterShowsVC()
         vc.delegate = self
-        vc.filter = filterPage
+        vc.filter = filterState
         self.present(vc, animated: true)
     }
 
@@ -66,10 +67,10 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
         print("FILTER")
         
         print("...................................")
-          print(filterPage.genres)
-          print(filterPage.status)
-          print(filterPage.type)
-          print(filterPage.runtime)
+          print(filterState.genres)
+          print(filterState.status)
+          print(filterState.type)
+          print(filterState.runtime)
           print("...................................")
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet, blurStyle: .dark)
         
@@ -91,19 +92,19 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     }
     
     func selectMostPopularSort(alert: UIAlertAction!) {
-        sortState = "Most Popular"
+        sortingState.setupState(by: .MostPopular)
         self.showCollectionView.reloadData()
     }
     
     func selectMostFollowedSort(alert: UIAlertAction!) {
-           sortState = "Most Followed"
-           self.showCollectionView.reloadData()
+        sortingState.setupState(by: .MostFollowed)
+        self.showCollectionView.reloadData()
        }
     
     func selectHighestRatingSort(alert: UIAlertAction!) {
-              sortState = "Highest Rating"
-             self.showCollectionView.reloadData()
-          }
+        sortingState.setupState(by: .HighestRating)
+        self.showCollectionView.reloadData()
+    }
     
 }
 
