@@ -36,10 +36,10 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.identifier, for: indexPath) as! FilterCell
         let content = selectRowContent(in: indexPath)
         cell.setupContent(with: content.0, type: content.1)
-//        if content.1 == .select {
-//            print("!!!!!!! SELECTED")
-//            cell.reloadCell()
-//        }
+        if content.1 == .select {
+          //  print("!SELECTED \(content.0)")
+            cell.reloadCell()
+        }
         print("***********************************")
         print(filter.genres)
         print(filter.status)
@@ -127,28 +127,28 @@ extension FilterShowsVC: UITableViewDelegate, UITableViewDataSource {
             if filter.genres.contains(.Anime) { return ("Anime", .select) }
             return ("Anime", .deselect)
         case 1:
-            if filter.genres.contains(.Action) { return ("Anime", .select) }
+            if filter.genres.contains(.Action) { return ("Action", .select) }
             return ("Action", .deselect)
         case 2:
-            if filter.genres.contains(.Action) { return ("Adventure", .select) }
+            if filter.genres.contains(.Adventure) { return ("Adventure", .select) }
             return ("Adventure", .deselect)
         case 3:
-             if filter.genres.contains(.Action) { return ("Comedy", .select) }
+             if filter.genres.contains(.Comedy) { return ("Comedy", .select) }
              return ("Comedy", .deselect)
         case 4:
-            if filter.genres.contains(.Action) { return ("Crime", .select) }
+            if filter.genres.contains(.Crime) { return ("Crime", .select) }
             return ("Crime", .deselect)
         case 5:
-            if filter.genres.contains(.Action) { return ("Drama", .select) }
+            if filter.genres.contains(.Drama) { return ("Drama", .select) }
             return ("Drama", .deselect)
         case 6:
-             if filter.genres.contains(.Action) { return ("Family", .select) }
+             if filter.genres.contains(.Family) { return ("Family", .select) }
              return ("Family", .deselect)
         case 7:
-            if filter.genres.contains(.Action) { return ("Fantasy", .select) }
+            if filter.genres.contains(.Fantasy) { return ("Fantasy", .select) }
             return ("Fantasy", .deselect)
         case 8:
-            if filter.genres.contains(.Action) { return ("Romance", .select) }
+            if filter.genres.contains(.Romance) { return ("Romance", .select) }
             return ("Romance", .deselect)
         default:
             return ("Unknown genre", .deselect)

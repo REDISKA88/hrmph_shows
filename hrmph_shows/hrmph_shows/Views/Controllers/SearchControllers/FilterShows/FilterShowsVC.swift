@@ -48,19 +48,12 @@ class FilterShowsVC: MainTheme {
     
     
     func applySelectedFilters() {
-        /*
-        let path = IndexPath(row: 1, section: 0)
-        let path2 = IndexPath(row: 2, section: 0)
-        let path3 = IndexPath(row: 3, section: 0)
-        let path4 = IndexPath(row: 4, section: 0)
-        let path5 = IndexPath(row: 0, section: 0)
-        filterTableView.selectRow(at: path, animated: false, scrollPosition: .none)
-        filterTableView.selectRow(at: path3, animated: false, scrollPosition: .none)
-        filterTableView.selectRow(at: path2, animated: false, scrollPosition: .none)
-        filterTableView.selectRow(at: path4, animated: false, scrollPosition: .none)
-        filterTableView.selectRow(at: path5, animated: false, scrollPosition: .none)
-        */
+        prepareGenresForSelect()
+        prepareStatusForSelect()
+        prepareTypeForSelect()
+        prepareRuntimeForSelect()
     }
+
     
     func setupFilterTableView() {
         view.addSubview(filterTableView)
@@ -101,9 +94,7 @@ class FilterShowsVC: MainTheme {
         }
         self.dismiss(animated: true) { [weak self] in
             self?.applyFilterSettings()
-            
         }
-        
     }
     
     

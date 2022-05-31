@@ -84,7 +84,6 @@ class FilterCell: UITableViewCell {
             contentLabel.textColor = UIColor.white
             checkmark.tintColor = UIColor.white
         } else {
-            
             checkmark.image = UIImage(systemName: "checkmark")
             contentLabel.textColor = UIColor.white.withAlphaComponent(0.6)
             checkmark.tintColor = UIColor.lightGray.withAlphaComponent(0.08)

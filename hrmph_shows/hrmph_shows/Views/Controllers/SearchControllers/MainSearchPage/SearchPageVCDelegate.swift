@@ -63,6 +63,14 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     }
 
     @objc func showSortAlert() {
+        print("FILTER")
+        
+        print("...................................")
+          print(filterPage.genres)
+          print(filterPage.status)
+          print(filterPage.type)
+          print(filterPage.runtime)
+          print("...................................")
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet, blurStyle: .dark)
         
         let popularAction = UIAlertAction(title: "Most popular", style: .default, handler: selectMostPopularSort)
