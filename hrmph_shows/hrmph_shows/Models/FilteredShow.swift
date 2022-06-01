@@ -364,7 +364,7 @@ enum cellState {
     case select
     case deselect
 }
-enum GenresShow {
+enum GenresShow: String {
     case Anime
     case Action
     case Adventure

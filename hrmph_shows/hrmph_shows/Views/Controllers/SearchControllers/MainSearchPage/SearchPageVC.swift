@@ -15,7 +15,10 @@ protocol ModalDelegate {
 class SearchPageVC: MainTheme, ModalDelegate {
 
     func changeValue(value: FilteredShow) {
-           filterState = value
+        filterState = value
+        modernVM.applyFiltered(with: value)
+        showCollectionView.reloadData()
+            
       }
     
     var filterState = FilteredShow()
@@ -30,7 +33,6 @@ class SearchPageVC: MainTheme, ModalDelegate {
         self.hideKeyboardWhenTappedAround()
         //search
        // self.view.layoutIfNeeded()
-        
     }
 
     

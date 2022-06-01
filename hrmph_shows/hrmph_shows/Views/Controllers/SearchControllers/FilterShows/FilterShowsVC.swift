@@ -92,13 +92,7 @@ class FilterShowsVC: MainTheme {
         if let delegate = self.delegate {
             delegate.changeValue(value: filter)
         }
-        self.dismiss(animated: true) { [weak self] in
-            self?.applyFilterSettings()
-        }
+        self.dismiss(animated: true)
     }
     
-    
-    func applyFilterSettings() {
-        print("apply filter settings")
-    }
 }

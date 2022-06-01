@@ -13,7 +13,7 @@ class ModernViewModel {
     private var apiService = APIService()
     private var popularShows = [Show]()
     private var popularTonight = [Show]()
-    
+    private var notFilteredShows: [Show]!
     private var searchShows = [ShowQueryRequest]()
     private var showCast = [Actor]()
     var background: UIImageView?
@@ -121,6 +121,42 @@ class ModernViewModel {
         }.resume()
     }
     
+    
+    func applyFiltered(with filter: FilteredShow) {
+       let replaceShow =  applyGenreFilter(genres: filter.genres)
+        print("filtererd:")
+        print(replaceShow)
+    }
+    
+    private func applyGenreFilter(genres: [GenresShow]) -> [Show] {
+        var newFilteredShow = [Show]()
+        guard genres.count != 0 else { print("genres is empty"); return  newFilteredShow}
+        
+        for genre in genres {
+            let newShows = popularShows.filter({($0.genres?.contains(genre.rawValue) ?? false)})
+            if newShows.count != 0 {
+                newFilteredShow.append(contentsOf: newShows)
+            }
+        }
+        return newFilteredShow
+    }
+    
+    
+    
+    
+    
+    func saveNotFilteredShows() {
+        print("saveNotFilteredShows")
+        if notFilteredShows == nil {
+            notFilteredShows = popularShows
+        }
+    }
+    func shiftNotFilteredShows() {
+        if notFilteredShows != nil {
+            print("shiftNotFilteredShows")
+            popularShows = notFilteredShows
+        }
+    }
     
     func sortShowsByMostPopular() {
         popularShows.sort(by: {$0.id ?? 0 < $1.id ?? 0})

@@ -261,8 +261,8 @@
 		B871DEBE282911C600A40FEA /* SearchControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B8EAC3A62834740A000922CC /* FilterShows */,
 				B8F48E1A282B939A00201B8E /* MainSearchPage */,
+				B8EAC3A62834740A000922CC /* FilterShows */,
 				B8F48E1B282B93CA00201B8E /* SearchList */,
 				B80948752829756200B9B620 /* SearchBarVC.swift */,
 				B8A90280281D9E6600D789F4 /* SearchResultVC.swift */,

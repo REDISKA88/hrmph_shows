@@ -60,6 +60,8 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
         let vc = FilterShowsVC()
         vc.delegate = self
         vc.filter = filterState
+        modernVM.saveNotFilteredShows()
+        
         self.present(vc, animated: true)
     }
 
