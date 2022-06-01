@@ -64,19 +64,11 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     }
 
     @objc func showSortAlert() {
-        print("FILTER")
-        
-        print("...................................")
-          print(filterState.genres)
-          print(filterState.status)
-          print(filterState.type)
-          print(filterState.runtime)
-          print("...................................")
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet, blurStyle: .dark)
         
-        let popularAction = UIAlertAction(title: "Most popular", style: .default, handler: selectMostPopularSort)
-        let followedAction = UIAlertAction(title: "Most followed", style: .default, handler: selectMostFollowedSort)
-        let ratingAction = UIAlertAction(title: "Highest rating", style: .default, handler: selectHighestRatingSort)
+        let popularAction = UIAlertAction(title: "Most Popular", style: .default, handler: selectMostPopularSort)
+        let followedAction = UIAlertAction(title: "Release Date", style: .default, handler: selectReleaseDateSort)
+        let ratingAction = UIAlertAction(title: "Highest Rating", style: .default, handler: selectHighestRatingSort)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         popularAction.setValue(UIColor.white, forKey: "titleTextColor")
@@ -92,17 +84,23 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     }
     
     func selectMostPopularSort(alert: UIAlertAction!) {
+        guard sortingState.getState() != .MostPopular else {print("already most"); return }
         sortingState.setupState(by: .MostPopular)
+        modernVM.sortShowsByMostPopular()
         self.showCollectionView.reloadData()
     }
     
-    func selectMostFollowedSort(alert: UIAlertAction!) {
-        sortingState.setupState(by: .MostFollowed)
+    func selectReleaseDateSort(alert: UIAlertAction!) {
+         guard sortingState.getState() != .ReleaseDate else {print("already release"); return }
+        sortingState.setupState(by: .ReleaseDate)
+        modernVM.sortShowsByReleaseDate()
         self.showCollectionView.reloadData()
        }
     
     func selectHighestRatingSort(alert: UIAlertAction!) {
+         guard sortingState.getState() != .HighestRating else {print("already high"); return }
         sortingState.setupState(by: .HighestRating)
+        modernVM.sortShowsByRating()
         self.showCollectionView.reloadData()
     }
     

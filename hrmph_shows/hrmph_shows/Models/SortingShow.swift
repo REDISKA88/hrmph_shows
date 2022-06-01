@@ -23,17 +23,20 @@ class SortingShow {
         switch sortBy {
         case .MostPopular:
             return "Most Popular"
-        case .MostFollowed:
-            return "Most Followed"
+        case .ReleaseDate:
+            return "Release Date"
         case .HighestRating:
             return "Highest Rating"
         }
+    }
+    func getState() -> SortingType {
+        return sortBy
     }
 }
 
 
 enum SortingType {
     case MostPopular
-    case MostFollowed
+    case ReleaseDate
     case HighestRating
 }

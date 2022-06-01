@@ -122,12 +122,25 @@ class ModernViewModel {
     }
     
     
+    func sortShowsByMostPopular() {
+        popularShows.sort(by: {$0.id ?? 0 < $1.id ?? 0})
+    }
+    
+    func sortShowsByReleaseDate() {
+         popularShows.sort(by: {$0.premiered ?? "0" > $1.premiered ?? "0"})
+     }
+    func sortShowsByRating() {
+        popularShows.sort(by: {$0.rating?.average ?? 0.0 > $1.rating?.average ?? 0.0})
+    }
+    
     func numberOfShows() -> Int {
         if popularShows.count != 0 {
             return popularShows.count
         }
         return 0
     }
+
+    
     func numberOfFoundShows() -> Int {
         if searchShows.count != 0 {
             return searchShows.count
