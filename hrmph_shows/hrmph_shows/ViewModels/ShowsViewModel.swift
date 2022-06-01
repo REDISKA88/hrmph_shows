@@ -125,26 +125,37 @@ class ModernViewModel {
     func applyFiltered(with filter: FilteredShow) {
        let replaceShow =  applyGenreFilter(genres: filter.genres)
         print("filtererd:")
-        print(replaceShow)
+        for show in replaceShow {
+            guard let genreArray = show.genres else { return }
+            for gen in genreArray {
+                print(gen)
+            }
+        }
     }
     
     private func applyGenreFilter(genres: [GenresShow]) -> [Show] {
         var newFilteredShow = [Show]()
         guard genres.count != 0 else { print("genres is empty"); return  newFilteredShow}
         
-        for genre in genres {
-            let newShows = popularShows.filter({($0.genres?.contains(genre.rawValue) ?? false)})
-            if newShows.count != 0 {
-                newFilteredShow.append(contentsOf: newShows)
+//        for genre in genres {
+//            let newShows = popularShows.filter({($0.genres?.contains(genre.rawValue) ?? false)})
+//            if newShows.count != 0 {
+//                newFilteredShow.append(contentsOf: newShows)
+//            }
+//        }
+        
+        for current in popularShows {
+            for gen in genres {
+                if current.genres?.contains(gen.rawValue) ?? false {
+                    newFilteredShow.append(current)
+                    break
+                }
             }
         }
         return newFilteredShow
     }
     
-    
-    
-    
-    
+
     func saveNotFilteredShows() {
         print("saveNotFilteredShows")
         if notFilteredShows == nil {
