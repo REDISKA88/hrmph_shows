@@ -13,7 +13,10 @@ class ModernViewModel {
     private var apiService = APIService()
     private var popularShows = [Show]()
     private var popularTonight = [Show]()
+    
+    private var filteredShows: [Show]!
     private var notFilteredShows: [Show]!
+    
     private var searchShows = [ShowQueryRequest]()
     private var showCast = [Actor]()
     var background: UIImageView?
@@ -123,19 +126,15 @@ class ModernViewModel {
     
     
     func applyFiltered(with filter: FilteredShow) {
-       let replaceShow =  applyGenreFilter(genres: filter.genres)
-        print("filtererd:")
-        for show in replaceShow {
-            guard let genreArray = show.genres else { return }
-            for gen in genreArray {
-                print(gen)
-            }
-        }
+        shiftNotFilteredShows()
+        var newShows = applyGenreFilter(genres: filter.genres, forShow: popularShows)
+        newShows = applyStatusFilter(status: filter.status, forShow: newShows)
+        newShows = applyTypeFilter(typeShow: filter.type, forShow: newShows)
+        newShows = applyRuntimeFilter(runtime: filter.runtime, forShow: newShows)
+        popularShows = newShows
     }
     
-    private func applyGenreFilter(genres: [GenresShow]) -> [Show] {
-        var newFilteredShow = [Show]()
-        guard genres.count != 0 else { print("genres is empty"); return  newFilteredShow}
+    private func applyGenreFilter(genres: [GenresShow], forShow: [Show]) -> [Show] {
         
 //        for genre in genres {
 //            let newShows = popularShows.filter({($0.genres?.contains(genre.rawValue) ?? false)})
@@ -144,7 +143,11 @@ class ModernViewModel {
 //            }
 //        }
         
-        for current in popularShows {
+        guard genres.count != 0 else { return forShow }
+        
+        var newFilteredShow = [Show]()
+        
+        for current in forShow {
             for gen in genres {
                 if current.genres?.contains(gen.rawValue) ?? false {
                     newFilteredShow.append(current)
@@ -152,13 +155,73 @@ class ModernViewModel {
                 }
             }
         }
+        
         return newFilteredShow
     }
+    
+    private func applyStatusFilter(status: [StatusShow], forShow: [Show]) -> [Show] {
+        guard status.count != 0 else { return forShow}
+        var newFilteredShow = [Show]()
+        
+        for currentShow in forShow {
+            for currentStatus in status {
+                if let modelStatus = currentShow.status, modelStatus == currentStatus.rawValue {
+                    newFilteredShow.append(currentShow)
+                    break
+                }
+            }
+        }
+        return newFilteredShow
+    }
+    
+    private func applyTypeFilter(typeShow: [TypeShow], forShow: [Show]) -> [Show] {
+        guard typeShow.count != 0 else { return forShow}
+        var newFilteredShow = [Show]()
+        
+        for currentShow in forShow {
+            for currentType in typeShow {
+                if let modelType = currentShow.type, modelType == currentType.rawValue {
+                    newFilteredShow.append(currentShow)
+                    break
+                }
+            }
+        }
+        return newFilteredShow
+    }
+    
+    
+    private func applyRuntimeFilter(runtime: [RuntimeShow], forShow: [Show]) -> [Show] {
+        guard runtime.count != 0 else { return forShow}
+        var newFilteredShow = [Show]()
+        
+        for currentShow in forShow {
+            for currentRuntime in runtime {
+                if let modelRuntime = currentShow.runtime, modelRuntime == currentRuntime.rawValue {
+                    newFilteredShow.append(currentShow)
+                    break
+                }
+                if currentRuntime == .overHour && currentShow.runtime ?? 0 >= 61 {
+                    newFilteredShow.append(currentShow)
+                    break
+                }
+                if currentRuntime == .halfHour && currentShow.runtime ?? 0 <= 30 {
+                    newFilteredShow.append(currentShow)
+                    break
+                }
+                
+            }
+        }
+        return newFilteredShow
+    }
+
+    
     
 
     func saveNotFilteredShows() {
         print("saveNotFilteredShows")
         if notFilteredShows == nil {
+            print("save with count")
+            print(popularShows.count)
             notFilteredShows = popularShows
         }
     }
@@ -166,6 +229,7 @@ class ModernViewModel {
         if notFilteredShows != nil {
             print("shiftNotFilteredShows")
             popularShows = notFilteredShows
+            print(popularShows.count)
         }
     }
     

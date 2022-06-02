@@ -18,7 +18,9 @@ class SearchPageVC: MainTheme, ModalDelegate {
         filterState = value
         modernVM.applyFiltered(with: value)
         showCollectionView.reloadData()
-            
+        guard filtersWasEnable(filter: filterState) else {return }
+        //modernVM.shiftNotFilteredShows()
+        modernVM.applyFiltered(with: filterState)
       }
     
     var filterState = FilteredShow()
@@ -31,6 +33,11 @@ class SearchPageVC: MainTheme, ModalDelegate {
         setupSearchView()
         setupCollectionView()
         self.hideKeyboardWhenTappedAround()
+        if filtersWasEnable(filter: self.filterState) {
+            print("filter is enable")
+        } else {
+            print("filter disable")
+        }
         //search
        // self.view.layoutIfNeeded()
     }
@@ -40,7 +47,6 @@ class SearchPageVC: MainTheme, ModalDelegate {
         modernVM.fetchPopularShows { [weak self] in
             self?.showCollectionView.reloadData()
         }
-        
     }
     @objc func searchShowButton() {
         let vc = SearchListVC()
@@ -49,6 +55,14 @@ class SearchPageVC: MainTheme, ModalDelegate {
         let trimmed = searching.filter {!$0.isWhitespace}
         vc.seachTheShow(byQuery: trimmed)
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func filtersWasEnable(filter: FilteredShow) -> Bool {
+        guard filter.genres.isEmpty,
+            filter.runtime.isEmpty,
+            filter.status.isEmpty,
+            filter.type.isEmpty else { return true }
+        return false
     }
     
     let searchField: UITextField = {

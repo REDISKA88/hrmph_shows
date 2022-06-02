@@ -25,6 +25,11 @@ struct Show: Codable {
     var rating: Rating?
     var network: Network?
     var image: Image?
+    
+    var status: String?
+    var type: String?
+    var runtime: Int?
+    
 }
 
 struct Rating: Codable {

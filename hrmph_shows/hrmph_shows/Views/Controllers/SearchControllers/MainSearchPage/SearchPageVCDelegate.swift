@@ -57,6 +57,7 @@ extension SearchPageVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
     
     //MARK: - FILTER BUTITON
     @objc func pressFilterButton() {
+        modernVM.saveNotFilteredShows()
         let vc = FilterShowsVC()
         vc.delegate = self
         vc.filter = filterState

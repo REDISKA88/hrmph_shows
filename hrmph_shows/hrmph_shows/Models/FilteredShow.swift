@@ -379,7 +379,7 @@ enum GenresShow: String {
 }
 
 
-enum StatusShow {
+enum StatusShow: String{
     case Running
     case Ended
     case ToBeDetermined
@@ -388,15 +388,15 @@ enum StatusShow {
     case none
 }
 
-enum RuntimeShow {
-    case halfHour
-    case oneHour
-    case overHour
+enum RuntimeShow: Int {
+    case halfHour = 30
+    case oneHour = 60
+    case overHour = 61
     
     case none
 }
 
-enum TypeShow {
+enum TypeShow: String{
     case Scripted
     case Animation
     case Documentary
