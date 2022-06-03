@@ -48,18 +48,96 @@ extension ModernShowInfoVC {
         actionView.addSubview(watchingButton)
         actionView.addSubview(ratingButton)
         actionView.addSubview(reviewButton)
+        setupActionButtons()
+        favoriteButton.tag = 1
         favoriteButton.leadingAnchor.constraint(equalTo: actionView.leadingAnchor, constant: 50).isActive = true
         favoriteButton.centerYAnchor.constraint(equalTo: actionView.centerYAnchor, constant: 0).isActive = true
         
+        watchingButton.tag = 2
         watchingButton.leadingAnchor.constraint(equalTo: actionView.centerXAnchor, constant: -55).isActive = true
         watchingButton.centerYAnchor.constraint(equalTo: actionView.centerYAnchor, constant: 0).isActive = true
         
+        ratingButton.tag = 3
         ratingButton.trailingAnchor.constraint(equalTo: actionView.centerXAnchor, constant: 55).isActive = true
         ratingButton.centerYAnchor.constraint(equalTo: actionView.centerYAnchor, constant: 0).isActive = true
-        
+        reviewButton.tag = 4
         reviewButton.trailingAnchor.constraint(equalTo: actionView.trailingAnchor, constant: -50).isActive = true
         reviewButton.centerYAnchor.constraint(equalTo: actionView.centerYAnchor, constant: 0).isActive = true
     }
+    
+    
+    func setupActionButtons() {
+        favoriteButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
+        watchingButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
+        ratingButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
+        reviewButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc func actionButtonPressed(button: UIButton) {
+        let status = selectActionButton(button)
+        activateButton(button: button, enable: status)
+    }
+    
+    func selectActionButton(_ button: UIButton) -> Bool {
+        switch button.tag {
+            case 1:
+                return showInfoVM.addOrDeleteFavoriteShow(show: show)
+            case 2:
+                return showInfoVM.addOrDeleteWatchingShow(show: show)
+            case 3:
+                let status = showInfoVM.addOrDeleteRateShow(show: show)
+                guard status == true else { return status }
+                let rateVC = RateShowVC()
+                self.present(rateVC, animated: true)
+            return true
+            case 4:
+                return showInfoVM.addOrDeleteReviewShow(show: show)
+            default:
+                return false
+            
+        }
+    }
+    
+    func activateButton(button: UIButton, enable: Bool) {
+        let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .large)
+        if enable {
+            switch button.tag {
+            case 1:
+                button.tintColor = .systemRed
+                button.setImage(UIImage(systemName: "suit.heart.fill", withConfiguration: config), for: .normal)
+                
+            case 2:
+                button.tintColor = .systemGreen
+                button.setImage(UIImage(systemName: "eye.fill", withConfiguration: config), for: .normal)
+                
+            case 3:
+                button.tintColor = .systemYellow
+                button.setImage(UIImage(systemName: "star.fill", withConfiguration: config), for: .normal)
+                
+            case 4:
+                button.tintColor = .systemBlue
+                button.setImage(UIImage(systemName: "pencil.circle.fill", withConfiguration: config), for: .normal)
+                
+            default:
+                break
+            }
+        } else {
+            button.tintColor = .white
+            switch button.tag {
+            case 1:
+                button.setImage(UIImage(systemName: "suit.heart", withConfiguration: config), for: .normal)
+            case 2:
+                button.setImage(UIImage(systemName: "eye", withConfiguration: config), for: .normal)
+            case 3:
+                button.setImage(UIImage(systemName: "star", withConfiguration: config), for: .normal)
+            case 4:
+                button.setImage(UIImage(systemName: "pencil.circle", withConfiguration: config), for: .normal)
+            default:
+                break
+            }
+        }
+    }
+    
     
     func setupScrollView() {
         scrollView.addSubview(backButton)

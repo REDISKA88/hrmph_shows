@@ -17,6 +17,11 @@ class ModernViewModel {
     private var filteredShows: [Show]!
     private var notFilteredShows: [Show]!
     
+    private var favoritesShows = [Show]()
+    private var watchingShows = [Show]()
+    private var rateShows = [Show]()
+    private var reviewShows = [Show]()
+    
     private var searchShows = [ShowQueryRequest]()
     private var showCast = [Actor]()
     var background: UIImageView?
@@ -124,6 +129,49 @@ class ModernViewModel {
         }.resume()
     }
     
+    func addOrDeleteFavoriteShow(show: Show) -> Bool{
+        for currentShow in favoritesShows.enumerated() {
+            if currentShow.element.id == show.id {
+                favoritesShows.remove(at: currentShow.offset)
+                return false
+            }
+        }
+        favoritesShows.append(show)
+        return true
+    }
+    
+    func addOrDeleteWatchingShow(show: Show) -> Bool{
+        for currentShow in watchingShows.enumerated() {
+            if currentShow.element.id == show.id {
+                watchingShows.remove(at: currentShow.offset)
+                return false
+            }
+        }
+        watchingShows.append(show)
+        return true
+    }
+    
+    func addOrDeleteRateShow(show: Show) -> Bool{
+        for currentShow in rateShows.enumerated() {
+            if currentShow.element.id == show.id {
+                rateShows.remove(at: currentShow.offset)
+                return false
+            }
+        }
+        rateShows.append(show)
+        return true
+    }
+    
+    func addOrDeleteReviewShow(show: Show) -> Bool{
+        for currentShow in reviewShows.enumerated() {
+            if currentShow.element.id == show.id {
+                reviewShows.remove(at: currentShow.offset)
+                return false
+            }
+        }
+        reviewShows.append(show)
+        return true
+    }
     
     func applyFiltered(with filter: FilteredShow) {
         shiftNotFilteredShows()
@@ -135,14 +183,7 @@ class ModernViewModel {
     }
     
     private func applyGenreFilter(genres: [GenresShow], forShow: [Show]) -> [Show] {
-        
-//        for genre in genres {
-//            let newShows = popularShows.filter({($0.genres?.contains(genre.rawValue) ?? false)})
-//            if newShows.count != 0 {
-//                newFilteredShow.append(contentsOf: newShows)
-//            }
-//        }
-        
+
         guard genres.count != 0 else { return forShow }
         
         var newFilteredShow = [Show]()

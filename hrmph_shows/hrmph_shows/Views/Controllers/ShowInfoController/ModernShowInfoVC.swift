@@ -165,6 +165,11 @@ class ModernShowInfoVC: ShowBackgroundTheme {
     }
     
     func updateUserInterface(with tvShow: Show) {
+      
+        // for actionView& his buttons targets
+        show = tvShow
+        //
+        
         searchCast(by: tvShow.id!)
         showInfoVM.fetchBackgroundShowImage(intId: tvShow.id, back: backViewImage)
         showTitle.text = tvShow.name
@@ -223,6 +228,9 @@ class ModernShowInfoVC: ShowBackgroundTheme {
 
     }
 
+
+
+    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
