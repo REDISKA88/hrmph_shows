@@ -85,17 +85,21 @@ extension ModernShowInfoVC {
             case 2:
                 return showInfoVM.addOrDeleteWatchingShow(show: show)
             case 3:
-                let status = showInfoVM.addOrDeleteRateShow(show: show)
-                guard status == true else { return status }
-                let rateVC = RateShowVC()
-                self.present(rateVC, animated: true)
-            return true
+                return openRateVC()
             case 4:
                 return showInfoVM.addOrDeleteReviewShow(show: show)
             default:
                 return false
             
         }
+    }
+    
+    func openRateVC() -> Bool{
+        let rateVC = RateShowVC()
+        rateVC.modalPresentationStyle = .overFullScreen
+        rateVC.isModalInPresentation = true
+        self.present(rateVC, animated: true)
+        return true
     }
     
     func activateButton(button: UIButton, enable: Bool) {

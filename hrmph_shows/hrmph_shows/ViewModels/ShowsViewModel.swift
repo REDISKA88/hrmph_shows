@@ -151,15 +151,13 @@ class ModernViewModel {
         return true
     }
     
-    func addOrDeleteRateShow(show: Show) -> Bool{
+    func showWasRated(show: Show) -> Bool{
         for currentShow in rateShows.enumerated() {
             if currentShow.element.id == show.id {
-                rateShows.remove(at: currentShow.offset)
-                return false
+                return true
             }
         }
-        rateShows.append(show)
-        return true
+        return false
     }
     
     func addOrDeleteReviewShow(show: Show) -> Bool{
