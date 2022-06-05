@@ -158,14 +158,14 @@ class ModernViewModel {
         return nil
     }
     
-    func addOrDeleteReviewShow(show: Show, review: String?) -> Bool{
-        guard let id = show.id else { return false }
-        if review == nil, idReviewDict[id] != nil {
+    func addOrDeleteReviewShow(showId: Int, review: String?) -> Bool{
+        if review == nil, idReviewDict[showId] != nil {
             print("delete old review")
-            idReviewDict.removeValue(forKey: id)
+            idReviewDict.removeValue(forKey: showId)
+            return false
         } else if let newReview = review {
             print("upload new review")
-            idReviewDict.updateValue(newReview, forKey: id)
+            idReviewDict.updateValue(newReview, forKey: showId)
             return true
         }
         return false

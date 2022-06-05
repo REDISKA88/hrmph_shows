@@ -76,7 +76,6 @@ class RateShowVC: UIViewController {
     @objc func applyRatePressed(button: UIButton) {
         if let delegate = self.delegate {
             delegate.updateRating(id: id, rating: rating)
-           // print("change na this \(rating)")
         }
         self.dismiss(animated: true, completion: nil)
     }

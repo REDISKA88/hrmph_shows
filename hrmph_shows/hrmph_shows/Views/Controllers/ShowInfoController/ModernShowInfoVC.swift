@@ -12,7 +12,7 @@ protocol RatingDelegate {
 }
 
 protocol ReviewDelegate {
-    func updateReview( id: Int, review: String)
+    func updateReview( id: Int, review: String?)
 }
 
 class ModernShowInfoVC: ShowBackgroundTheme, RatingDelegate, ReviewDelegate {
@@ -38,8 +38,12 @@ class ModernShowInfoVC: ShowBackgroundTheme, RatingDelegate, ReviewDelegate {
         }
     }
     
-    func updateReview(id: Int, review: String) {
-        
+    func updateReview(id: Int, review: String?) {
+        if showInfoVM.addOrDeleteReviewShow(showId: id, review: review) {
+            activateButton(button: reviewButton, enable: true)
+        } else {
+             activateButton(button: reviewButton, enable: false)
+        }
     }
     
     let backButton: UIButton = {

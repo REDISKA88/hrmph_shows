@@ -56,6 +56,14 @@ class ReviewShowVC: UIViewController {
         
     }
     
+    @objc func applyReviewButtonPressed() {
+        if reviewTextView.text.count == 0 { review = nil } else {
+            review = reviewTextView.text
+        }
+        delegate?.updateReview(id: id, review: review)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func setupReviewShowViews() {
         view.addSubview(reviewTextView)
         view.addSubview(myReviewlabel)
@@ -69,11 +77,16 @@ class ReviewShowVC: UIViewController {
         applyReviewButton.setupApplyButton()
         applyReviewButton.centerYAnchor.constraint(equalTo: myReviewlabel.centerYAnchor).isActive = true
         applyReviewButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -35).isActive = true
+        applyReviewButton.addTarget(self, action: #selector(applyReviewButtonPressed), for: .touchUpInside)
         
         reviewTextView.topAnchor.constraint(equalTo: applyReviewButton.bottomAnchor, constant: 20).isActive = true
         reviewTextView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
         reviewTextView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -25).isActive = true
         reviewTextView.bottomAnchor.constraint(equalTo: reviewTextView.topAnchor, constant: 150).isActive = true
+        
+        if review != nil {
+            reviewTextView.text = review
+        }
     }
     
 }

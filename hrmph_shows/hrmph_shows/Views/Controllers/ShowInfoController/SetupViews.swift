@@ -77,6 +77,8 @@ extension ModernShowInfoVC {
         }
         
         if showInfoVM.showWasReviewed(id: show.id ?? -1) != nil {
+            print("review::")
+            print(activateButton(button: reviewButton, enable: true))
             activateButton(button: reviewButton, enable: true)
         }
     }
@@ -96,8 +98,7 @@ extension ModernShowInfoVC {
         let vc = ReviewShowVC()
         vc.delegate = self
         vc.id = showId
-       // vc.modalPresentationStyle = .overFullScreen
-        //vc.isModalInPresentation = true
+        vc.review = showInfoVM.showWasReviewed(id: showId)
         self.present(vc, animated: true)
     }
     
