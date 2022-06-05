@@ -18,26 +18,107 @@ class ProfileVC: MainTheme {
     
     var profileTableView = UITableView()
     
+    let openWatchView = UIView()
+    let openRatingView = UIView()
+    let openReviewView = UIView()
+    
+    let openWatchBtn = UIButton()
+    let openRatingBtn = UIButton()
+    let openReviewBtn = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTopView()
         setupStatsView()
         setupTableView()
+        setupButtons()
         profileTableView.alwaysBounceVertical = false;
+    }
+    
+    func setupButtons() {
+        view.addSubview(openWatchView)
+        view.addSubview(openRatingView)
+        view.addSubview(openReviewView)
+        openRatingView.translatesAutoresizingMaskIntoConstraints = false
+        openRatingView.heightAnchor.constraint(equalTo: openWatchView.heightAnchor).isActive = true
+        openRatingView.widthAnchor.constraint(equalTo: openWatchView.widthAnchor).isActive = true
+        openRatingView.topAnchor.constraint(equalTo: openWatchView.topAnchor).isActive = true
+        openRatingView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        openRatingView.setupOpenView(for: .rating)
+
+        openWatchView.translatesAutoresizingMaskIntoConstraints = false
+        openWatchView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/3.3).isActive = true
+        openWatchView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/3.3).isActive = true
+        openWatchView.topAnchor.constraint(equalTo: profileTableView.bottomAnchor, constant: 20).isActive = true
+        openWatchView.trailingAnchor.constraint(equalTo: openRatingView.leadingAnchor, constant: -10).isActive = true
+        
+        openWatchView.setupOpenView(for: .watch)
+        
+
+        
+        openReviewView.translatesAutoresizingMaskIntoConstraints = false
+        openReviewView.heightAnchor.constraint(equalTo: openWatchView.heightAnchor).isActive = true
+        openReviewView.widthAnchor.constraint(equalTo: openWatchView.widthAnchor).isActive = true
+        openReviewView.topAnchor.constraint(equalTo: openWatchView.topAnchor).isActive = true
+        openReviewView.leadingAnchor.constraint(equalTo: openRatingView.trailingAnchor, constant: 10).isActive = true
+        
+        openReviewView.setupOpenView(for: .review)
+        
+        
+        
+
+        openWatchView.addSubview(openWatchBtn)
+        
+        openWatchBtn.addTarget(self, action: #selector(openWatchBtnPressed), for: .touchUpInside)
+        openWatchBtn.translatesAutoresizingMaskIntoConstraints = false
+
+        openWatchBtn.heightAnchor.constraint(equalTo: openWatchView.heightAnchor).isActive = true
+        openWatchBtn.widthAnchor.constraint(equalTo: openWatchView.widthAnchor).isActive = true
+        
+        
+        openRatingView.addSubview(openRatingBtn)
+        
+        openRatingBtn.addTarget(self, action: #selector(openRatingBtnPressed), for: .touchUpInside)
+        openRatingBtn.translatesAutoresizingMaskIntoConstraints = false
+
+        openRatingBtn.heightAnchor.constraint(equalTo: openRatingView.heightAnchor).isActive = true
+        openRatingBtn.widthAnchor.constraint(equalTo: openRatingView.widthAnchor).isActive = true
+        
+        openReviewView.addSubview(openReviewBtn)
+        
+        openReviewBtn.addTarget(self, action: #selector(openReviewBtnPressed), for: .touchUpInside)
+        openReviewBtn.translatesAutoresizingMaskIntoConstraints = false
+
+        openReviewBtn.heightAnchor.constraint(equalTo: openReviewView.heightAnchor).isActive = true
+        openReviewBtn.widthAnchor.constraint(equalTo: openReviewView.widthAnchor).isActive = true
+
+    }
+    
+    @objc func openWatchBtnPressed() {
+        print("press open watch")
+    }
+    @objc func openRatingBtnPressed() {
+        print("press open rate")
+    }
+    @objc func openReviewBtnPressed() {
+        print("press open review")
     }
     
     let topView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 35
+        view.backgroundColor = UIColor.gray.withAlphaComponent(0.03)
         let button = UIButton()
-        button.tintColor = UIColor.white.withAlphaComponent(0.3)
         
+        
+        button.tintColor = UIColor.white.withAlphaComponent(0.3)
         button.translatesAutoresizingMaskIntoConstraints = false
         let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .large)
         button.setImage(UIImage(systemName: "lock.circle.fill", withConfiguration: config), for: .normal)
         button.addTarget(self, action: #selector(logoutPressed), for: .touchUpInside)
         // view.backgroundColor = UIColor.darkGray.withAlphaComponent(0.15)
-        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.05)
+        
         view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
         button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
@@ -61,18 +142,24 @@ class ProfileVC: MainTheme {
     
     let profileStatsLabelWatched :UILabel = {
         let label = UILabel()
-        label.text = "Watched"
-        label.font = .systemFont(ofSize: 22)
-        label.contentMode = .bottom
+        label.text = "Watched "
+        label.font = .systemFont(ofSize: 19)
+        label.contentMode = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         label.textColor = UIColor.white.withAlphaComponent(0.9)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let profileStatsLabelWatching :UILabel = {
         let label = UILabel()
-        label.text = "Watching"
-        label.font = .systemFont(ofSize: 22)
-        label.contentMode = .bottom
+        label.text = "Watching "
+        label.font = .systemFont(ofSize: 19)
+        label.contentMode = .center
+        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white.withAlphaComponent(0.9)
         return label
     }()
@@ -80,9 +167,24 @@ class ProfileVC: MainTheme {
     
     let profileStatsLabelReviews :UILabel = {
         let label = UILabel()
-        label.text = "Reviews"
-        label.font = .systemFont(ofSize: 22)
-        label.contentMode = .bottom
+        label.text = "Reviews "
+        label.font = .systemFont(ofSize: 19)
+        label.contentMode = .center
+        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.white.withAlphaComponent(0.9)
+        return label
+    }()
+    
+    let profileStatsLabelFavorites :UILabel = {
+        let label = UILabel()
+        label.text = "Favorites"
+        label.font = .systemFont(ofSize: 19)
+        label.contentMode = .center
+        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white.withAlphaComponent(0.9)
         return label
     }()
@@ -121,54 +223,77 @@ class ProfileVC: MainTheme {
         watched.textAlignment = .center
         return watched
     }()
+    
     let statsView: UIView = {
         let view = UIView()
         
-        
-        let watched = UILabel()
-        watched.text = "Watched"
-        watched.font = .systemFont(ofSize: 19)
-        watched.contentMode = .center
-        watched.textColor = UIColor.white.withAlphaComponent(0.9)
-        view.addSubview(watched)
-        watched.translatesAutoresizingMaskIntoConstraints = false
-        watched.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        watched.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
-        
-        let watching = UILabel()
-        watching.text = "Watching"
-        watching.font = .systemFont(ofSize: 19)
-        watching.contentMode = .center
-        watching.textColor = UIColor.white.withAlphaComponent(0.9)
-        view.addSubview(watching)
-        watching.translatesAutoresizingMaskIntoConstraints = false
-        watching.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        watching.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        
-        let favorites = UILabel()
-        favorites.text = "Favorites"
-        favorites.font = .systemFont(ofSize: 18)
-        favorites.contentMode = .center
-        favorites.textColor = UIColor.white.withAlphaComponent(0.9)
-        favorites.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(favorites)
-        favorites.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 15).isActive = true
-        favorites.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        
-        let reviews = UILabel()
-        reviews.text = "Reviews"
-        reviews.font = .systemFont(ofSize: 18)
-        reviews.contentMode = .center
-        reviews.textColor = UIColor.white.withAlphaComponent(0.9)
-        reviews.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(reviews)
-        reviews.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        reviews.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        
         view.layer.cornerRadius = 35
-        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.05)
+        view.backgroundColor = UIColor.gray.withAlphaComponent(0.03)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+}
+enum OpenViewType {
+    case watch
+    case rating
+    case review
+}
+
+extension UIView {
+    func setupOpenView(for typeV: OpenViewType) {
+      
+        var imageName: String!
+        var imageColor: UIColor!
+        var listnameText: String!
+    
+        switch typeV {
+        case .watch:
+            imageName = "eye"
+            imageColor = .green
+            listnameText = "Watch List"
+        case .rating:
+            imageName = "star.lefthalf.fill"
+            imageColor = .yellow
+            listnameText = "Rating List"
+        case .review:
+        imageName = "pencil.and.outline"
+        imageColor = .purple
+        listnameText = "Review List"
+        }
+        
+        self.backgroundColor = UIColor.gray.withAlphaComponent(0.03)
+        self.layer.cornerRadius = 20
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(systemName: imageName)
+        image.tintColor = imageColor
+        self.addSubview(image)
+
+        image.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width/12).isActive = true
+        image.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIScreen.main.bounds.width/12).isActive = true
+        image.topAnchor.constraint(equalTo: self.topAnchor, constant: UIScreen.main.bounds.width/80).isActive = true
+        image.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -UIScreen.main.bounds.width/5.5).isActive = true
+        
+        let openLabel = UILabel()
+        openLabel.text = "Open"
+        openLabel.textAlignment = .center
+        openLabel.font = .systemFont(ofSize: 18)
+        openLabel.textColor = UIColor.white.withAlphaComponent(0.8)
+        openLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(openLabel)
+        openLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        openLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: UIScreen.main.bounds.width/80).isActive = true
+        
+        let listLabel = UILabel()
+        listLabel.text = listnameText
+        listLabel.textAlignment = .center
+        listLabel.font = .systemFont(ofSize: 18)
+        listLabel.textColor = UIColor.white.withAlphaComponent(0.8)
+        listLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(listLabel)
+        listLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        listLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -UIScreen.main.bounds.width/20).isActive = true
+    }
     
 }

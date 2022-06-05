@@ -15,13 +15,15 @@ extension ProfileVC {
         profileTableView.dataSource = self
         profileTableView.layer.masksToBounds = true
         profileTableView.layer.cornerRadius = 30
-        profileTableView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
-        profileTableView.register(ProfileTableCell.self, forCellReuseIdentifier: ProfileTableCell.identifier)
+        profileTableView.backgroundColor = UIColor.gray.withAlphaComponent(0.03)
         profileTableView.translatesAutoresizingMaskIntoConstraints = false
+        profileTableView.separatorColor = .clear
+        profileTableView.showsVerticalScrollIndicator = false
+        profileTableView.register(ProfileTableCell.self, forCellReuseIdentifier: "ProfileCell")
         profileTableView.topAnchor.constraint(equalTo: statsView.bottomAnchor, constant: 20).isActive = true
         profileTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         profileTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        profileTableView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        profileTableView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
         
     }
@@ -39,20 +41,50 @@ extension ProfileVC {
         statsView.addSubview(reviewsMovies)
         
         watchedMovies.translatesAutoresizingMaskIntoConstraints = false
-        watchedMovies.centerYAnchor.constraint(equalTo: statsView.centerYAnchor, constant: -15).isActive = true
+        watchedMovies.centerYAnchor.constraint(equalTo: statsView.centerYAnchor, constant: -UIScreen.main.bounds.width/25).isActive = true
         watchedMovies.centerXAnchor.constraint(equalTo: statsView.centerXAnchor, constant: -(view.frame.size.width/3)).isActive = true
         
         watchingMovies.translatesAutoresizingMaskIntoConstraints = false
-        watchingMovies.centerYAnchor.constraint(equalTo: statsView.centerYAnchor, constant: -15).isActive = true
+        watchingMovies.centerYAnchor.constraint(equalTo: statsView.centerYAnchor, constant: -UIScreen.main.bounds.width/25).isActive = true
         watchingMovies.centerXAnchor.constraint(equalTo: statsView.centerXAnchor, constant: -(view.frame.size.width/10)).isActive = true
         
         favoritesMovies.translatesAutoresizingMaskIntoConstraints = false
-        favoritesMovies.centerYAnchor.constraint(equalTo: statsView.centerYAnchor, constant: -15).isActive = true
+        favoritesMovies.centerYAnchor.constraint(equalTo: statsView.centerYAnchor, constant: -UIScreen.main.bounds.width/25).isActive = true
         favoritesMovies.centerXAnchor.constraint(equalTo: statsView.centerXAnchor, constant: view.frame.size.width/8).isActive = true
         
         reviewsMovies.translatesAutoresizingMaskIntoConstraints = false
-        reviewsMovies.centerYAnchor.constraint(equalTo: statsView.centerYAnchor, constant: -15).isActive = true
+        reviewsMovies.centerYAnchor.constraint(equalTo: statsView.centerYAnchor, constant: -UIScreen.main.bounds.width/25).isActive = true
         reviewsMovies.centerXAnchor.constraint(equalTo: statsView.centerXAnchor, constant: view.frame.size.width/3.2).isActive = true
+        
+        
+        statsView.addSubview(profileStatsLabelWatched)
+        statsView.addSubview(profileStatsLabelWatching)
+        statsView.addSubview(profileStatsLabelFavorites)
+        statsView.addSubview(profileStatsLabelReviews)
+        
+        profileStatsLabelWatched.centerXAnchor.constraint(equalTo: watchedMovies.centerXAnchor, constant: 0).isActive = true
+        profileStatsLabelWatched.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/5.5).isActive = true
+        profileStatsLabelWatched.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/18).isActive = true
+        profileStatsLabelWatched.topAnchor.constraint(equalTo: watchedMovies.bottomAnchor, constant: 5).isActive = true
+        
+        
+        
+        profileStatsLabelWatching.centerXAnchor.constraint(equalTo: watchingMovies.centerXAnchor, constant: 0).isActive = true
+        profileStatsLabelWatching.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/5.5).isActive = true
+        profileStatsLabelWatching.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/18).isActive = true
+        profileStatsLabelWatching.topAnchor.constraint(equalTo: watchingMovies.bottomAnchor, constant: 5).isActive = true
+        
+        profileStatsLabelFavorites.centerXAnchor.constraint(equalTo: favoritesMovies.centerXAnchor, constant: 0).isActive = true
+        profileStatsLabelFavorites.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/6).isActive = true
+        profileStatsLabelFavorites.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/18).isActive = true
+        profileStatsLabelFavorites.topAnchor.constraint(equalTo: favoritesMovies.bottomAnchor, constant: 5).isActive = true
+        
+        profileStatsLabelReviews.centerXAnchor.constraint(equalTo: reviewsMovies.centerXAnchor, constant: 0).isActive = true
+        profileStatsLabelReviews.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/6).isActive = true
+        profileStatsLabelReviews.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/18).isActive = true
+        profileStatsLabelReviews.topAnchor.constraint(equalTo: reviewsMovies.bottomAnchor, constant: 5).isActive = true
+        
+        
     }
     
     func setupTopView() {

@@ -44,7 +44,7 @@ extension ProfileVC {
         profileTableView.separatorColor = .clear
         profileTableView.backgroundColor = .clear
         profileTableView.showsVerticalScrollIndicator = false
-        profileTableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "ProfileCell")
+        profileTableView.register(ProfileTableCell.self, forCellReuseIdentifier: "ProfileCell")
     }
     
     
