@@ -23,7 +23,8 @@ class ModernViewModel {
     
     private var idRateDict = [Int:Int]()
     private var idLoveDict = [Int:Bool]()
-    private var reviewShows = [Show]()
+    private var idReviewDict = [Int: String]()
+    private var idWatchDict = [Int: Bool]()
     
     private var searchShows = [ShowQueryRequest]()
     private var showCast = [Actor]()
@@ -150,15 +151,42 @@ class ModernViewModel {
         return false
     }
     
-    func addOrDeleteWatchingShow(show: Show) -> Bool{
-        for currentShow in watchingShows.enumerated() {
-            if currentShow.element.id == show.id {
-                watchingShows.remove(at: currentShow.offset)
-                return false
-            }
+    func showWasReviewed(id: Int) -> String? {
+        if let review = idReviewDict[id] {
+            return review
         }
-        watchingShows.append(show)
+        return nil
+    }
+    
+    func addOrDeleteReviewShow(show: Show, review: String?) -> Bool{
+        guard let id = show.id else { return false }
+        if review == nil, idReviewDict[id] != nil {
+            print("delete old review")
+            idReviewDict.removeValue(forKey: id)
+        } else if let newReview = review {
+            print("upload new review")
+            idReviewDict.updateValue(newReview, forKey: id)
+            return true
+        }
+        return false
+
+    }
+    
+    func addOrDeleteWatchingShow(show: Show) -> Bool {
+        guard let id = show.id else { return false }
+        if idWatchDict[id] != nil {
+            idWatchDict.removeValue(forKey: id)
+            return false
+        }
+        idWatchDict.updateValue(true, forKey: id)
         return true
+
+    }
+    func showWasWatched(id: Int) -> Bool {
+        if idWatchDict[id] != nil {
+            return true
+        }
+        return false
     }
     
     func showWasRated(show: Show) -> Int? {
@@ -173,17 +201,6 @@ class ModernViewModel {
     
     func rateTheShow(showId: Int, rate: Int){
         idRateDict.updateValue(rate, forKey: showId)
-    }
-    
-    func addOrDeleteReviewShow(show: Show) -> Bool{
-        for currentShow in reviewShows.enumerated() {
-            if currentShow.element.id == show.id {
-                reviewShows.remove(at: currentShow.offset)
-                return false
-            }
-        }
-        reviewShows.append(show)
-        return true
     }
     
     func applyFiltered(with filter: FilteredShow) {

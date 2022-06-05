@@ -13,9 +13,9 @@ class RateShowVC: UIViewController {
     var rating: Int!
     var delegate: RatingDelegate?
     override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.1489986777, green: 0.1490316391, blue: 0.1489965916, alpha: 1)
         self.navigationController?.isNavigationBarHidden = true
-        super.viewDidLoad()
         setupUI(withRating: rating, forId: id)
     }
     
@@ -46,7 +46,7 @@ class RateShowVC: UIViewController {
         view.addSubview(myRatingLeftLabel)
         view.addSubview(ratingResult)
         view.addSubview(rateSlider)
-        applyRateButton.setupApplyRateButton()
+        applyRateButton.setupApplyButton()
         
         myRatingLeftLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
         myRatingLeftLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
@@ -76,7 +76,7 @@ class RateShowVC: UIViewController {
     @objc func applyRatePressed(button: UIButton) {
         if let delegate = self.delegate {
             delegate.updateRating(id: id, rating: rating)
-            print("change na this \(rating)")
+           // print("change na this \(rating)")
         }
         self.dismiss(animated: true, completion: nil)
     }
@@ -156,7 +156,7 @@ extension UILabel {
     }
 }
 extension UIButton {
-     func setupApplyRateButton(){
+     func setupApplyButton(){
         self.tintColor = .white
         self.translatesAutoresizingMaskIntoConstraints = false
         let config = UIImage.SymbolConfiguration(pointSize: 27, weight: .light, scale: .large)

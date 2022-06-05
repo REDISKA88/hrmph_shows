@@ -10,7 +10,13 @@ import UIKit
 protocol RatingDelegate {
     func updateRating( id: Int, rating: Int)
 }
-class ModernShowInfoVC: ShowBackgroundTheme, RatingDelegate {
+
+protocol ReviewDelegate {
+    func updateReview( id: Int, review: String)
+}
+
+class ModernShowInfoVC: ShowBackgroundTheme, RatingDelegate, ReviewDelegate {
+
     var show: Show!
     var cast = [Actor]()
     var bgImage: String!
@@ -30,8 +36,11 @@ class ModernShowInfoVC: ShowBackgroundTheme, RatingDelegate {
         } else {
             activateButton(button: ratingButton, enable: false)
         }
-       
-      }
+    }
+    
+    func updateReview(id: Int, review: String) {
+        
+    }
     
     let backButton: UIButton = {
         let button = UIButton()

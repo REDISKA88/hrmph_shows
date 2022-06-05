@@ -71,16 +71,34 @@ extension ModernShowInfoVC {
         if showInfoVM.showWasLove(id: show.id ?? -1) {
             activateButton(button: favoriteButton, enable: true)
         }
+        
+        if showInfoVM.showWasWatched(id: show.id ?? -1) {
+            activateButton(button: watchingButton, enable: true)
+        }
+        
+        if showInfoVM.showWasReviewed(id: show.id ?? -1) != nil {
+            activateButton(button: reviewButton, enable: true)
+        }
     }
     
     func setupActionButtons() {
         
         checkButtonsState()
         favoriteButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
-      //  watchingButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
+        watchingButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
         ratingButton.addTarget(self, action: #selector(rateButtonPressed), for: .touchUpInside)
-      //  reviewButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
+        reviewButton.addTarget(self, action: #selector(reviewButtonPressed), for: .touchUpInside)
  
+    }
+    
+    @objc func reviewButtonPressed(button: UIButton) {
+        guard let showId = show.id else { return }
+        let vc = ReviewShowVC()
+        vc.delegate = self
+        vc.id = showId
+       // vc.modalPresentationStyle = .overFullScreen
+        //vc.isModalInPresentation = true
+        self.present(vc, animated: true)
     }
     
     @objc func rateButtonPressed(button: UIButton) {
@@ -103,8 +121,6 @@ extension ModernShowInfoVC {
                 return showInfoVM.addOrDeleteFavoriteShow(show: show)
             case 2:
                 return showInfoVM.addOrDeleteWatchingShow(show: show)
-            case 4:
-                return showInfoVM.addOrDeleteReviewShow(show: show)
             default:
                 return false
             
