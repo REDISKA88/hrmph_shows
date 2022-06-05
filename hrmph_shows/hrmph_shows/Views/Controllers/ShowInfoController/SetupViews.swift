@@ -64,15 +64,19 @@ extension ModernShowInfoVC {
         reviewButton.centerYAnchor.constraint(equalTo: actionView.centerYAnchor, constant: 0).isActive = true
     }
     
+    private func checkButtonsState() {
+        if showInfoVM.showWasRated(show: show) != nil {
+            activateButton(button: ratingButton, enable: true)
+        }
+        if showInfoVM.showWasLove(id: show.id ?? -1) {
+            activateButton(button: favoriteButton, enable: true)
+        }
+    }
     
     func setupActionButtons() {
         
-        if showInfoVM.showWasRated(show: show) != nil {
-            print("rate not nul!")
-            activateButton(button: ratingButton, enable: true)
-         }
-        
-      //  favoriteButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
+        checkButtonsState()
+        favoriteButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
       //  watchingButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
         ratingButton.addTarget(self, action: #selector(rateButtonPressed), for: .touchUpInside)
       //  reviewButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
@@ -99,10 +103,6 @@ extension ModernShowInfoVC {
                 return showInfoVM.addOrDeleteFavoriteShow(show: show)
             case 2:
                 return showInfoVM.addOrDeleteWatchingShow(show: show)
-            case 3:
-                openRateVC()
-                print("helllooo")
-            return true
             case 4:
                 return showInfoVM.addOrDeleteReviewShow(show: show)
             default:
