@@ -9,12 +9,14 @@
 import UIKit
 
 class RateShowVC: UIViewController {
+    var id: Int!
     var rating: Int!
+    var delegate: RatingDelegate?
     override func viewDidLoad() {
         view.backgroundColor = #colorLiteral(red: 0.1489986777, green: 0.1490316391, blue: 0.1489965916, alpha: 1)
         self.navigationController?.isNavigationBarHidden = true
         super.viewDidLoad()
-        setupUI(withRating: rating)
+        setupUI(withRating: rating, forId: id)
     }
     
     override func viewDidLayoutSubviews() {
@@ -26,12 +28,12 @@ class RateShowVC: UIViewController {
 
     }
     
-    func setupUI(withRating: Int!) {
+    func setupUI(withRating: Int!, forId: Int) {
         setupRateLayouts()
         setupRateSlider()
         setupApplyRateButton()
         if withRating != nil {
-            print(withRating)
+            print(withRating ?? "kek")
             myRatingLeftLabel.text = "My rating"
             rateSlider.setValue(Float(withRating), animated: false)
             ratingResult.text = String(withRating)
@@ -72,6 +74,10 @@ class RateShowVC: UIViewController {
     
     }
     @objc func applyRatePressed(button: UIButton) {
+        if let delegate = self.delegate {
+            delegate.updateRating(id: id, rating: rating)
+            print("change na this \(rating)")
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -79,6 +85,7 @@ class RateShowVC: UIViewController {
 
         let rate = Int(round(slider.value))
         myRatingLeftLabel.text = "My rating"
+        rating = rate
         ratingResult.setRating(with: rate)
     }
      

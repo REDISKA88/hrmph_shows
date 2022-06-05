@@ -7,12 +7,14 @@
 //
 
 import UIKit
-
-class ModernShowInfoVC: ShowBackgroundTheme {
+protocol RatingDelegate {
+    func updateRating( id: Int, rating: Int)
+}
+class ModernShowInfoVC: ShowBackgroundTheme, RatingDelegate {
     var show: Show!
     var cast = [Actor]()
     var bgImage: String!
-    let showInfoVM = ModernViewModel()
+    var showInfoVM: ModernViewModel!
     let showImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
@@ -20,6 +22,16 @@ class ModernShowInfoVC: ShowBackgroundTheme {
         //imageView.layer.cornerRadius = 50
         return imageView
     }()
+    
+    func updateRating( id: Int, rating: Int) {
+         showInfoVM.rateTheShow(showId: id, rate: rating)
+        if showInfoVM.showWasRated(show: show) != nil {
+            activateButton(button: ratingButton, enable: true)
+        } else {
+            activateButton(button: ratingButton, enable: false)
+        }
+       
+      }
     
     let backButton: UIButton = {
         let button = UIButton()
@@ -222,6 +234,7 @@ class ModernShowInfoVC: ShowBackgroundTheme {
         setupTopView()
         setupMiddleView()
         setupActionView()
+        setupActionButtons()
         setupCastCollectionView()
         setupGenresShow()
         setupSummaryTextView()

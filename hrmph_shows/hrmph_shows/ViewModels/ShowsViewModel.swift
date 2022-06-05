@@ -20,6 +20,7 @@ class ModernViewModel {
     private var favoritesShows = [Show]()
     private var watchingShows = [Show]()
     private var rateShows = [Show]()
+    private var idRateDict = [Int:Int]()
     private var reviewShows = [Show]()
     
     private var searchShows = [ShowQueryRequest]()
@@ -151,13 +152,20 @@ class ModernViewModel {
         return true
     }
     
-    func showWasRated(show: Show) -> Bool{
-        for currentShow in rateShows.enumerated() {
-            if currentShow.element.id == show.id {
-                return true
-            }
+    func showWasRated(show: Show) -> Int? {
+        guard let id = show.id else { return nil }
+        if let rate = idRateDict[id]{
+            print("finded")
+            return rate
+        } else {
+            print("not founded")
+            return nil
         }
-        return false
+
+    }
+    
+    func rateTheShow(showId: Int, rate: Int){
+        idRateDict.updateValue(rate, forKey: showId)
     }
     
     func addOrDeleteReviewShow(show: Show) -> Bool{

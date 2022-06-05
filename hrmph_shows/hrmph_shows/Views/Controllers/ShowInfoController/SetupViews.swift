@@ -48,7 +48,6 @@ extension ModernShowInfoVC {
         actionView.addSubview(watchingButton)
         actionView.addSubview(ratingButton)
         actionView.addSubview(reviewButton)
-        setupActionButtons()
         favoriteButton.tag = 1
         favoriteButton.leadingAnchor.constraint(equalTo: actionView.leadingAnchor, constant: 50).isActive = true
         favoriteButton.centerYAnchor.constraint(equalTo: actionView.centerYAnchor, constant: 0).isActive = true
@@ -67,11 +66,27 @@ extension ModernShowInfoVC {
     
     
     func setupActionButtons() {
-        favoriteButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
-        watchingButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
-        ratingButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
-        reviewButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
+        
+        if showInfoVM.showWasRated(show: show) != nil {
+            print("rate not nul!")
+            activateButton(button: ratingButton, enable: true)
+         }
+        
+      //  favoriteButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
+      //  watchingButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
+        ratingButton.addTarget(self, action: #selector(rateButtonPressed), for: .touchUpInside)
+      //  reviewButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
+ 
     }
+    
+    @objc func rateButtonPressed(button: UIButton) {
+        openRateVC()
+        if showInfoVM.showWasRated(show: show) != nil {
+            activateButton(button: button, enable: true)
+        } else {
+            activateButton(button: button, enable: false)
+        }
+       }
     
     @objc func actionButtonPressed(button: UIButton) {
         let status = selectActionButton(button)
@@ -85,7 +100,9 @@ extension ModernShowInfoVC {
             case 2:
                 return showInfoVM.addOrDeleteWatchingShow(show: show)
             case 3:
-                return openRateVC()
+                openRateVC()
+                print("helllooo")
+            return true
             case 4:
                 return showInfoVM.addOrDeleteReviewShow(show: show)
             default:
@@ -94,12 +111,16 @@ extension ModernShowInfoVC {
         }
     }
     
-    func openRateVC() -> Bool{
+    func openRateVC() {
+        guard let showId = show.id else { return }
         let rateVC = RateShowVC()
+        let showRating = showInfoVM.showWasRated(show: show)
+        rateVC.delegate = self
+        rateVC.id = showId
+        rateVC.rating = showRating
         rateVC.modalPresentationStyle = .overFullScreen
         rateVC.isModalInPresentation = true
         self.present(rateVC, animated: true)
-        return true
     }
     
     func activateButton(button: UIButton, enable: Bool) {
@@ -109,7 +130,6 @@ extension ModernShowInfoVC {
             case 1:
                 button.tintColor = .systemRed
                 button.setImage(UIImage(systemName: "suit.heart.fill", withConfiguration: config), for: .normal)
-                
             case 2:
                 button.tintColor = .systemGreen
                 button.setImage(UIImage(systemName: "eye.fill", withConfiguration: config), for: .normal)
