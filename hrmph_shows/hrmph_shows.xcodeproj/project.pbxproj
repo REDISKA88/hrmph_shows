@@ -354,9 +354,9 @@
 			children = (
 				B8A9027A281D96DD00D789F4 /* Support */,
 				B8A90279281D96B100D789F4 /* MainDelegate */,
+				B84C8566282CEC8900663045 /* Network */,
 				B8A90277281D8C2900D789F4 /* ViewModels */,
 				B8A90276281D8C2100D789F4 /* Views */,
-				B84C8566282CEC8900663045 /* Network */,
 				B8A90275281D8C1700D789F4 /* Models */,
 				B8A9024B281D8BDE00D789F4 /* hrmph_shows.xcdatamodeld */,
 			);
