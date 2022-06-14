@@ -3,6 +3,8 @@ import iCarousel
 
 class NewModernHomeVC: UIViewController {
     
+    let networker = HomeNetworkManager.shared
+
     var modernVM = ModernViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
