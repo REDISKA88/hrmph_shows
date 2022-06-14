@@ -1,10 +1,5 @@
 import Foundation
 
-protocol ShowsAPIServices {
-    associatedtype APIdata
-    func getShowData(id: String, completion: @escaping (Result<APIdata, Error>) -> (Void))
-}
-
 final class HomeNetworkManager: ShowsAPIServices {
     
     typealias APIdata = [Show]
