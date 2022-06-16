@@ -411,9 +411,9 @@
 			isa = PBXGroup;
 			children = (
 				B8283FD22859001100BDE197 /* New_HomeViewModel.swift */,
+				B8B3F0B1285904C600181941 /* New_ShowViewModel.swift */,
 				B8821DA8282509DC00A2F0DC /* ShowsViewModel.swift */,
 				B88A6B38283434600075D439 /* ViewModelHandler.swift */,
-				B8B3F0B1285904C600181941 /* New_ShowViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";

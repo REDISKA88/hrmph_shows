@@ -6,8 +6,6 @@ import RxCocoa
 
 class NewModernHomeVC: MainTheme {
     
-    //let networker = HomeNetworkManager.shared
-
     var modernVM = ModernViewModel()
     var disposeBag = DisposeBag()
     var new_HomeViewModel: HomeViewModel!
@@ -18,16 +16,8 @@ class NewModernHomeVC: MainTheme {
         homeScrollViewContainer.addArrangedSubview(topBGView)
         homeScrollViewContainer.addArrangedSubview(middleBGView)
         homeScrollViewContainer.addArrangedSubview(bottomBGView)
-       
-        new_HomeViewModel = HomeViewModel()
-        new_HomeViewModel.shows.drive(onNext: { [unowned self] (_) in
-            self.customCollectionView.reloadData()
-            }).disposed(by: disposeBag)
-        new_HomeViewModel.tonightShows.drive(onNext: {[unowned self] (_) in
-            self.midCV.reloadData()
-            }).disposed(by: disposeBag)
         
-        //loadPopularShows()
+        loadPopularShows()
         setupHomeScrollView()
         setupHomeScrollViewContainer()
         setupHomeTopView()
@@ -39,13 +29,13 @@ class NewModernHomeVC: MainTheme {
     
     
     func loadPopularShows() {
-        modernVM.fetchPopularShows{ [weak self] in
-            self?.customCollectionView.reloadData()
-        }
-        modernVM.fetchPopularTonight{ [weak self] in
-            self?.customCollectionView.reloadData()
-            self?.midCV.reloadData()
-        }
+        new_HomeViewModel = HomeViewModel()
+        new_HomeViewModel.shows.drive(onNext: { [unowned self] (_) in
+            self.customCollectionView.reloadData()
+            }).disposed(by: disposeBag)
+        new_HomeViewModel.tonightShows.drive(onNext: {[unowned self] (_) in
+            self.midCV.reloadData()
+            }).disposed(by: disposeBag)
     }
     
     
@@ -204,17 +194,11 @@ extension NewModernHomeVC: UICollectionViewDelegateFlowLayout, UICollectionViewD
         return CGSize(width: collectionView.frame.width/2.5, height: collectionView.frame.height)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       // print(modernVM.numberOfTonightShows())
-        return new_HomeViewModel.numberOfTonigtShows /* modernVM.numberOfTonightShows() */
+        return new_HomeViewModel.numberOfTonigtShows
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        
-//        let thisShow = modernVM.getTonightShowByIndex(index: indexPath.row)
-//        cell.label.text = thisShow.name
-//        guard let image = URL(string:(thisShow.image?.original)!) else { return cell }
-//        getImageFrom(url: image, for: cell.bg)
         if let showViweModel = new_HomeViewModel.tonightShowViewModelFor(index: indexPath.row){
              cell.mvvmConfigure(show: showViweModel)
         }
@@ -249,28 +233,7 @@ extension NewModernHomeVC: iCarouselDataSource, iCarouselDelegate {
         }()
         view.addSubview(imageShow)
         view.backgroundColor = .clear
-    /*
-        let currentShow = modernVM.showForIndex(index: index)
-        guard let posterUrl = URL(string: (currentShow.image?.original)!) else {
-            return view
-        }
-        imageShow.image = nil
-        URLSession.shared.dataTask(with: posterUrl) { (data, response, error) in
-            if let error = error {
-                print("load image error: \(error.localizedDescription)")
-                return
-            }
-            guard let data = data else {
-                print("empty image data")
-                return
-            }
-            DispatchQueue.main.async {
-                if let image = UIImage(data: data) {
-                    imageShow.image = image
-                }
-            }
-        }.resume()
-    */
+        
         if let showViewModel = new_HomeViewModel.showViewModelForIndex(index: index) {
             imageShow.kf.setImage(with: showViewModel.imageURL)
         }
