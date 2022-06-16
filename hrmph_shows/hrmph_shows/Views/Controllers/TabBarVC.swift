@@ -25,7 +25,7 @@ class TabBarVC: UITabBarController {
        
         
         
-        let homeBarController = ModernHomeVC()
+        let homeBarController =  NewModernHomeVC()/* ModernHomeVC() */
         let homeNavigationController = UINavigationController(rootViewController: homeBarController)
           homeNavigationController.navigationBar.tintColor = .clear
         

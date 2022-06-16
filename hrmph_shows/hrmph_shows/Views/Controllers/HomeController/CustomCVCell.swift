@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CustomCell: UICollectionViewCell {
         
@@ -47,5 +48,11 @@ class CustomCell: UICollectionViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    func mvvmConfigure(show: ShowViewModel){
+        label.text = show.title
+        bg.kf.setImage(with: show.imageURL)
     }
 }

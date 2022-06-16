@@ -11,6 +11,7 @@ final class HomeNetworkManager: ShowsAPIServices {
     func getShowData(id: String, completion: @escaping (Result<[Show], Error>) -> (Void)) {
         
         let popularShowsUrl = baseUrl + id
+        print(" to URL: \(popularShowsUrl)")
         guard let url = URL(string: popularShowsUrl) else { return }
         dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {

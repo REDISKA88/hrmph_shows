@@ -1,11 +1,16 @@
 import UIKit
 import iCarousel
+import Kingfisher
+import RxSwift
+import RxCocoa
 
-class NewModernHomeVC: UIViewController {
+class NewModernHomeVC: MainTheme {
     
-    let networker = HomeNetworkManager.shared
+    //let networker = HomeNetworkManager.shared
 
     var modernVM = ModernViewModel()
+    var disposeBag = DisposeBag()
+    var new_HomeViewModel: HomeViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(homeScrollView)
@@ -13,7 +18,16 @@ class NewModernHomeVC: UIViewController {
         homeScrollViewContainer.addArrangedSubview(topBGView)
         homeScrollViewContainer.addArrangedSubview(middleBGView)
         homeScrollViewContainer.addArrangedSubview(bottomBGView)
-        loadPopularShows()
+       
+        new_HomeViewModel = HomeViewModel()
+        new_HomeViewModel.shows.drive(onNext: { [unowned self] (_) in
+            self.customCollectionView.reloadData()
+            }).disposed(by: disposeBag)
+        new_HomeViewModel.tonightShows.drive(onNext: {[unowned self] (_) in
+            self.midCV.reloadData()
+            }).disposed(by: disposeBag)
+        
+        //loadPopularShows()
         setupHomeScrollView()
         setupHomeScrollViewContainer()
         setupHomeTopView()
@@ -22,6 +36,7 @@ class NewModernHomeVC: UIViewController {
         setupCollectionViewHomeBottomView()
         
     }
+    
     
     func loadPopularShows() {
         modernVM.fetchPopularShows{ [weak self] in
@@ -189,17 +204,20 @@ extension NewModernHomeVC: UICollectionViewDelegateFlowLayout, UICollectionViewD
         return CGSize(width: collectionView.frame.width/2.5, height: collectionView.frame.height)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(modernVM.numberOfTonightShows())
-        return modernVM.numberOfTonightShows()
+       // print(modernVM.numberOfTonightShows())
+        return new_HomeViewModel.numberOfTonigtShows /* modernVM.numberOfTonightShows() */
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         
-        let thisShow = modernVM.getTonightShowByIndex(index: indexPath.row)
-        cell.label.text = thisShow.name
-        guard let image = URL(string:(thisShow.image?.original)!) else { return cell }
-        getImageFrom(url: image, for: cell.bg)
+//        let thisShow = modernVM.getTonightShowByIndex(index: indexPath.row)
+//        cell.label.text = thisShow.name
+//        guard let image = URL(string:(thisShow.image?.original)!) else { return cell }
+//        getImageFrom(url: image, for: cell.bg)
+        if let showViweModel = new_HomeViewModel.tonightShowViewModelFor(index: indexPath.row){
+             cell.mvvmConfigure(show: showViweModel)
+        }
         return cell
     }
     
@@ -216,7 +234,7 @@ extension NewModernHomeVC: UICollectionViewDelegateFlowLayout, UICollectionViewD
 // MARK: -iCarousel
 extension NewModernHomeVC: iCarouselDataSource, iCarouselDelegate {
     func numberOfItems(in carousel: iCarousel) -> Int {
-        return modernVM.numberOfShows()
+        return new_HomeViewModel.numberOfShows /* modernVM.numberOfShows() */
 }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
@@ -231,7 +249,7 @@ extension NewModernHomeVC: iCarouselDataSource, iCarouselDelegate {
         }()
         view.addSubview(imageShow)
         view.backgroundColor = .clear
-    
+    /*
         let currentShow = modernVM.showForIndex(index: index)
         guard let posterUrl = URL(string: (currentShow.image?.original)!) else {
             return view
@@ -252,7 +270,11 @@ extension NewModernHomeVC: iCarouselDataSource, iCarouselDelegate {
                 }
             }
         }.resume()
-
+    */
+        if let showViewModel = new_HomeViewModel.showViewModelForIndex(index: index) {
+            imageShow.kf.setImage(with: showViewModel.imageURL)
+        }
+        
         return view
     }
 
